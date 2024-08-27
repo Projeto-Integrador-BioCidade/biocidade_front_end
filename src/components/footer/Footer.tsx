@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <>
-      <div className="flex justify-center bg-[#84CC16] text-black">
+      <div className="flex justify-center bg-bio-City-main-green text-black">
         <div className="container flex flex-col place-items-center py-4">
           <div className="text-xl font-bold flex gap-4 py-2">
             <Link to="/Contacts">Contato</Link>

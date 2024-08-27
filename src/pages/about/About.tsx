@@ -7,7 +7,7 @@ function About() {
       <div className="w-[630px] ">
         <img src={AboutImage} className="rounded-3xl" alt="" />
       </div>
-      <div className="bg-gradient-to-b round from-[#B9DC81] via-[#B6CF8D]/03 to-[#ADB0A8] w-[630px] h-[630px] rounded-3xl p-8 flex flex-col gap-10">
+      <div className="bg-gradient-to-b round from-bio-City-green via-bio-City-light-green/03 to-bio-City-grey w-[630px] h-[630px] rounded-3xl p-8 flex flex-col gap-10">
         <div className="flex w-full justify-center">
           <h1 className="text-3xl">Sobre nós</h1>
         </div>
