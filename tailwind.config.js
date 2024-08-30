@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        'roboto': 'roboto'
+      },
       colors: {
         "bio-City-main-green": "#84CC16",
         "bio-City-green": "#B9DC81",
