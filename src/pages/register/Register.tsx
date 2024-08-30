@@ -8,12 +8,12 @@ function Register() {
   let navigate = useNavigate();
 
   const [confirmaSenha, setConfirmaSenha] = useState<string>("");
-  const [tipoUsuario, setTipoUsuario] = useState<string>("");
+  const [isSeller, setIsSeller] = useState(false);
   const [usuario, setUsuario] = useState<Usuario>({
     id: 0,
     nome: "",
     usuario: "",
-    tipo: "",
+    tipo: isSeller ? "VENDEDOR" : "CLIENTE",
     senha: "",
     foto: "",
   });
@@ -23,7 +23,7 @@ function Register() {
     nome: "",
     usuario: "",
     senha: "",
-    tipo: "",
+    tipo: isSeller ? "VENDEDOR" : "CLIENTE",
     foto: "",
   });
 
@@ -48,6 +48,14 @@ function Register() {
     });
   }
 
+  const handleChange = (event: { target: { checked: boolean | ((prevState: boolean) => boolean) } }) => {
+    setIsSeller(event.target.checked);
+    setUsuario({
+      ...usuario,
+      tipo: event.target.checked ? "VENDEDOR" : "CLIENTE",
+    });
+  };
+
   async function cadastrarNovoUsuario(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
 
@@ -60,8 +68,8 @@ function Register() {
       }
     } else {
       alert("Dados inconsistentes. Verifique as informações de cadastro.");
-      setUsuario({ ...usuario, senha: "" }); // Reinicia o campo de Senha
-      setConfirmaSenha(""); // Reinicia o campo de Confirmar Senha
+      setUsuario({ ...usuario, senha: "" });
+      setConfirmaSenha("");
     }
   }
 
@@ -70,37 +78,40 @@ function Register() {
       <div className="flex items-center justify-center w-[50%]">
         <img src={imagem} alt="Cidade com muitas paisagens verdes" className="w-[400px] h-auto" />
       </div>
-      <div className="w-1/2 flex h-full justify-center items-center">
+      <div className="w-1/2 bg-gradient-to-l from-bio-City-green-100/70 to-[#ffffff] flex h-full justify-center items-center">
         <form action="" onSubmit={cadastrarNovoUsuario} className="flex flex-col justify-center w-[500px] h-[400px] gap-4">
           <label className="font-bold" htmlFor="Nome">
             Nome
           </label>
           <input
             type="text"
+            name="nome"
             value={usuario.nome}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             id="Nome"
             placeholder="Insira seu nome"
             className="bg-bio-City-input-color h-12 rounded-lg p-2"
           />
-          <label className="font-bold" htmlFor="Email">
+          <label className="font-bold" htmlFor="Usuario">
             Email
           </label>
           <input
-            type="text"
-            value={usuario.senha}
+            type="email"
+            name="usuario"
+            value={usuario.usuario}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-            id="Email"
-            placeholder="Insira seu Email"
+            id="Usuario"
+            placeholder="Insira seu email"
             className="bg-bio-City-input-color h-12 rounded-lg p-2"
           />
           <label className="font-bold" htmlFor="Senha">
             Senha
           </label>
           <input
-            type="text"
-            value={confirmaSenha}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
+            type="password"
+            name="senha"
+            value={usuario.senha}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             id="Senha"
             placeholder="Insira seu Senha"
             className="bg-bio-City-input-color h-12 rounded-lg p-2"
@@ -108,15 +119,23 @@ function Register() {
           <label className="font-bold" htmlFor="Confirmesuasenha">
             Confirme sua senha
           </label>
-          <input type="text" id="Confirmesuasenha" placeholder="Confirme sua senha" className="bg-bio-City-input-color h-12 rounded-lg p-2" />
+          <input
+            type="password"
+            name="confirmaSenha"
+            id="Confirmesuasenha"
+            placeholder="Confirme sua senha"
+            value={confirmaSenha}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
+            className="bg-bio-City-input-color h-12 rounded-lg p-2"
+          />
           <div className="w-full flex justify-center">
             <div className="flex flex-col">
               <p>Desejar ser um vendedor?</p>
-              <div className="bg-gray-500/70 p-0 rounded-xl max-w-[186px]">
-                <label htmlFor="Toggle3" className="inline-flex items-center p-2 rounded-md cursor-pointer dark:text-gray-100">
-                  <input value={tipoUsuario} id="Toggle3" type="checkbox" className="hidden peer" />
-                  <span className="px-7 py-2 rounded-lg dark:bg-bio-City-input-color peer-checked:dark:bg-gray-500 text-black">Sim</span>
-                  <span className="px-7 py-2 rounded-lg dark:bg-gray-500 peer-checked:dark:bg-bio-City-input-color text-black">Não</span>
+              <div className=" p-0 rounded-xl max-w-[186px] bg-gray-500/70">
+                <label htmlFor="toggle-seller" className="inline-flex items-center p-2 rounded-md cursor-pointer dark:text-gray-100">
+                  <input id="toggle-seller" type="checkbox" checked={isSeller} onChange={handleChange} className="hidden peer" />
+                  <span className={`px-7 py-2 rounded-lg  transition-colors duration-300 ${isSeller ? "bg-bio-City-input-color text-black" : "bg-gray-500 text-black"}`}>Sim</span>
+                  <span className={`px-7 py-2 rounded-lg transition-colors duration-300 ${isSeller ? "bg-gray-500 text-black" : "bg-bio-City-input-color text-black"}`}>Não</span>
                 </label>
               </div>
             </div>
