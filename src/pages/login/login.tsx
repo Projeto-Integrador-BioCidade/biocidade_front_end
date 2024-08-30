@@ -47,7 +47,7 @@ function login() {
                             <span>Entrar</span>
                         </button>
 
-                        <hr className="border-slate-800 w-full" />
+                        <hr className="border-slate-800 w-full my-2" />
 
                         <p>Ainda não tem uma conta?{' '}
                             <Link to="/cadastro" className="text-indigo-800 hover:underline">
