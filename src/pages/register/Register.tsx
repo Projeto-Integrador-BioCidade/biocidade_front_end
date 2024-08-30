@@ -116,13 +116,13 @@ function Register() {
             placeholder="Insira seu Senha"
             className="bg-bio-City-input-color h-12 rounded-lg p-2"
           />
-          <label className="font-bold" htmlFor="Confirmesuasenha">
+          <label className="font-bold" htmlFor="confirmesuasenha">
             Confirme sua senha
           </label>
           <input
             type="password"
             name="confirmaSenha"
-            id="Confirmesuasenha"
+            id="confirmesuasenha"
             placeholder="Confirme sua senha"
             value={confirmaSenha}
             onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
