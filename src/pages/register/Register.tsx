@@ -66,9 +66,9 @@ function Register() {
   }
 
   return (
-    <div className="flex h-[74vh]">
-      <div className="flex items-center justify-center w-[50%]">
-        <img src={imagem} alt="Cidade com muitas paisagens verdes" className="w-[400px] h-auto" />
+    <div className="flex justify-center items-center h-[82vh]">
+      <div className="w-1/2 flex items-center justify-center h-2/3">
+        <img src={imagem} className="h-full" alt="" />
       </div>
       <div className="w-1/2 flex h-full justify-center items-center">
         <form action="" onSubmit={cadastrarNovoUsuario} className="flex flex-col justify-center w-[500px] h-[400px] gap-4">
@@ -114,9 +114,9 @@ function Register() {
               <p>Desejar ser um vendedor?</p>
               <div className="bg-gray-500/70 p-0 rounded-xl max-w-[186px]">
                 <label htmlFor="Toggle3" className="inline-flex items-center p-2 rounded-md cursor-pointer dark:text-gray-100">
-                  <input value={tipoUsuario} id="Toggle3" type="checkbox" className="hidden peer" />
-                  <span className="px-7 py-2 rounded-lg dark:bg-bio-City-input-color peer-checked:dark:bg-gray-500 text-black">Sim</span>
-                  <span className="px-7 py-2 rounded-lg dark:bg-gray-500 peer-checked:dark:bg-bio-City-input-color text-black">Não</span>
+                  <input value={tipoUsuario} id="Toggle3" type="checkbox" className="hidden peer " />
+                  <span className="px-7 py-2 rounded-lg dark:bg-bio-City-input-color peer-checked:dark:bg-gray-500 text-black duration-300">Sim</span>
+                  <span className="px-7 py-2 rounded-lg dark:bg-gray-500 peer-checked:dark:bg-bio-City-input-color text-black duration-300">Não</span>
                 </label>
               </div>
             </div>
