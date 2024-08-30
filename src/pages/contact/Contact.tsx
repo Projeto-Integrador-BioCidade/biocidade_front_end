@@ -1,3 +1,5 @@
+import { Envelope, GithubLogo } from "@phosphor-icons/react";
+
 function Contact() {
   return (
     <div className="flex justify-center h-[75vh] w-full ">
@@ -8,10 +10,13 @@ function Contact() {
             Nosso compromisso é com a comunidade e com o planeta. Ao escolher o BioCidade, você está não apenas adquirindo produtos de qualidade, mas também contribuindo para um futuro mais
             sustentável.
           </p>
-          <span>biocidades.projeto@gmail.com</span>
           <div className="flex flex-col">
-            <img src="" alt="Github icon" />
-            <a href="github.com/Projeto-Integrador-BioCidade/biocidade_front_end" target="_blank">
+            <Envelope size={40} color="black" />
+            <a href="mailto:biocidades.projeto@gmail.com" target="_blank">
+              biocidades.projeto@gmail.com
+            </a>
+            <GithubLogo size={40} color="black" />
+            <a href="https://github.com/Projeto-Integrador-BioCidade/biocidade_front_end" target="_blank">
               github.com/Projeto-Integrador-BioCidade/biocidade_front_end
             </a>
           </div>
