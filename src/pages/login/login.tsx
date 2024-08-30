@@ -39,9 +39,9 @@ function login() {
 
     return (
         <>
-            <div className="w-screen h-[75vh] flex items-center justify-center">
-                <div className="flex items-center justify-center w-[50%]">
-                    <img src={imagem} alt="Cidade com muitas paisagens verdes" className="w-[400px] h-auto" />
+            <div className="w-full flex items-center justify-center h-[82vh]">
+                <div className="w-1/2 flex items-center justify-center h-2/3">
+                    <img src={imagem} className="h-full" alt="" />
                 </div>
                 <div className="flex items-center justify-center w-[50%]">
                     <form onSubmit={login} className="w-[500px] *:rounded-lg flex flex-col items-center justify-center" >
