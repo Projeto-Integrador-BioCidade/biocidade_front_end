@@ -1,29 +1,37 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../contexts/AuthContext";
+import { DotsThreeVertical, List } from "@phosphor-icons/react";
 
 function Navbar() {
 
+  const [isOpen, setIsOpen] = useState(false);
+
   const navigate = useNavigate();
+  const { handleLogout } = useContext(AuthContext)
 
-    const {handleLogout} = useContext(AuthContext)
+  function logout() {
+    handleLogout();
+    alert('O usuário foi desconectado!')
+    navigate("/")
 
-    function logout(){
-        handleLogout();
-        alert('O usuário foi desconectado!')
-        navigate("/")
-
-    }
+  }
   return (
     <>
-      <div className="w-full flex justify-center p-6 bg-bio-City-main-green">
-        <div className="container flex justify-between text-lg">
+      <nav className="w-full p-6 bg-bio-City-main-green text-lg">
+        <div className={`mx-auto items-center ${isOpen? "flex-col " : "flex "} `}>
+          <div className="flex md:hidden h-20">
+            <button onClick={() => setIsOpen(!isOpen)} className="text-black hover:text-white focus:outline-none ">
+              {isOpen ? <List size={28} color="gray" /> : <List size={28} color="black"/>}
+            </button>
+          </div>
           <Link to={"/"}>
-            <img className="h-20 rounded-full" src="src/assets/logoBioCidade.png" alt="Logo BioCidade" />
+            <img className={`h-20 rounded-full mx-4 ${isOpen ? "hidden" : "block"}`} src="src/assets/logoBioCidade.png" alt="Logo BioCidade" />
           </Link>
+        
 
-          <div className="flex ">
-            <ul className="flex items-center gap-5 font-sans ">
+          <div className={`md:flex  ${isOpen ? "block" : "hidden"} w-full md:w-auto`}>
+            <ul className="flex flex-col md:flex-row md:items-center md:gap-5 font-sans ">
               <Link to={"/"}>
                 <li className=" text-black hover:text-white">Home</li>
               </Link>
@@ -42,14 +50,14 @@ function Navbar() {
               <Link to={"/register"}>
                 <li className=" text-black hover:text-white">Cadastre-se</li>
               </Link>
-              <Link to='' onClick={logout}> 
-              <li className=" text-black hover:text-white">Sair</li>
+              <Link to='' onClick={logout}>
+                <li className=" text-black hover:text-white">Sair</li>
               </Link>
-
             </ul>
           </div>
         </div>
-      </div>
+      </nav>
+
     </>
   );
 }

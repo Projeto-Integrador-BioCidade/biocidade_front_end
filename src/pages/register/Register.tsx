@@ -74,12 +74,12 @@ function Register() {
   }
 
   return (
-    <div className="flex justify-center items-center h-[82vh]">
+    <div className="flex justify-center items-center h-screen w-full">
       <div className="w-1/2 flex items-center justify-center h-2/3">
         <img src={imagem} className="h-full" alt="" />
       </div>
       <div className="w-1/2 bg-gradient-to-l from-bio-City-green-100/70 to-[#ffffff] flex h-full justify-center items-center">
-        <form action="" onSubmit={cadastrarNovoUsuario} className="flex flex-col justify-center w-[500px] h-[400px] gap-4">
+        <form action="" onSubmit={cadastrarNovoUsuario} className="flex flex-col justify-center  h-[400px] gap-4">
           <label className="font-bold" htmlFor="Nome">
             Nome
           </label>

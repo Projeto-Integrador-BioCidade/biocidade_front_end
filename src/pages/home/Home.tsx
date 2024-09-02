@@ -1,9 +1,12 @@
+import Carousel from "../../components/carousel/Carousel";
 
 function Home() {
   return (
-    <div>
-      <h1>Home</h1>
+    <>
+    <div className="h-80">
+      <Carousel/>
     </div>
+    </>
   );
 }
 
