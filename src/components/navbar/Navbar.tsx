@@ -30,7 +30,7 @@ function Navbar() {
           </Link>
         
 
-          <div className={`md:flex  ${isOpen ? "block" : "hidden"} w-full md:w-auto`}>
+          <div className={`w-full md:w-auto md:flex  ${isOpen ? "block" : "hidden"} `}>
             <ul className="flex flex-col md:flex-row md:items-center md:gap-5 font-sans ">
               <Link to={"/"}>
                 <li className=" text-black hover:text-white">Home</li>

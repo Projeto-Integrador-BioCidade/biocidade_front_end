@@ -74,12 +74,13 @@ function Register() {
   }
 
   return (
-    <div className="flex justify-center items-center h-screen w-full">
-      <div className="w-1/2 flex items-center justify-center h-2/3">
+    <div className="flex justify-center items-center h-full w-full bg-gradient-to-l from-bio-City-green-100/70 to-[#ffffff]">
+      <div className="hidden w-1/2 md:flex items-center justify-center">
         <img src={imagem} className="h-full" alt="" />
       </div>
-      <div className="w-1/2 bg-gradient-to-l from-bio-City-green-100/70 to-[#ffffff] flex h-full justify-center items-center">
-        <form action="" onSubmit={cadastrarNovoUsuario} className="flex flex-col justify-center  h-[400px] gap-4">
+      <div className="flex flex-col w-full h-full justify-center items-center p-5 md:w-1/2">
+          <h2 className="text-5xl font-roboto font-medium">Crie sua conta!</h2>
+        <form action="" onSubmit={cadastrarNovoUsuario} className=" w-full flex flex-col justify-center itemce gap-2">
           <label className="font-bold" htmlFor="Nome">
             Nome
           </label>
@@ -131,17 +132,17 @@ function Register() {
           <div className="w-full flex justify-center">
             <div className="flex flex-col">
               <p>Desejar ser um vendedor?</p>
-              <div className=" p-0 rounded-xl max-w-[186px] bg-gray-500/70">
+              <div className=" p-0 rounded-xl max-w-[186px]">
                 <label htmlFor="toggle-seller" className="inline-flex items-center p-2 rounded-md cursor-pointer dark:text-gray-100">
                   <input id="toggle-seller" type="checkbox" checked={isSeller} onChange={handleChange} className="hidden peer" />
-                  <span className={`px-7 py-2 rounded-lg  transition-colors duration-300 ${isSeller ? "bg-bio-City-input-color text-black" : "bg-gray-500 text-black"}`}>Sim</span>
-                  <span className={`px-7 py-2 rounded-lg transition-colors duration-300 ${isSeller ? "bg-gray-500 text-black" : "bg-bio-City-input-color text-black"}`}>Não</span>
+                  <span className={`px-7 py-2 rounded-lg  transition-colors duration-300 rounded-r-none ${isSeller ? "bg-bio-City-input-color text-black" : "bg-gray-500 text-black "}`}>Sim</span>
+                  <span className={`px-7 py-2 rounded-lg transition-colors duration-300 rounded-l-none ${isSeller ? "bg-gray-500 text-black" : "bg-bio-City-input-color text-black "}`}>Não</span>
                 </label>
               </div>
             </div>
           </div>
           <div className="w-full flex justify-center">
-            <button type="submit" className="w-[420px] bg-bio-City-main-green rounded-lg p-2 font-bold">
+            <button type="submit" className="bg-bio-City-main-green w-full rounded-lg p-2 font-bold">
               Cadastrar-se
             </button>
           </div>
