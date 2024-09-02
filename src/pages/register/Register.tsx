@@ -74,7 +74,7 @@ function Register() {
   }
 
   return (
-    <div className="flex justify-center items-center h-full w-full bg-gradient-to-l from-bio-City-green-100/70 to-[#ffffff]">
+    <div className="flex justify-center items-center h-[90vh] w-full bg-gradient-to-l from-bio-City-green-100/70 to-[#ffffff]">
       <div className="hidden w-1/2 md:flex items-center justify-center">
         <img src={imagem} className="h-full" alt="" />
       </div>

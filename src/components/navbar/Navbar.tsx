@@ -19,7 +19,7 @@ function Navbar() {
   return (
     <>
       <nav className="w-full p-6 bg-bio-City-main-green text-lg">
-        <div className={`mx-auto items-center ${isOpen? "flex-col " : "flex "} `}>
+        <div className={`mx-auto items-center ${isOpen? "flex-col " : "flex justify-between "} `}>
           <div className="flex md:hidden h-20">
             <button onClick={() => setIsOpen(!isOpen)} className="text-black hover:text-white focus:outline-none ">
               {isOpen ? <List size={28} color="gray" /> : <List size={28} color="black"/>}

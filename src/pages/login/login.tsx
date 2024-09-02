@@ -39,11 +39,11 @@ function login() {
 
     return (
         <>
-            <div className="w-full flex items-center justify-center h-[82vh]">
-                <div className="w-1/2 flex items-center justify-center h-2/3">
+            <div className="w-full flex items-center justify-center h-[75vh]">
+                <div className=" hidden w-1/2 md:flex items-center justify-center ">
                     <img src={imagem} className="h-full" alt="" />
                 </div>
-                <div className="flex items-center justify-center w-[50%]">
+                <div className="flex w-full items-center justify-center p-5 md:w-1/2">
                     <form onSubmit={login} className="w-[500px] *:rounded-lg flex flex-col items-center justify-center" >
                         <h2 className="text-5xl font-roboto font-bold">Faça Login!</h2>
                         <div className="flex flex-col w-full">
