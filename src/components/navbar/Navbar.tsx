@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../contexts/AuthContext";
-import { DotsThreeVertical, List } from "@phosphor-icons/react";
+import { List } from "@phosphor-icons/react";
 
 function Navbar() {
 
@@ -50,9 +50,13 @@ function Navbar() {
               <Link to={"/register"}>
                 <li className=" text-black hover:text-white">Cadastre-se</li>
               </Link>
+              <Link to="/cadcategories">
+                <li className=" text-black hover:text-white">Cadastrar Categorias</li>
+              </Link>
               <Link to='' onClick={logout}>
                 <li className=" text-black hover:text-white">Sair</li>
               </Link>
+             
             </ul>
           </div>
         </div>
