@@ -11,11 +11,11 @@ function CardCategory({ categoria }: CardCategoryProps) {
       <header>Categoria</header>
       <p>{categoria.nome}</p>
       <div>
-        <Link to={`/editarcategoria/${categoria.id}`}>
+        <Link to={`/editcategories/${categoria.id}`}>
           <button>Editar</button>
         </Link>
 
-        <Link to={`/deletarcategoria/${categoria.id}`}>
+        <Link to={`/deletcategories/${categoria.id}`}>
           <button>Deletar</button>
         </Link>
       </div>

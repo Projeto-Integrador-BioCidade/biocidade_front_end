@@ -53,7 +53,7 @@ function DeleteCategory() {
   }
 
   function retornar() {
-    navigate("/categoria")
+    navigate("/categories")
   }
 
   return (
