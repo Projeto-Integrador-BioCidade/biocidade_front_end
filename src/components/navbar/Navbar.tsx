@@ -38,6 +38,9 @@ function Navbar() {
               <Link to={"/products"}>
                 <li className=" text-black hover:text-white">Produtos</li>
               </Link>
+              <Link to="/cadproducts">
+                <li className=" text-black hover:text-white">Cadastrar Produtos</li>
+              </Link>
               <Link to={"/services"}>
                 <li className=" text-black hover:text-white">Serviços</li>
               </Link>

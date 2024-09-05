@@ -3,9 +3,10 @@ import Usuario from "./usuario";
 
 export default interface Produto {
   id: number;
-  titulo: string;
-  texto: string;
-  data: string;
-  cartegoria: Categoria | null;
+  nome: string;
+  preco: string;
+  descricao: string;
+  imagem_produto: string;
+  categoria: Categoria | null;
   usuario: Usuario | null;
 }

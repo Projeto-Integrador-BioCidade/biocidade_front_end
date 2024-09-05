@@ -10,6 +10,9 @@ import { AuthProvider } from "./contexts/AuthContext";
 import DeleteCategory from "./components/category/delete/DeleteCategory";
 import FormCategory from "./components/category/form/FormCategory";
 import ListCategory from "./components/category/list/ListCategory";
+import DeleteProduct from "./components/product/delete/DeleteProduct";
+import FormProduct from "./components/product/form/FormProduct";
+import ListProduct from "./components/product/list/ListProduct";
 
 function App() {
   return (
@@ -27,7 +30,10 @@ function App() {
             <Route path="/cadcategories" element={<FormCategory />} />
             <Route path="/editcategories/:id" element={<FormCategory />} />
             <Route path="/deletcategories/:id" element={<DeleteCategory />} />
-            
+            <Route path="/products" element={<ListProduct />} />
+            <Route path="/cadproducts" element={<FormProduct />} />
+            <Route path="/editproducts/:id" element={<FormProduct />} />
+            <Route path="/deletproducts/:id" element={<DeleteProduct />} />
           </Routes>
           <Footer />
         </BrowserRouter>
