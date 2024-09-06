@@ -27,10 +27,10 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/categories" element={<ListCategory />} />
-            <Route path="/cadcategories" element={<FormCategory />} />
             <Route path="/editcategories/:id" element={<FormCategory />} />
             <Route path="/deletcategories/:id" element={<DeleteCategory />} />
             <Route path="/products" element={<ListProduct />} />
+            <Route path="/products/:id" element={<ListProduct />} />
             <Route path="/cadproducts" element={<FormProduct />} />
             <Route path="/editproducts/:id" element={<FormProduct />} />
             <Route path="/deletproducts/:id" element={<DeleteProduct />} />
