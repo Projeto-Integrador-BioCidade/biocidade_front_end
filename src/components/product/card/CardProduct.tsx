@@ -17,7 +17,8 @@ function CardProduct({ produto }: CardProductProps) {
     <div className="flex flex-col gap-4 border border-black rounded-lg">
       <div className="px-4 font-medium flex flex-col gap-4" onClick={visualizarProduto}>
         <p>Nome: {produto.nome}</p>
-        <p>Preço: {produto.preco}</p>
+        <p>Preço: {`R$ ${produto.preco.toFixed(2)}`}</p>
+        <p>Descrição: {produto.categoria?.descricao}</p>
         <p>Categoria: {produto.categoria?.nome}</p>
       </div>
       <div className="flex ">
