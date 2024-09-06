@@ -66,10 +66,19 @@ function FormProduct() {
   }, [categoria])
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
-    const {name, value} = e.target;
+    let value: any
+
+    if(e.target.name === 'preco') {
+      value = parseFloat(Number(e.target.value).toFixed(2))
+    } else {
+      value = e.target.value
+    }
+
+    console.log(value)
+
     setProduto({
       ...produto,
-      [name]: name === 'preco' ? parseFloat(value) : value,
+      [e.target.name]: value,
       categoria: categoria,
       usuario: usuario,
     });
@@ -78,6 +87,7 @@ function FormProduct() {
   async function gerarNovoProduto(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
     setIsLoading(true);
+    
 
     if (id !== undefined) {
       try {
@@ -131,6 +141,7 @@ function FormProduct() {
 
   const carregandoCategoria = categoria.descricao === ''
 
+  console.log(JSON.stringify(produto))
   return (
     <div className="container flex flex-col items-center justify-center mx-auto">
       <h1 className="text-4xl text-center my-8">{id === undefined ? "Cadastre um novo produto" : "Editar produto"}</h1>
@@ -146,10 +157,10 @@ function FormProduct() {
             value={produto.descricao}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
-          <label htmlFor="descricao">Preço</label>
+          <label htmlFor="preco">Preço</label>
           <input
             type="number"
-            step="0.01"
+            step=".01"
             placeholder="Preço do produto"
             name="preco"
             className="border-2 border-slate-700 rounded p-2"
