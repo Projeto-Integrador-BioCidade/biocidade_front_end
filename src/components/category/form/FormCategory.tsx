@@ -38,6 +38,8 @@ function FormCategory() {
       ...categoria,
       [e.target.name]: e.target.value,
     });
+
+    console.log(JSON.stringify(categoria))
   }
 
   async function gerarNovaCategoria(e: ChangeEvent<HTMLFormElement>) {
