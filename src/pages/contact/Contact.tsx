@@ -54,11 +54,11 @@ function Contact() {
   };
 
   return (
-    <div className="flex justify-center h-[75vh] w-full ">
-      <div className="flex flex-col justify-center items-center  w-1/2 bg-gradient-to-r from-bio-City-green-100 to-[#ffffff] gap-4">
-        <div className="flex flex-col gap-4">
-          <h1 className="font-bold text-6xl">Biocidade</h1>
-          <p className="max-w-[475px]">
+    <div className="flex flex-col items-center justify-center w-full md:flex-row md:h-[73vh]  ">
+      <div className="flex flex-col justify-center items-center  md:w-1/2 bg-gradient-to-r from-bio-City-green-100 to-[#ffffff] gap-4">
+        <div className="flex flex-col gap-4 m-4">
+          <h1 className="font-bold text-6xl mt-4">Biocidade</h1>
+          <p className="md:max-w-[475px]">
             Nosso compromisso é com a comunidade e com o planeta. Ao escolher o BioCidade, você está não apenas adquirindo produtos de qualidade, mas também contribuindo para um futuro mais
             sustentável.
           </p>
@@ -69,16 +69,16 @@ function Contact() {
                 biocidades.projeto@gmail.com
               </a>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 mb-4">
               <GithubLogo size={28} color="black" />
-              <a href="https://github.com/Projeto-Integrador-BioCidade/biocidade_front_end" target="_blank">
+              <a href="https://github.com/Projeto-Integrador-BioCidade/biocidade_front_end" target="_blank" >
                 github.com/Projeto-Integrador-BioCidade/biocidade_front_end
               </a>
             </div>
           </div>
         </div>
       </div>
-      <div className="w-1/2 flex h-full justify-center items-center">
+      <div className="md:w-1/2 w-4/5 flex h-full justify-center items-center">
         <form ref={form} method="POST" onSubmit={sendEmail} className="flex flex-col justify-center w-[500px] h-[400px] gap-4">
           <label className="font-bold" htmlFor="Nome">
             Nome

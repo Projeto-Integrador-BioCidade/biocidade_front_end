@@ -14,6 +14,10 @@ export default {
         "bio-City-light-green": "#B6CF8D",
         "bio-City-grey": "#ADB0A8",
       },
+
+      padding: {
+       '50p': '8%'
+      },
     },
   },
   plugins: [],

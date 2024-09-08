@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../contexts/AuthContext";
-import { List, SignIn, SignOut } from "@phosphor-icons/react";
+import { List, SignIn, SignOut, User } from "@phosphor-icons/react";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,12 +39,12 @@ function Navbar() {
               </Link>
               {usuario.tipo === 'VENDEDOR' ? (
                 <Link to="/cadproducts">
-                <li className=" text-black hover:text-white">Cadastrar Produtos</li>
-              </Link>
+                  <li className=" text-black hover:text-white">Cadastrar Produtos</li>
+                </Link>
               ) : (
                 ""
               )}
-              
+
               <Link to={"/categories"}>
                 <li className=" text-black hover:text-white">Categoria</li>
               </Link>
@@ -62,6 +62,15 @@ function Navbar() {
               ) : (
                 ""
               )}
+
+              {usuario.token !== "" ? (
+                <Link to={"/perfil"}>
+                  <User size={24} color="black" />
+                </Link>
+              ) : (
+                ""
+              )}
+
               {usuario.token !== "" ? (
                 <Link to="" onClick={logout} title="Sair">
                   <SignOut size={24} color="black" />

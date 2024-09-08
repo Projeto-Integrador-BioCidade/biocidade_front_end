@@ -56,10 +56,11 @@ function DeleteProduct() {
   }
 
   return (
-    <div className="flex justify-center py-4">
+   
+    <div className="flex justify-center py-50p">
       <div className="flex  rounded-lg flex-col gap-4 border border-black min-w-[300px] max-w-[500px] p-2">
         <div className="p-4">
-          <h1>Deletar Produto</h1>
+          <h1 className="text-center font-bold text-2xl m-2 ">Deletar Produto</h1>
           <p>Você tem certeza de que deseja apagar o produto a seguir?</p>
         </div>
         <div className="border border-[#C3C3C3] py-2 px-4 font-medium rounded-lg flex flex-col gap-4">
@@ -77,6 +78,7 @@ function DeleteProduct() {
         </div>
       </div>
     </div>
+   
   );
 }
 
