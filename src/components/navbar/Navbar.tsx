@@ -14,6 +14,8 @@ function Navbar() {
     alert("O usuário foi desconectado!");
     navigate("/");
   }
+
+
   return (
     <>
       <nav className="w-full p-6 bg-bio-City-main-green text-lg">
@@ -35,9 +37,14 @@ function Navbar() {
               <Link to={"/products"}>
                 <li className=" text-black hover:text-white">Produtos</li>
               </Link>
-              <Link to="/cadproducts">
+              {usuario.tipo === 'VENDEDOR' ? (
+                <Link to="/cadproducts">
                 <li className=" text-black hover:text-white">Cadastrar Produtos</li>
               </Link>
+              ) : (
+                ""
+              )}
+              
               <Link to={"/categories"}>
                 <li className=" text-black hover:text-white">Categoria</li>
               </Link>

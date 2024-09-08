@@ -4,11 +4,11 @@ import "./About.css";
 function About() {
   return (
     <div className="archivo-black-regular flex justify-center items-center w-full h-[82vh]">
-      <div className="w-1/2 flex items-center justify-center h-2/3">
+      <div className=" w-1/2 md:flex items-center justify-center">
         <img src={imagem} className="h-full" alt="" />
       </div>
       <div className=" w-1/2 rounded-3xl flex flex-col px-20">
-        <div className="bg-gradient-to-b round from-bio-City-green via-bio-City-light-green/03 to-bio-City-grey rounded-3xl  *:mx-5  *:my-[3vh] flex flex-col items-center justify-center">
+        <div className="bg-gradient-to-b round from-bio-City-green via-bio-City-light-green/03 to-bio-City-grey rounded-3xl  *:mx-5  *:my-[3vh] flex flex-col items-center justify-center ">
           <div className="flex w-full justify-center ">
             <h1 className="text-3xl">Sobre nós</h1>
           </div>
