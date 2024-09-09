@@ -1,6 +1,7 @@
 import { Envelope, GithubLogo } from "@phosphor-icons/react";
 import { ChangeEvent, useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { ToastAlerta } from "../../utils/ToastAlerta";
 
 function Contact() {
   const [nome, setNome] = useState("");
@@ -39,7 +40,7 @@ function Contact() {
       })
       .then(
         () => {
-          alert("Mensagem enviada com sucesso! :)");
+          ToastAlerta("Mensagem enviada com sucesso! :)", "sucesso");
           setNome("");
           setEmail("");
           setMessage("");

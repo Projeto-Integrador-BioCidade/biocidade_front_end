@@ -5,6 +5,7 @@ import Produto from "../../../models/produto";
 import { buscar, atualizar, cadastrar } from "../../../services/Service";
 import { RotatingLines } from "react-loader-spinner";
 import Categoria from "../../../models/categoria";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function FormProduct() {
   const [produto, setProduto] = useState<Produto>({} as Produto);
@@ -21,11 +22,11 @@ function FormProduct() {
 
   const [categoria, setCategoria] = useState<Categoria>({
     id: 0,
-    nome: '',
-    descricao: '',
+    nome: "",
+    descricao: "",
   });
 
-  const [categorias, setCategorias] = useState<Categoria[]>([])
+  const [categorias, setCategorias] = useState<Categoria[]>([]);
 
   async function buscarProdutoPorId(id: string) {
     await buscar(`/produtos/${id}`, setProduto, {
@@ -35,20 +36,20 @@ function FormProduct() {
     });
   }
 
-  async function buscarCategoriaPorId(id:string) {
+  async function buscarCategoriaPorId(id: string) {
     await buscar(`/categoria/${id}`, setCategoria, {
       headers: {
         Authorization: token,
       },
-    })
+    });
   }
 
   async function buscarCategorias() {
-    await buscar('/categoria', setCategorias, {
+    await buscar("/categoria", setCategorias, {
       headers: {
         Authorization: token,
       },
-    })
+    });
   }
 
   useEffect(() => {
@@ -63,18 +64,18 @@ function FormProduct() {
       ...produto,
       categoria: categoria,
     });
-  }, [categoria])
+  }, [categoria]);
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
-    let value: any
+    let value: any;
 
-    if(e.target.name === 'preco') {
-      value = parseFloat(Number(e.target.value).toFixed(2))
+    if (e.target.name === "preco") {
+      value = parseFloat(Number(e.target.value).toFixed(2));
     } else {
-      value = e.target.value
+      value = e.target.value;
     }
 
-    console.log(value)
+    console.log(value);
 
     setProduto({
       ...produto,
@@ -87,7 +88,6 @@ function FormProduct() {
   async function gerarNovoProduto(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
     setIsLoading(true);
-    
 
     if (id !== undefined) {
       try {
@@ -96,14 +96,14 @@ function FormProduct() {
             Authorization: token,
           },
         });
-        alert("Produto atualizado com sucesso");
+        ToastAlerta("Produto atualizado com sucesso", "sucesso");
       } catch (error: any) {
         if (error.toString().includes("403")) {
-          alert("O token expirou, favor logar novamente");
+          ToastAlerta("O token expirou, favor logar novamente", "info");
           handleLogout();
         } else {
-          alert("Erro ao atualizar o Produto");
-          console.log(produto)
+          ToastAlerta("Erro ao atualizar o Produto", "erro");
+          console.log(produto);
         }
       }
     } else {
@@ -114,13 +114,13 @@ function FormProduct() {
           },
         });
 
-        alert("Produto cadastrado com sucesso");
+        ToastAlerta("Produto cadastrado com sucesso", "sucesso");
       } catch (error: any) {
         if (error.toString().includes("403")) {
-          alert("O token expirou, favor logar novamente");
+          ToastAlerta("O token expirou, favor logar novamente", "info");
           handleLogout();
         } else {
-          alert("Erro ao cadastrar o Produto");
+          ToastAlerta("Erro ao cadastrar o Produto", "erro");
         }
       }
     }
@@ -134,17 +134,19 @@ function FormProduct() {
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado");
+      ToastAlerta("Você precisa estar logado", "info");
       navigate("/login");
     }
   }, [token]);
 
-  const carregandoCategoria = categoria.descricao === ''
+  const carregandoCategoria = categoria.descricao === "";
 
-  console.log(JSON.stringify(produto))
+  console.log(JSON.stringify(produto));
   return (
     <div className="container flex flex-col items-center justify-center mx-auto">
-      <h1 className="text-4xl text-center my-8">{id === undefined ? "Cadastre um novo produto" : "Editar produto"}</h1>
+      <h1 className="text-4xl text-center my-8">
+        {id === undefined ? "Cadastre um novo produto" : "Editar produto"}
+      </h1>
 
       <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovoProduto}>
         <div className="flex flex-col gap-2">
@@ -188,17 +190,34 @@ function FormProduct() {
         </div>
         <div className="flex flex-col gap-2">
           <p>Tema da Categoria</p>
-          <select name="tema" id="tema" className='border p-2 border-slate-800 rounded' onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}>
-            <option value="" selected disabled>Selecione uma Categoria</option>
+          <select
+            name="tema"
+            id="tema"
+            className="border p-2 border-slate-800 rounded"
+            onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
+          >
+            <option value="" selected disabled>
+              Selecione uma Categoria
+            </option>
             {categorias.map((categoria) => (
               <>
-                <option value={categoria.id} >{categoria.nome}</option>
+                <option value={categoria.id}>{categoria.nome}</option>
               </>
             ))}
           </select>
         </div>
-        <button disabled={carregandoCategoria} className="rounded text-slate-100 bg-indigo-400 hover:bg-indigo-800 w-1/2 py-2 mx-auto block" type="submit">
-        {carregandoCategoria ? <span>Carregando</span> : id !== undefined ? 'Editar' : 'Cadastrar'}
+        <button
+          disabled={carregandoCategoria}
+          className="rounded text-slate-100 bg-indigo-400 hover:bg-indigo-800 w-1/2 py-2 mx-auto block"
+          type="submit"
+        >
+          {carregandoCategoria ? (
+            <span>Carregando</span>
+          ) : id !== undefined ? (
+            "Editar"
+          ) : (
+            "Cadastrar"
+          )}
         </button>
       </form>
     </div>

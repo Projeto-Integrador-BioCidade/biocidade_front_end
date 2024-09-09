@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ChangeEvent, useEffect, useState } from "react";
 import Usuario from "../../models/usuario";
 import { cadastrarUsuario } from "../../services/Service";
+import { ToastAlerta } from "../../utils/ToastAlerta";
 
 function Register() {
   let navigate = useNavigate();
@@ -62,12 +63,12 @@ function Register() {
     if (confirmaSenha === usuario.senha && usuario.senha.length >= 8) {
       try {
         await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuarioResposta);
-        alert("Usuário cadastrado com sucesso");
+        ToastAlerta("Usuário cadastrado com sucesso", "sucesso");
       } catch (error) {
-        alert("Erro ao cadastrar o Usuário");
+        ToastAlerta("Erro ao cadastrar o Usuário", "erro");
       }
     } else {
-      alert("Dados inconsistentes. Verifique as informações de cadastro.");
+      ToastAlerta("Dados inconsistentes. Verifique as informações de cadastro.", "erro");
       setUsuario({ ...usuario, senha: "" });
       setConfirmaSenha("");
     }
