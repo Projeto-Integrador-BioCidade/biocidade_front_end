@@ -14,9 +14,9 @@ function Perfil() {
   }, [usuario.token]);
 
   return (
-    <div className="container m-4 mx-auto overflow-hidden rounded-2xl bg-bio-City-cream">
+    <div className="container mx-auto overflow-hidden rounded-2xl bg-bio-City-cream pb-6">
       <img
-        className="h-80 w-full border-b-8 border-white object-cover"
+        className="h-80 w-full border-white object-cover"
         src="src/assets/bio_cidade.jpeg"
         alt="Capa do Perfil"
       />
