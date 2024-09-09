@@ -4,6 +4,6 @@ export default interface UsuarioLogin {
   usuario: string;
   foto: string;
   senha: string;
-  tipo:"VENDEDOR" | "CLIENTE";
+  tipo: string;
   token: string;
 }

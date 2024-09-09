@@ -59,7 +59,7 @@ function ListCategory() {
             ">
             <div className="my-4 container flex flex-col">
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 p-4 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                     {categorias.map((categoria) => (
                         <CardCategory key={categoria.id} categoria={categoria} />
