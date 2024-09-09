@@ -25,7 +25,7 @@ function CardProduct({ produto }: CardProductProps) {
         <p>Categoria: {produto.categoria?.nome}</p>
         <img src={produto.imagem_produto} alt={`Imagem de ${produto.nome} `} />
       </div>
-      <div className="flex ">
+      { <div className="flex ">
         {usuario.tipo === 'VENDEDOR' ? (
            <Link className="w-3/6 flex rounded-bl-lg justify-center p-2 font-medium bg-gray-400 hover:bg-bio-City-grey" to={`/editproducts/${produto.id}`}>
            <button>Editar</button>
@@ -42,7 +42,7 @@ function CardProduct({ produto }: CardProductProps) {
           ""
          )}
         
-      </div>
+      </div> }
     </div>
   );
 }

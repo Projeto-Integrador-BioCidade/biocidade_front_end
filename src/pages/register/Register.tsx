@@ -1,8 +1,9 @@
 import imagem from "../../assets/biocidade_bg.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ChangeEvent, useEffect, useState } from "react";
 import Usuario from "../../models/usuario";
 import { cadastrarUsuario } from "../../services/Service";
+import { LessThan } from "@phosphor-icons/react";
 
 function Register() {
   let navigate = useNavigate();
@@ -74,8 +75,11 @@ function Register() {
   }
 
   return (
-    <div className="flex justify-center items-center h-[90vh] w-full bg-gradient-to-l from-bio-City-green-100/70 to-[#ffffff]">
+    <div className="flex justify-center items-center h-[100vh] w-full bg-gradient-to-l from-bio-City-green-100/70 
+    to-[#ffffff]">
+      <div className=" absolute top-3 left-5"><Link to={"/login"}><LessThan size={50} /></Link></div>
       <div className="hidden w-1/2 md:flex items-center justify-center">
+      
         <img src={imagem} className="h-full" alt="" />
       </div>
       <div className="flex flex-col w-full h-full justify-center items-center p-5 md:w-1/2">
@@ -142,7 +146,7 @@ function Register() {
             </div>
           </div>
           <div className="w-full flex justify-center">
-            <button type="submit" className="bg-bio-City-main-green w-full rounded-lg p-2 font-bold">
+            <button type="submit" className="bg-bio-City-main-green w-full rounded-lg m-2 font-bold p-2">
               Cadastrar-se
             </button>
           </div>

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { ReactNode, useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../contexts/AuthContext";
 import { List, MagnifyingGlass, SignIn, SignOut, User } from "@phosphor-icons/react";
@@ -15,9 +15,11 @@ function Navbar() {
     navigate("/");
   }
 
+  let component: ReactNode;
 
-  return (
-    <>
+  if( usuario.token !== "" ){
+    component = (
+      <>
       <nav className="w-full p-6 bg-bio-City-main-green text-lg">
         <div className={`mx-auto items-center ${isOpen ? "flex-col " : "flex justify-between "} `}>
           <div className="flex md:hidden h-20">
@@ -90,6 +92,14 @@ function Navbar() {
         </div>
       </nav>
       
+    </>
+    )
+
+  }
+
+  return (
+    <>
+      { component }
     </>
   );
 }

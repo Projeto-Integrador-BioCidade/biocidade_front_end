@@ -1,7 +1,14 @@
+import { ReactNode, useContext } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../../contexts/AuthContext";
 
 function Footer() {
-  return (
+
+  const { usuario  } = useContext(AuthContext)
+
+  let component: ReactNode;
+
+  if( usuario.token !== ""){
     <>
       <div className="w-full flex justify-center bg-bio-City-main-green text-black">
         <div className="container flex flex-col place-items-center py-4">
@@ -14,6 +21,12 @@ function Footer() {
           <div className="flex gap-2"></div>
         </div>
       </div>
+    </>
+  }
+
+  return (
+    <>
+        {component}
     </>
   );
 }

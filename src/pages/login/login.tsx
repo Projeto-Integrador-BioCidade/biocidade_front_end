@@ -33,7 +33,7 @@ function login() {
 
   return (
     <>
-      <div className="w-full flex items-center justify-center h-[75vh]">
+      <div className="w-full flex items-center justify-center h-[100vh]">
         <div className=" hidden w-1/2 md:flex items-center justify-center ">
           <img src={imagem} className="h-full" alt="" />
         </div>
