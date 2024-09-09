@@ -1,4 +1,4 @@
-import Carousel from "../../components/carousel/Carousel";
+import Carrossel from "../../components/carrossel/Carrossel";
 import ListCategory from "../../components/category/list/ListCategory";
 import ListProduct from "../../components/product/list/ListProduct";
 
@@ -6,7 +6,7 @@ function Home() {
   return (
     <>
       <div className="bg-bio-City-cream font-roboto">
-        <Carousel />
+        <Carrossel />
         <div className="mx-10">
           <div>
             <h2 className="mb-4 text-4xl font-bold">Novidades</h2>
