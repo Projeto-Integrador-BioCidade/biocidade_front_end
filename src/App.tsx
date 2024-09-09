@@ -23,7 +23,7 @@ function App() {
       <CartProvider>
         <AuthProvider>
           <BrowserRouter>
-            <Navbar />
+            <Navbar/>
             <div className="bg-bio-City-cream">
               <Routes>
                 <Route path="/" element={<Home />} />

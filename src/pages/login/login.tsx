@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import imagem from "../../assets/biocidade_bg.png";
-import { ChangeEvent, useContext, useEffect, useState } from "react";
+import { ChangeEvent,  useContext, useEffect, useState } from "react";
 import UsuarioLogin from "../../models/usuarioLogin";
 import AuthContext from "../../contexts/AuthContext";
 import { RotatingLines } from "react-loader-spinner";
@@ -33,9 +33,10 @@ function login() {
     handleLogin(usuarioLogin);
   }
 
+
   return (
     <>
-      <div className="flex h-[75vh] w-full items-center justify-center bg-bio-City-cream">
+      <div className="flex h-[100vh] w-full items-center justify-center bg-bio-City-cream">
         <div className="hidden w-1/2 items-center justify-center md:flex">
           <img src={imagem} className="max-w-[65%]" alt="" />
         </div>
