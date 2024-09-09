@@ -138,10 +138,12 @@ function FormProduct() {
   console.log(JSON.stringify(produto));
   console.log(JSON.stringify(produto));
   return (
-    <div className="container flex flex-col items-center justify-center mx-auto">
-      <h1 className="text-4xl text-center my-8">{id === undefined ? "Cadastre um novo produto" : "Editar produto"}</h1>
+    <div className="container mx-auto flex h-[75vh] flex-col items-center justify-center">
+      <h1 className="my-8 text-center text-4xl">
+        {id === undefined ? "Cadastre um novo produto" : "Editar produto"}
+      </h1>
 
-      <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovoProduto}>
+      <form className="flex w-1/2 flex-col gap-4" onSubmit={gerarNovoProduto}>
         <div className="flex flex-col gap-2">
           <label htmlFor="descricao">Descrição do produto</label>
           <input
@@ -183,7 +185,12 @@ function FormProduct() {
         </div>
         <div className="flex flex-col gap-2">
           <p>Tema da Categoria</p>
-          <select name="tema" id="tema" className="border p-2 border-slate-800 rounded" onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}>
+          <select
+            name="tema"
+            id="tema"
+            className="rounded border border-slate-800 p-2"
+            onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
+          >
             <option value="" selected disabled>
               Selecione uma Categoria
             </option>
@@ -195,8 +202,18 @@ function FormProduct() {
             ))}
           </select>
         </div>
-        <button disabled={carregandoCategoria} className="rounded text-slate-100 bg-indigo-400 hover:bg-indigo-800 w-1/2 py-2 mx-auto block" type="submit">
-          {carregandoCategoria ? <span>Carregando</span> : id !== undefined ? "Editar" : "Cadastrar"}
+        <button
+          disabled={carregandoCategoria}
+          className="mx-auto block w-1/2 rounded bg-indigo-400 py-2 text-slate-100 hover:bg-indigo-800"
+          type="submit"
+        >
+          {carregandoCategoria ? (
+            <span>Carregando</span>
+          ) : id !== undefined ? (
+            "Editar"
+          ) : (
+            "Cadastrar"
+          )}
         </button>
       </form>
     </div>

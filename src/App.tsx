@@ -21,7 +21,7 @@ function App() {
       <AuthProvider>
         <BrowserRouter>
           <Navbar />
-          <div className="min-h-[72vh] bg-bio-City-cream">
+          <div className="bg-bio-City-cream">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
