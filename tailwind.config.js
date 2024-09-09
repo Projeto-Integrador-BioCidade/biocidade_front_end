@@ -7,7 +7,7 @@ export default {
         roboto: "roboto",
       },
       colors: {
-        "bio-City-footer-navbar-color": "#1b2a03",
+        "bio-City-footer-navbar-color": "#426212",
         "bio-City-main-green": "#84CC16",
         "bio-City-text-900": "#3a5314",
         "bio-City-input-color": "#BEF264",

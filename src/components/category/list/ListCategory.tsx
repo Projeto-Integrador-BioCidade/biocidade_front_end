@@ -53,7 +53,7 @@ function ListCategory() {
       )}
       <div className="flex justify-center bg-bio-City-cream">
         <div className="container my-4 flex flex-col">
-          <div className="grid h-[75vh] grid-cols-1 gap-8 p-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 p-4 md:grid-cols-2 lg:grid-cols-3">
             {categorias.map((categoria) => (
               <CardCategory key={categoria.id} categoria={categoria} />
             ))}
