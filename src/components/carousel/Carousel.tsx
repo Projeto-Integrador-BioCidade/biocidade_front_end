@@ -90,7 +90,7 @@ function Carrosel() {
   };
 
   return (
-    <div className={`mb-5 flex flex-col justify-center relative group bg-gradient-to-r rounded-b-2xl ${slides[currentIndex].bgColor} h-80`}>
+    <div className={`mb-5 w-full flex flex-col justify-center relative group bg-gradient-to-r rounded-b-2xl ${slides[currentIndex].bgColor} h-80`}>
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].imagem})` }}
         className='flex justify-center bg-left w-full h-full  bg-[length:100%_100%] bg-no-repeat duration-500 rounded-b-2xl
