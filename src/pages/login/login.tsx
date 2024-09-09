@@ -8,7 +8,9 @@ import { RotatingLines } from "react-loader-spinner";
 function login() {
   const navigate = useNavigate();
 
-  const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>({} as UsuarioLogin);
+  const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>(
+    {} as UsuarioLogin,
+  );
 
   const { usuario, handleLogin, isLoading } = useContext(AuthContext);
 
@@ -33,46 +35,69 @@ function login() {
 
   return (
     <>
-      <div className="w-full flex items-center justify-center h-[75vh] bg-bio-City-cream">
-        <div className=" hidden w-1/2 md:flex items-center justify-center ">
+      <div className="flex h-[75vh] w-full items-center justify-center bg-bio-City-cream">
+        <div className="hidden w-1/2 items-center justify-center md:flex">
           <img src={imagem} className="max-w-[65%]" alt="" />
         </div>
         <div className="flex w-full items-center justify-center p-5 md:w-1/2">
-          <form onSubmit={login} className="w-[500px] *:rounded-lg flex flex-col gap-4 items-center justify-center">
-            <h2 className="text-5xl font-roboto font-bold">Faça Login!</h2>
-            <div className="flex flex-col w-full">
+          <form
+            onSubmit={login}
+            className="flex w-[500px] flex-col items-center justify-center gap-4 *:rounded-lg"
+          >
+            <h2 className="font-roboto text-5xl font-bold">Faça Login!</h2>
+            <div className="flex w-full flex-col">
               <label htmlFor="usuario">E-mail</label>
               <input
                 type="text"
                 id="usuario"
                 name="usuario"
                 placeholder="Insira seu E-mail"
-                className="bg-lime-300 h-10 p-2 rounded-lg"
+                className="h-10 rounded-lg p-2"
                 value={usuarioLogin.usuario}
-                onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  atualizarEstado(e)
+                }
               />
             </div>
-            <div className="flex flex-col w-full">
+            <div className="flex w-full flex-col">
               <label htmlFor="senha">Senha</label>
               <input
                 type="password"
                 id="senha"
                 name="senha"
                 placeholder="Insira sua senha"
-                className="bg-lime-300 h-10 p-2 rounded-lg"
+                className="h-10 rounded-lg p-2"
                 value={usuarioLogin.senha}
-                onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  atualizarEstado(e)
+                }
               />
             </div>
-            <button type="submit" className="bg-lime-500  w-full h-10 flex justify-center items-center hover:bg-lime-700 ">
-              {isLoading ? <RotatingLines strokeColor="white" strokeWidth="5" animationDuration="0.75" width="24" visible={true} /> : <span>Entrar</span>}
+            <button
+              type="submit"
+              className="flex h-10 w-full items-center justify-center bg-lime-500 hover:bg-lime-700"
+            >
+              {isLoading ? (
+                <RotatingLines
+                  strokeColor="white"
+                  strokeWidth="5"
+                  animationDuration="0.75"
+                  width="24"
+                  visible={true}
+                />
+              ) : (
+                <span>Entrar</span>
+              )}
             </button>
 
-            <hr className="border-slate-800 w-full my-2" />
+            <hr className="my-2 w-full border-slate-800" />
 
             <p>
               Ainda não tem uma conta?{" "}
-              <Link to="/register" className="text-lime-800 font-bold     hover:underline">
+              <Link
+                to="/register"
+                className="font-bold text-lime-800 hover:underline"
+              >
                 Cadastre-se
               </Link>
             </p>
