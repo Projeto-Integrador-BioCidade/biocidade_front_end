@@ -5,7 +5,7 @@ import ListProduct from "../../components/product/list/ListProduct";
 function Home() {
   return (
     <>
-      <div className="bg-gray-200 font-roboto">
+      <div className="bg-bio-City-cream font-roboto">
         <Carousel />
         <div className="mx-10">
           <div>
@@ -18,10 +18,8 @@ function Home() {
             <ListCategory />
           </div>
         </div>
-        <div>
-        </div>
+        <div></div>
       </div>
-
     </>
   );
 }

@@ -17,31 +17,43 @@ function visualizarProduto() {
 function CardProduct({ produto }: CardProductProps) {
   const { usuario } = useContext(AuthContext);
   return (
-    <div className="flex flex-col gap-4 border border-black rounded-lg">
-      <div className="px-4 font-medium flex flex-col gap-4" onClick={visualizarProduto}>
+    <div className="flex flex-col gap-4 rounded-lg border border-black bg-slate-200">
+      <div
+        className="flex flex-col gap-4 px-4 font-medium"
+        onClick={visualizarProduto}
+      >
         <p>Nome: {produto.nome}</p>
         <p>Preço: {`R$ ${produto.preco.toFixed(2)}`}</p>
         <p>Descrição: {produto.categoria?.descricao}</p>
         <p>Categoria: {produto.categoria?.nome}</p>
-        <img src={produto.imagem_produto} alt={`Imagem de ${produto.nome} `} />
+        <img
+          src={produto.imagem_produto}
+          alt={`Imagem de ${produto.nome} `}
+          className="h-[100px] max-w-[100px] rounded-lg"
+        />
       </div>
-      <div className="flex ">
-        {usuario.tipo === 'VENDEDOR' ? (
-           <Link className="w-3/6 flex rounded-bl-lg justify-center p-2 font-medium bg-gray-400 hover:bg-bio-City-grey" to={`/editproducts/${produto.id}`}>
-           <button>Editar</button>
-         </Link>
-        ): (
+      <div className="flex">
+        {usuario.tipo === "VENDEDOR" ? (
+          <Link
+            className="hover:bg-bio-City-grey flex w-3/6 justify-center rounded-bl-lg bg-gray-400 p-2 font-medium"
+            to={`/editproducts/${produto.id}`}
+          >
+            <button>Editar</button>
+          </Link>
+        ) : (
           ""
         )}
-       
-         {usuario.tipo === 'VENDEDOR' ? (
-            <Link className="w-3/6 flex rounded-br-lg justify-center p-2 font-medium hover:bg-lime-400 bg-bio-City-input-color" to={`/deletproducts/${produto.id}`}>
+
+        {usuario.tipo === "VENDEDOR" ? (
+          <Link
+            className="flex w-3/6 justify-center rounded-br-lg bg-bio-City-input-color p-2 font-medium hover:bg-lime-400"
+            to={`/deletproducts/${produto.id}`}
+          >
             <button>Deletar</button>
           </Link>
-         ) : (
+        ) : (
           ""
-         )}
-        
+        )}
       </div>
     </div>
   );

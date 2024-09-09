@@ -75,12 +75,12 @@ function Register() {
   }
 
   return (
-    <div className="flex justify-center items-center h-[90vh] w-full bg-gradient-to-l from-bio-City-green-100/70 to-[#ffffff]">
+    <div className="flex justify-center items-center h-[90vh] w-full bg-bio-City-cream">
       <div className="hidden w-1/2 md:flex items-center justify-center">
         <img src={imagem} className="h-full" alt="" />
       </div>
       <div className="flex flex-col w-full h-full justify-center items-center p-5 md:w-1/2">
-          <h2 className="text-5xl font-roboto font-medium">Crie sua conta!</h2>
+        <h2 className="sm:text-2xl md:text-3xl lg:text-5xl text-xl font-roboto font-medium">Crie sua conta!</h2>
         <form action="" onSubmit={cadastrarNovoUsuario} className=" w-full flex flex-col justify-center itemce gap-2">
           <label className="font-bold" htmlFor="Nome">
             Nome
@@ -92,7 +92,7 @@ function Register() {
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             id="Nome"
             placeholder="Insira seu nome"
-            className="bg-bio-City-input-color h-12 rounded-lg p-2"
+            className=" h-12 rounded-lg p-2"
           />
           <label className="font-bold" htmlFor="Usuario">
             Email
@@ -104,7 +104,7 @@ function Register() {
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             id="Usuario"
             placeholder="Insira seu email"
-            className="bg-bio-City-input-color h-12 rounded-lg p-2"
+            className=" h-12 rounded-lg p-2"
           />
           <label className="font-bold" htmlFor="Senha">
             Senha
@@ -116,7 +116,7 @@ function Register() {
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             id="Senha"
             placeholder="Insira seu Senha"
-            className="bg-bio-City-input-color h-12 rounded-lg p-2"
+            className=" h-12 rounded-lg p-2"
           />
           <label className="font-bold" htmlFor="confirmesuasenha">
             Confirme sua senha
@@ -128,7 +128,7 @@ function Register() {
             placeholder="Confirme sua senha"
             value={confirmaSenha}
             onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
-            className="bg-bio-City-input-color h-12 rounded-lg p-2"
+            className=" h-12 rounded-lg p-2"
           />
           <div className="w-full flex justify-center">
             <div className="flex flex-col">
@@ -143,7 +143,7 @@ function Register() {
             </div>
           </div>
           <div className="w-full flex justify-center">
-            <button type="submit" className="bg-bio-City-main-green w-full rounded-lg p-2 font-bold">
+            <button type="submit" className="max-w-[500px] min-w-[250px] bg-bio-City-main-green w-full rounded-lg p-2 font-bold">
               Cadastrar-se
             </button>
           </div>

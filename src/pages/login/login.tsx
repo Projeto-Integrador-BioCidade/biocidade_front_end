@@ -33,12 +33,12 @@ function login() {
 
   return (
     <>
-      <div className="w-full flex items-center justify-center h-[75vh]">
+      <div className="w-full flex items-center justify-center h-[75vh] bg-bio-City-cream">
         <div className=" hidden w-1/2 md:flex items-center justify-center ">
-          <img src={imagem} className="h-full" alt="" />
+          <img src={imagem} className="max-w-[65%]" alt="" />
         </div>
         <div className="flex w-full items-center justify-center p-5 md:w-1/2">
-          <form onSubmit={login} className="w-[500px] *:rounded-lg flex flex-col items-center justify-center">
+          <form onSubmit={login} className="w-[500px] *:rounded-lg flex flex-col gap-4 items-center justify-center">
             <h2 className="text-5xl font-roboto font-bold">Faça Login!</h2>
             <div className="flex flex-col w-full">
               <label htmlFor="usuario">E-mail</label>
@@ -64,7 +64,7 @@ function login() {
                 onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
               />
             </div>
-            <button type="submit" className="bg-lime-500 mt-10 w-full h-10 flex justify-center items-center hover:bg-lime-700 ">
+            <button type="submit" className="bg-lime-500  w-full h-10 flex justify-center items-center hover:bg-lime-700 ">
               {isLoading ? <RotatingLines strokeColor="white" strokeWidth="5" animationDuration="0.75" width="24" visible={true} /> : <span>Entrar</span>}
             </button>
 

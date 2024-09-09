@@ -55,10 +55,10 @@ function Contact() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full md:flex-row md:h-[73vh]  ">
-      <div className="flex flex-col justify-center items-center  md:w-1/2 bg-gradient-to-r from-bio-City-green-100 to-[#ffffff] gap-4">
-        <div className="flex flex-col gap-4 m-4">
-          <h1 className="font-bold text-6xl mt-4">Biocidade</h1>
+    <div className="flex flex-col items-center justify-center w-full bg-bio-City-cream md:flex-row md:h-[73vh]  ">
+      <div className="flex flex-col justify-center items-center  md:w-1/2  gap-4">
+        <div className="flex flex-col gap-4 m-4 ">
+          <h1 className="font-bold text-6xl">Biocidade</h1>
           <p className="md:max-w-[475px]">
             Nosso compromisso é com a comunidade e com o planeta. Ao escolher o BioCidade, você está não apenas adquirindo produtos de qualidade, mas também contribuindo para um futuro mais
             sustentável.
@@ -72,7 +72,7 @@ function Contact() {
             </div>
             <div className="flex items-center gap-2 mb-4">
               <GithubLogo size={28} color="black" />
-              <a href="https://github.com/Projeto-Integrador-BioCidade/biocidade_front_end" target="_blank" >
+              <a href="https://github.com/Projeto-Integrador-BioCidade/biocidade_front_end" target="_blank">
                 github.com/Projeto-Integrador-BioCidade/biocidade_front_end
               </a>
             </div>
@@ -84,15 +84,15 @@ function Contact() {
           <label className="font-bold" htmlFor="Nome">
             Nome
           </label>
-          <input type="text" id="Nome" name="name" value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Insira seu nome" className="bg-bio-City-input-color h-12 rounded-lg p-2" />
+          <input type="text" id="Nome" name="name" value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Insira seu nome" className=" h-12 rounded-lg p-2" />
           <label className="font-bold" htmlFor="Email">
             Email
           </label>
-          <input type="email" name="email" id="Email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Insira seu Email" className="bg-bio-City-input-color h-12 rounded-lg p-2" />
+          <input type="email" name="email" id="Email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Insira seu Email" className=" h-12 rounded-lg p-2" />
           <label className="font-bold" htmlFor="Comentario">
             Nos deixe uma mensagem
           </label>
-          <textarea name="message" id="Comentario" value={message} onChange={(e) => setMessage(e.target.value)} className="bg-bio-City-input-color h-12 rounded-lg p-2 min-h-20"></textarea>
+          <textarea name="message" id="Comentario" value={message} onChange={(e) => setMessage(e.target.value)} className=" h-12 rounded-lg p-2 min-h-20"></textarea>
           {errors.message && <p className="text-red-500">{errors.message}</p>}
           <div className="w-full flex justify-end">
             <button type="submit" value="Send" className="w-32 bg-bio-City-main-green rounded-lg p-2">

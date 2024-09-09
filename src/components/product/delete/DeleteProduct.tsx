@@ -57,29 +57,35 @@ function DeleteProduct() {
   }
 
   return (
-   
     <div className="flex justify-center py-50p">
-      <div className="flex  rounded-lg flex-col gap-4 border border-black min-w-[300px] max-w-[500px] p-2">
+      <div className="flex min-w-[300px] max-w-[500px] flex-col gap-4 rounded-lg border border-black p-2">
         <div className="p-4">
-          <h1 className="text-center font-bold text-2xl m-2 ">Deletar Produto</h1>
+          <h1 className="m-2 text-center text-2xl font-bold">
+            Deletar Produto
+          </h1>
           <p>Você tem certeza de que deseja apagar o produto a seguir?</p>
         </div>
-        <div className="border border-[#C3C3C3] py-2 px-4 font-medium rounded-lg flex flex-col gap-4">
+        <div className="flex flex-col gap-4 rounded-lg border border-[#C3C3C3] px-4 py-2 font-medium">
           <p>Nome: {produto.nome}</p>
           <p>Preço: {produto.preco}</p>
           <p>Categoria: {produto.categoria?.nome}</p>
           <div className="flex w-full gap-6">
-            <button onClick={retornar} className="w-3/6 rounded-xl  font-bold transition ease-in-out bg-[#A4A4A4] hover:bg-bio-City-grey flex items-center justify-center py-2">
+            <button
+              onClick={retornar}
+              className="hover:bg-bio-City-grey flex w-3/6 items-center justify-center rounded-xl bg-[#A4A4A4] py-2 font-bold transition ease-in-out"
+            >
               Não
             </button>
-            <button onClick={deletarProduto} className="font-bold transition ease-in-out hover:bg-lime-400 bg-[#8BC34A] w-3/6 rounded-xl flex items-center justify-center">
+            <button
+              onClick={deletarProduto}
+              className="flex w-3/6 items-center justify-center rounded-xl bg-bio-City-main-green font-bold transition ease-in-out hover:bg-lime-400"
+            >
               Sim
             </button>
           </div>
         </div>
       </div>
     </div>
-   
   );
 }
 
