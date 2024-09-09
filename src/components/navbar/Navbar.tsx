@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../contexts/AuthContext";
-import { List, MagnifyingGlass, SignIn, SignOut } from "@phosphor-icons/react";
+import { List, MagnifyingGlass, SignIn, SignOut, User } from "@phosphor-icons/react";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
