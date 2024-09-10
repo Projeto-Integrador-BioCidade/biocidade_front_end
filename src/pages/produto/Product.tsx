@@ -51,14 +51,15 @@ function Product() {
   }, [token]);
 
   return (
-    <div className="flex min-h-[80vh] items-center justify-center">
-      <div className="flex w-2/3 justify-between rounded-lg bg-slate-100 shadow-lg">
+    <div className="flex items-center justify-center">
+      <div className="flex flex-col justify-between rounded-lg bg-slate-100 shadow-lg
+                      md:flex-row md:w-3/4">
         <img
           src={produto.imagem_produto}
           alt={produto.nome}
-          className="h-fit w-1/3 rounded-lg shadow-xl"
+          className="rounded-lg shadow-xl md:w-1/2"
         />
-        <div className="w-2/4 p-6 text-center">
+        <div className="flex flex-col justify-center items-center w-1/2 p-6 text-center">
           <h2 className="mb-2 text-2xl font-bold text-gray-800">
             {produto.nome}
           </h2>

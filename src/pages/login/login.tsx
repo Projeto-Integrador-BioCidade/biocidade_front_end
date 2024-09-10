@@ -38,7 +38,7 @@ function login() {
     <>
       <div className="flex h-[100vh] w-full items-center justify-center bg-bio-City-cream">
         <div className="hidden w-1/2 items-center justify-center md:flex">
-          <img src={imagem} className="h-auto w-[80wh]" alt="" />
+          <img src={imagem} className="h-[90%] w-[90%]" alt="" />
         </div>
         <div className="flex w-full items-center justify-center p-5 md:w-1/2">
           <form

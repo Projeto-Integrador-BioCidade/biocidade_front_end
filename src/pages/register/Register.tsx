@@ -125,6 +125,18 @@ function Register() {
             placeholder="Insira seu email"
             className="h-12 rounded-lg p-2"
           />
+           <label className="font-bold" htmlFor="Usuario">
+            Foto
+          </label>
+          <input
+            type="text"
+            name="foto"
+            value={usuario.foto || ""}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+            id="foto"
+            placeholder="Insira o link de sua foto"
+            className="h-12 rounded-lg p-2"
+          />
           <label className="font-bold" htmlFor="Senha">
             Senha
           </label>
@@ -182,15 +194,15 @@ function Register() {
               </div>
             </div>
           </div>
-          <div className="flex w-full flex-col justify-center gap-2">
+          <div className="flex w-full flex-col items-center justify-center gap-2">
             <button
               type="submit"
-              className="w-full min-w-[250px] max-w-[500px] rounded-lg bg-bio-City-main-green p-2 font-bold"
+              className="w-full rounded-lg bg-bio-City-main-green p-2 font-bold"
             >
               Cadastrar-se
             </button>
-            <Link to={"/login"}>
-              <button className="w-full min-w-[250px] max-w-[500px] rounded-lg bg-gray-500 p-2 font-bold">
+            <Link to={"/login"} className="w-full rounded-lg bg-gray-500 p-2 flex justify-center">
+              <button className="font-bold">
                 Cancelar
               </button>
             </Link>
