@@ -13,7 +13,7 @@ function FormProduct() {
   const { usuario, handleLogout } = useContext(AuthContext);
 
   const [produto, setProduto] = useState<Produto>({} as Produto);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const setIsLoading = useState<boolean>(false)[1];
   const [categoria, setCategoria] = useState<Categoria>({
     id: 0,
     nome: "",
@@ -136,7 +136,7 @@ function FormProduct() {
   const carregandoCategoria = categoria.descricao === "";
 
   console.log(JSON.stringify(produto));
-  
+
   return (
     <div className="container mx-auto flex h-screen flex-col items-center justify-start">
       <h1 className="text-center text-4xl">
@@ -197,7 +197,6 @@ function FormProduct() {
             {categorias.map((categoria) => (
               <>
                 <option value={categoria.id}>{categoria.nome}</option>
-            
               </>
             ))}
           </select>

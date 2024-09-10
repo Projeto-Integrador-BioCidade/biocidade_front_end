@@ -1,5 +1,4 @@
 import { useState, useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import AuthContext from "../../../contexts/AuthContext";
 import Categoria from "../../../models/categoria";
 import { buscar } from "../../../services/Service";
@@ -7,8 +6,6 @@ import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function ListCategory() {
   const [categorias, setCategorias] = useState<Categoria[]>([]);
-
-  let navigate = useNavigate();
 
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
@@ -26,53 +23,48 @@ function ListCategory() {
     }
   }
 
-
   useEffect(() => {
     buscarCategorias();
   }, [categorias.length]);
 
   return (
     <>
-
-{categorias.length === 0 && (
-  <div className="flex justify-center w-full my-4">
-    <div className="container flex flex-col">
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {[1, 2, 3].map((_, index) => (
-          <div
-            key={index}
-            className="border flex flex-col rounded-2xl overflow-hidden justify-center bg-white shadow-md animate-pulse"
-          >
-            
-            <div className="py-6 px-6">
-              <div className="h-6 bg-gray-300 rounded w-3/4 mx-auto"></div>
+      {categorias.length === 0 && (
+        <div className="my-4 flex w-full justify-center">
+          <div className="container flex flex-col">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {[1, 2, 3].map((_, index) => (
+                <div
+                  key={index}
+                  className="flex animate-pulse flex-col justify-center overflow-hidden rounded-2xl border bg-white shadow-md"
+                >
+                  <div className="px-6 py-6">
+                    <div className="mx-auto h-6 w-3/4 rounded bg-gray-300"></div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-  </div>
-)}
+        </div>
+      )}
 
+      <h2 className="ml-4 border-l-4 border-bio-City-footer-navbar-color pb-4 pl-4 pt-4 text-4xl font-bold">
+        Categorias
+      </h2>
 
- <h2 className="pl-4 border-l-4 ml-4 pt-4 pb-4 border-bio-City-footer-navbar-color text-4xl font-bold">Categorias</h2>
- 
-      <div className="flex items-center justify-center bg-bio-City-cream h-[63vh]">
+      <div className="flex h-[63vh] items-center justify-center bg-bio-City-cream">
         <div className="container flex flex-col">
           <div className="grid grid-cols-1 gap-8 p-4 md:grid-cols-2 lg:grid-cols-3">
             {categorias.map((categoria) => (
               <div
                 key={categoria.id}
-                className="border border-gray-300 rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col justify-between hover:shadow-2xl transition-shadow"
+                className="flex flex-col justify-between overflow-hidden rounded-2xl border border-gray-300 bg-white shadow-lg transition-shadow hover:shadow-2xl"
               >
-                
                 <div className="p-6 text-center">
-                  <h3 className="text-lg font-bold text-gray-800 mb-2">
+                  <h3 className="mb-2 text-lg font-bold text-gray-800">
                     {categoria.nome}
                   </h3>
                 </div>
-
-                
               </div>
             ))}
           </div>
@@ -83,4 +75,3 @@ function ListCategory() {
 }
 
 export default ListCategory;
-

@@ -1,6 +1,6 @@
 import imagem from "../../assets/biocidade_bg.png";
 import { Link, useNavigate } from "react-router-dom";
-import { ChangeEvent, ReactNode, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import Usuario from "../../models/usuario";
 import { cadastrarUsuario } from "../../services/Service";
 import { ToastAlerta } from "../../utils/ToastAlerta";
@@ -10,7 +10,7 @@ function Register() {
 
   const [confirmaSenha, setConfirmaSenha] = useState<string>("");
   const [isSeller, setIsSeller] = useState(false);
-  const [senhaTamanho, setSenhaTamanho] = useState<boolean>(false)
+  const [senhaTamanho, setSenhaTamanho] = useState<boolean>(false);
   const [usuario, setUsuario] = useState<Usuario>({
     id: 0,
     nome: "",
@@ -19,7 +19,6 @@ function Register() {
     senha: "",
     foto: "",
   });
-
 
   const [usuarioResposta, setUsuarioResposta] = useState<Usuario>({
     id: 0,
@@ -45,12 +44,11 @@ function Register() {
   }
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
 
-    if(name === "senha") {
-      setSenhaTamanho(value.length < 8 && value.length > 0)
+    if (name === "senha") {
+      setSenhaTamanho(value.length < 8 && value.length > 0);
     }
-
 
     setUsuario({
       ...usuario,
@@ -58,7 +56,9 @@ function Register() {
     });
   }
 
-  const handleChange = (event: { target: { checked: boolean | ((prevState: boolean) => boolean) } }) => {
+  const handleChange = (event: {
+    target: { checked: boolean | ((prevState: boolean) => boolean) };
+  }) => {
     setIsSeller(event.target.checked);
     setUsuario({
       ...usuario,
@@ -71,7 +71,11 @@ function Register() {
 
     if (confirmaSenha === usuario.senha && usuario.senha.length >= 8) {
       try {
-        await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuarioResposta);
+        await cadastrarUsuario(
+          `/usuarios/cadastrar`,
+          usuario,
+          setUsuarioResposta,
+        );
         ToastAlerta("Usuário cadastrado com sucesso", "sucesso");
       } catch (error) {
         ToastAlerta("Erro ao cadastrar o Usuário", "erro");
@@ -84,13 +88,19 @@ function Register() {
   }
 
   return (
-    <div className="flex justify-center items-center h-[100vh] w-full bg-bio-City-cream">
-      <div className="hidden w-1/2 md:flex items-center justify-center">
+    <div className="flex h-[100vh] w-full items-center justify-center bg-bio-City-cream">
+      <div className="hidden w-1/2 items-center justify-center md:flex">
         <img src={imagem} className="h-full" alt="" />
       </div>
-      <div className="flex flex-col w-full h-full justify-center items-center p-5 md:w-1/2">
-        <h2 className="sm:text-2xl md:text-3xl lg:text-5xl text-xl font-roboto font-medium">Crie sua conta!</h2>
-        <form action="" onSubmit={cadastrarNovoUsuario} className=" w-full flex flex-col justify-center itemce gap-2">
+      <div className="flex h-full w-full flex-col items-center justify-center p-5 md:w-1/2">
+        <h2 className="font-roboto text-xl font-medium sm:text-2xl md:text-3xl lg:text-5xl">
+          Crie sua conta!
+        </h2>
+        <form
+          action=""
+          onSubmit={cadastrarNovoUsuario}
+          className="itemce flex w-full flex-col justify-center gap-2"
+        >
           <label className="font-bold" htmlFor="Nome">
             Nome
           </label>
@@ -101,7 +111,7 @@ function Register() {
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             id="Nome"
             placeholder="Insira seu nome"
-            className=" h-12 rounded-lg p-2"
+            className="h-12 rounded-lg p-2"
           />
           <label className="font-bold" htmlFor="Usuario">
             Email
@@ -113,7 +123,7 @@ function Register() {
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             id="Usuario"
             placeholder="Insira seu email"
-            className=" h-12 rounded-lg p-2"
+            className="h-12 rounded-lg p-2"
           />
           <label className="font-bold" htmlFor="Senha">
             Senha
@@ -125,12 +135,10 @@ function Register() {
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             id="Senha"
             placeholder="Insira seu Senha"
-            className=" h-12 rounded-lg p-2"
+            className="h-12 rounded-lg p-2"
           />
-          {senhaTamanho && (
-            <span>Mínimo: 8 digitos</span>
-          )}
-          
+          {senhaTamanho && <span>Mínimo: 8 digitos</span>}
+
           <label className="font-bold" htmlFor="confirmesuasenha">
             Confirme sua senha
           </label>
@@ -140,27 +148,49 @@ function Register() {
             id="confirmesuasenha"
             placeholder="Confirme sua senha"
             value={confirmaSenha || ""}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
-            className=" h-12 rounded-lg p-2"
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              handleConfirmarSenha(e)
+            }
+            className="h-12 rounded-lg p-2"
           />
-          <div className="w-full flex justify-center">
+          <div className="flex w-full justify-center">
             <div className="flex flex-col">
               <p>Desejar ser um vendedor?</p>
-              <div className=" p-0 rounded-xl max-w-[186px]">
-                <label htmlFor="toggle-seller" className="inline-flex items-center p-2 rounded-md cursor-pointer dark:text-gray-100">
-                  <input id="toggle-seller" type="checkbox" checked={isSeller} onChange={handleChange} className="hidden peer" />
-                  <span className={`px-7 py-2 rounded-lg  transition-colors duration-300 rounded-r-none ${isSeller ? "bg-bio-City-input-color text-black" : "bg-gray-500 text-black "}`}>Sim</span>
-                  <span className={`px-7 py-2 rounded-lg transition-colors duration-300 rounded-l-none ${isSeller ? "bg-gray-500 text-black" : "bg-bio-City-input-color text-black "}`}>Não</span>
+              <div className="max-w-[186px] rounded-xl p-0">
+                <label
+                  htmlFor="toggle-seller"
+                  className="inline-flex cursor-pointer items-center rounded-md p-2 dark:text-gray-100"
+                >
+                  <input
+                    id="toggle-seller"
+                    type="checkbox"
+                    checked={isSeller}
+                    onChange={handleChange}
+                    className="peer hidden"
+                  />
+                  <span
+                    className={`rounded-lg rounded-r-none px-7 py-2 transition-colors duration-300 ${isSeller ? "bg-bio-City-input-color text-black" : "bg-gray-500 text-black"}`}
+                  >
+                    Sim
+                  </span>
+                  <span
+                    className={`rounded-lg rounded-l-none px-7 py-2 transition-colors duration-300 ${isSeller ? "bg-gray-500 text-black" : "bg-bio-City-input-color text-black"}`}
+                  >
+                    Não
+                  </span>
                 </label>
               </div>
             </div>
           </div>
-          <div className="w-full flex flex-col gap-2 justify-center">
-            <button type="submit" className="max-w-[500px] min-w-[250px] bg-bio-City-main-green w-full rounded-lg p-2 font-bold">
+          <div className="flex w-full flex-col justify-center gap-2">
+            <button
+              type="submit"
+              className="w-full min-w-[250px] max-w-[500px] rounded-lg bg-bio-City-main-green p-2 font-bold"
+            >
               Cadastrar-se
             </button>
             <Link to={"/login"}>
-              <button className="max-w-[500px] min-w-[250px] bg-gray-500 w-full rounded-lg p-2 font-bold">
+              <button className="w-full min-w-[250px] max-w-[500px] rounded-lg bg-gray-500 p-2 font-bold">
                 Cancelar
               </button>
             </Link>
