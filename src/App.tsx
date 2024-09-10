@@ -18,6 +18,7 @@ import { CartProvider } from "./contexts/CartContext";
 import Cart from "./components/cart/Cart";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import Product from "./pages/produto/Product";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <div className="bg-bio-City-cream">
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/home" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/register" element={<Register />} />
@@ -38,7 +40,7 @@ function App() {
                 <Route path="/editcategories/:id" element={<FormCategory />} />
                 <Route path="/deletcategories/:id" element={<DeleteCategory />} />
                 <Route path="/products" element={<ListProduct />} />
-                <Route path="/products/:id" element={<ListProduct />} />
+                <Route path="/products/:id" element={<Product />} />
                 <Route path="/cadproducts" element={<FormProduct />} />
                 <Route path="/editarproduto/:id" element={<FormProduct />} />
                 <Route path="/deletarproduto/:id" element={<DeleteProduct />} />
