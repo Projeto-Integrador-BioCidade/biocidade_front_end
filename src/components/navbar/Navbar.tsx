@@ -1,5 +1,6 @@
 import { ReactNode, useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import navbarLogo from "../../assets/navbar_logo.png";
 import AuthContext from "../../contexts/AuthContext";
 import {
   List,
@@ -25,17 +26,14 @@ function Navbar() {
 
   let component: ReactNode;
 
-
   component = (
     <>
       <nav className="w-full bg-bio-City-cream p-6 text-lg shadow-lg">
-        <div
-          className={`flex items-center justify-between`}
-        >
+        <div className={`flex items-center justify-between`}>
           <Link to={"/"} className="order-2 lg:order-1">
             <img
               className={`h-[10vh] w-[10vh] rounded-full`}
-              src="src/assets/navbar_logo.png"
+              src={navbarLogo}
               alt="Logo BioCidade"
             />
           </Link>
@@ -46,7 +44,7 @@ function Navbar() {
                 type="text"
                 id="pesquisa"
                 name="pesquisa"
-                className="w-full rounded-full border-2 border-solid placeholder:px-1 placeholder:italic placeholder:text-slate-400 enabled:hover:border-gray-400"
+                className="w-full rounded-full border-2 border-solid p-1 transition-all duration-300 ease-in-out placeholder:px-4 placeholder:italic placeholder:text-slate-400 enabled:hover:border-gray-400"
                 placeholder="Pesquisar produtos"
               />
               <button>
@@ -54,47 +52,42 @@ function Navbar() {
               </button>
             </form>
           </div>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden"
-          >
-            <List size={28} color="black" weight={`${isOpen ? "light" : "bold"}`} />
+          <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden">
+            <List
+              size={28}
+              color="black"
+              weight={`${isOpen ? "light" : "bold"}`}
+            />
           </button>
 
           <div
-            className={`absolute top-28 left-0 bg-bio-City-cream z-10 rounded-lg shadow-lg transition-all duration-500 ease-in-out ${isOpen ? "h-[50vh]" : "h-0"} 
-                          lg:relative lg:top-0 lg:shadow-none lg:h-auto lg:order-3`}
+            className={`absolute left-0 top-28 z-10 rounded-lg bg-bio-City-cream shadow-lg transition-all duration-500 ease-in-out ${isOpen ? "h-[50vh]" : "h-0"} lg:relative lg:top-0 lg:order-3 lg:h-auto lg:shadow-none`}
           >
-            <ul className={`flex flex-col text-nowrap p-3 gap-4 text-lg uppercase transition-all duration-500 ease-in-out active:*:font-bold ${isOpen ? "pointer-events-auto" : "opacity-0 pointer-events-none"}
-                              lg:flex-row lg:opacity-100 lg:pointer-events-auto`}>
+            <ul
+              className={`flex flex-col gap-4 text-nowrap p-3 text-lg uppercase transition-all duration-500 ease-in-out active:*:font-bold ${isOpen ? "pointer-events-auto" : "pointer-events-none opacity-0"} lg:pointer-events-auto lg:flex-row lg:opacity-100`}
+            >
               <Link to={"/"}>
-                <li className="text-black font-semibold transition-all duration-500 ease-in-out hover:text-white">
+                <li className="font-semibold text-black transition-all duration-500 ease-in-out hover:text-white">
                   Home
                 </li>
               </Link>
               <Link to={"/products"}>
-                <li className="text-black font-semibold transition-all duration-500 ease-in-out hover:text-white">
+                <li className="font-semibold text-black transition-all duration-500 ease-in-out hover:text-white">
                   Produtos
                 </li>
               </Link>
               {usuario.tipo === "VENDEDOR" ? (
                 <Link to="/cadproducts">
-                  <li className="text-black font-semibold transition-all duration-500 ease-in-out hover:text-white">
+                  <li className="font-semibold text-black transition-all duration-500 ease-in-out hover:text-white">
                     Cadastrar Produtos
                   </li>
                 </Link>
               ) : (
                 ""
               )}
-
-              <Link to={"/categories"}>
-                <li className="text-black font-semibold transition-all duration-500 ease-in-out hover:text-white">
-                  Categoria
-                </li>
-              </Link>
               {usuario.token === "" ? (
                 <Link to={"/register"}>
-                  <li className="text-black font-semibold transition-all duration-500 ease-in-out hover:text-white">
+                  <li className="font-semibold text-black transition-all duration-500 ease-in-out hover:text-white">
                     Cadastre-se
                   </li>
                 </Link>
@@ -109,8 +102,7 @@ function Navbar() {
                 ""
               )}
 
-              <div className="flex gap-4 justify-between items-end">
-
+              <div className="flex items-end justify-between gap-4">
                 {usuario.token !== "" ? (
                   <Link to="/cart">
                     <ShoppingCart size={32} />
@@ -129,7 +121,7 @@ function Navbar() {
 
                 {usuario.token !== "" ? (
                   <Link to="" onClick={logout} title="Sair">
-                    <SignOut size={32} color="black" />
+                    <SignOut size={32} className="hover:fill-white" />
                   </Link>
                 ) : (
                   ""
@@ -143,11 +135,11 @@ function Navbar() {
   );
   if (usuario.token !== "") {
     return <>{component}</>;
-  }
-  else if (pathname == "/") {
+  } else if (pathname == "/") {
+    return <>{component}</>;
+  } else if (pathname == "/products") {
     return <>{component}</>;
   }
-  
 }
 
 export default Navbar;

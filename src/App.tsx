@@ -7,9 +7,6 @@ import Contact from "./pages/contact/Contact";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/login";
 import { AuthProvider } from "./contexts/AuthContext";
-import DeleteCategory from "./components/category/delete/DeleteCategory";
-import FormCategory from "./components/category/form/FormCategory";
-import ListCategory from "./components/category/list/ListCategory";
 import DeleteProduct from "./components/product/delete/DeleteProduct";
 import FormProduct from "./components/product/form/FormProduct";
 import ListProduct from "./components/product/list/ListProduct";
@@ -17,7 +14,7 @@ import Perfil from "./pages/perfil/Perfil";
 import { CartProvider } from "./contexts/CartContext";
 import Cart from "./components/cart/Cart";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import Product from "./pages/produto/Product";
 
 function App() {
@@ -25,10 +22,10 @@ function App() {
     <>
       <CartProvider>
         <AuthProvider>
-          <ToastContainer/>
+          <ToastContainer />
           <BrowserRouter>
-            <Navbar/>
-            <div className="bg-bio-City-cream min-h-[80vh]">
+            <Navbar />
+            <div className="min-h-[80vh] bg-bio-City-cream">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
@@ -36,9 +33,6 @@ function App() {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/categories" element={<ListCategory />} />
-                <Route path="/editcategories/:id" element={<FormCategory />} />
-                <Route path="/deletcategories/:id" element={<DeleteCategory />} />
                 <Route path="/products" element={<ListProduct />} />
                 <Route path="/products/:id" element={<Product />} />
                 <Route path="/cadproducts" element={<FormProduct />} />
@@ -52,7 +46,6 @@ function App() {
           </BrowserRouter>
         </AuthProvider>
       </CartProvider>
-
     </>
   );
 }
