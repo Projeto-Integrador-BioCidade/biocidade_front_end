@@ -16,12 +16,15 @@ import ListProduct from "./components/product/list/ListProduct";
 import Perfil from "./pages/perfil/Perfil";
 import { CartProvider } from "./contexts/CartContext";
 import Cart from "./components/cart/Cart";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <>
       <CartProvider>
         <AuthProvider>
+          <ToastContainer/>
           <BrowserRouter>
             <Navbar/>
             <div className="bg-bio-City-cream">
