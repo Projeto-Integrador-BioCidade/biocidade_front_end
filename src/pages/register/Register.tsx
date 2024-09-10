@@ -4,13 +4,13 @@ import { ChangeEvent, ReactNode, useEffect, useState } from "react";
 import Usuario from "../../models/usuario";
 import { cadastrarUsuario } from "../../services/Service";
 import { ToastAlerta } from "../../utils/ToastAlerta";
-import { LessThan } from "@phosphor-icons/react";
 
 function Register() {
   let navigate = useNavigate();
 
   const [confirmaSenha, setConfirmaSenha] = useState<string>("");
   const [isSeller, setIsSeller] = useState(false);
+  const [senhaTamanho, setSenhaTamanho] = useState<boolean>(false)
   const [usuario, setUsuario] = useState<Usuario>({
     id: 0,
     nome: "",
@@ -45,6 +45,13 @@ function Register() {
   }
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
+    const {name, value} = e.target;
+
+    if(name === "senha") {
+      setSenhaTamanho(value.length < 8 && value.length > 0)
+    }
+
+
     setUsuario({
       ...usuario,
       [e.target.name]: e.target.value,
@@ -70,7 +77,7 @@ function Register() {
         ToastAlerta("Erro ao cadastrar o Usuário", "erro");
       }
     } else {
-      ToastAlerta("Dados inconsistentes. Verifique as informações de cadastro.", "erro");
+      ToastAlerta("Erro ao confirmar senha.", "erro");
       setUsuario({ ...usuario, senha: "" });
       setConfirmaSenha("");
     }
@@ -78,7 +85,6 @@ function Register() {
 
   return (
     <div className="flex justify-center items-center h-[100vh] w-full bg-bio-City-cream">
-      <div className=" absolute top-2 left-5"><Link to={"/login"}><LessThan size={50} /></Link></div>
       <div className="hidden w-1/2 md:flex items-center justify-center">
         <img src={imagem} className="h-full" alt="" />
       </div>
@@ -91,7 +97,7 @@ function Register() {
           <input
             type="text"
             name="nome"
-            value={usuario.nome}
+            value={usuario.nome || ""}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             id="Nome"
             placeholder="Insira seu nome"
@@ -103,7 +109,7 @@ function Register() {
           <input
             type="email"
             name="usuario"
-            value={usuario.usuario}
+            value={usuario.usuario || ""}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             id="Usuario"
             placeholder="Insira seu email"
@@ -115,12 +121,16 @@ function Register() {
           <input
             type="password"
             name="senha"
-            value={usuario.senha}
+            value={usuario.senha || ""}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             id="Senha"
             placeholder="Insira seu Senha"
             className=" h-12 rounded-lg p-2"
           />
+          {senhaTamanho && (
+            <span>Mínimo: 8 digitos</span>
+          )}
+          
           <label className="font-bold" htmlFor="confirmesuasenha">
             Confirme sua senha
           </label>
@@ -129,7 +139,7 @@ function Register() {
             name="confirmaSenha"
             id="confirmesuasenha"
             placeholder="Confirme sua senha"
-            value={confirmaSenha}
+            value={confirmaSenha || ""}
             onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
             className=" h-12 rounded-lg p-2"
           />
@@ -145,10 +155,15 @@ function Register() {
               </div>
             </div>
           </div>
-          <div className="w-full flex justify-center">
+          <div className="w-full flex flex-col gap-2 justify-center">
             <button type="submit" className="max-w-[500px] min-w-[250px] bg-bio-City-main-green w-full rounded-lg p-2 font-bold">
               Cadastrar-se
             </button>
+            <Link to={"/login"}>
+              <button className="max-w-[500px] min-w-[250px] bg-gray-500 w-full rounded-lg p-2 font-bold">
+                Cancelar
+              </button>
+            </Link>
           </div>
         </form>
       </div>
