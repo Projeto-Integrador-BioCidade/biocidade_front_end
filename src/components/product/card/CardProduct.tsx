@@ -3,19 +3,31 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../../contexts/CartContext";
 import Produto from "../../../models/produto";
+import AuthContext from "../../../contexts/AuthContext";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 interface CardProdutoProps {
   produto: Produto;
 }
 
 function CardProdutos({ produto }: CardProdutoProps) {
+  const { usuario } = useContext(AuthContext);
   const { adicionarProduto } = useContext(CartContext);
 
   const navigate = useNavigate();
 
   const comprar = () => {
-    navigate(`/products/${produto.id}`)
-  }
+    navigate(`/products/${produto.id}`);
+  };
+
+  const adionarItemCarrinho = () => {
+    usuario.token === "" || usuario.token === null
+      ? ToastAlerta(
+          "Você precisa estar logado para adicionar produtos ao carrinho!",
+          "info",
+        )
+      : adicionarProduto(produto);
+  };
 
   return (
     <div className="my-2 flex flex-col justify-between overflow-hidden rounded-lg bg-white">
@@ -51,14 +63,14 @@ function CardProdutos({ produto }: CardProdutoProps) {
       </div>
       <div className="flex">
         <button
-          className="font-bold uppercase flex w-3/4 items-center justify-center bg-teal-600 py-2 text-white transition-all duration-300 ease-in-out hover:bg-teal-900 border-b "
+          className="flex w-3/4 items-center justify-center border-b bg-teal-600 py-2 font-bold uppercase text-white transition-all duration-300 ease-in-out hover:bg-teal-900"
           onClick={comprar}
         >
           Comprar
         </button>
         <button
           className="flex w-1/4 items-center justify-center bg-teal-500 py-2 text-white transition-all duration-300 ease-in-out hover:bg-teal-900"
-          onClick={() => adicionarProduto(produto)}
+          onClick={() => adionarItemCarrinho()}
         >
           <ShoppingCart size={32} />
         </button>
