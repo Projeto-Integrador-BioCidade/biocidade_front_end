@@ -51,10 +51,10 @@ function CardProdutos({ produto }: CardProdutoProps) {
       </div>
       <div className="flex">
         <button
-          className="flex w-3/4 items-center justify-center bg-teal-600 py-2 text-white transition-all duration-300 ease-in-out hover:bg-teal-900 border-b "
+          className="font-bold uppercase flex w-3/4 items-center justify-center bg-teal-600 py-2 text-white transition-all duration-300 ease-in-out hover:bg-teal-900 border-b "
           onClick={comprar}
         >
-          comprar
+          Comprar
         </button>
         <button
           className="flex w-1/4 items-center justify-center bg-teal-500 py-2 text-white transition-all duration-300 ease-in-out hover:bg-teal-900"
