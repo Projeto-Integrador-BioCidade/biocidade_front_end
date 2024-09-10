@@ -28,12 +28,6 @@ function ListCategory() {
     }
   }
 
-  useEffect(() => {
-    if (token === "") {
-      ToastAlerta("Você precisa estar logado", "info");
-      navigate("/login");
-    }
-  }, [token]);
 
   useEffect(() => {
     buscarCategorias();
