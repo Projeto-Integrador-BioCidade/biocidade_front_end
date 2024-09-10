@@ -138,8 +138,8 @@ function FormProduct() {
   console.log(JSON.stringify(produto));
   
   return (
-    <div className="container mx-auto flex h-[75vh] flex-col items-center justify-center">
-      <h1 className="my-8 text-center text-4xl">
+    <div className="container mx-auto flex h-screen flex-col items-center justify-start">
+      <h1 className="text-center text-4xl">
         {id === undefined ? "Cadastre um novo produto" : "Editar produto"}
       </h1>
 
