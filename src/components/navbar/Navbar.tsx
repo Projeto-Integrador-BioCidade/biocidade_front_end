@@ -27,12 +27,12 @@ function Navbar() {
 
   if (usuario.token !== "") {
     component = (
-      <>
+      <> 
         <nav className="w-full bg-bio-City-cream p-6 text-lg shadow-lg">
           <div
             className={`flex items-center justify-between`}
           >
-            <Link to={"/"} className="order-2 md:order-1">
+            <Link to={"/"} className="order-2 lg:order-1">
               <img
                 className={`h-[10vh] w-[10vh] rounded-full`}
                 src="src/assets/navbar_logo.png"
@@ -40,7 +40,7 @@ function Navbar() {
               />
             </Link>
 
-            <div className="order-3 w-2/4 md:w-1/3">
+            <div className="order-3 w-2/4 lg:w-1/4">
               <form action="" className="flex gap-3">
                 <input
                   type="text"
@@ -56,17 +56,17 @@ function Navbar() {
             </div>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden"
+              className="lg:hidden"
             >
               <List size={28} color="black" weight={`${isOpen ? "light" : "bold"}`} />
             </button>
 
             <div
               className={`absolute top-28 left-0 bg-bio-City-cream z-10 rounded-lg shadow-lg transition-all duration-500 ease-in-out ${isOpen ? "h-[50vh]" : "h-0"} 
-                          md:relative md:top-0 md:shadow-none md:h-auto md:order-3`}
+                          lg:relative lg:top-0 lg:shadow-none lg:h-auto lg:order-3`}
             >
               <ul className={`flex flex-col text-nowrap p-3 gap-4 text-lg uppercase transition-all duration-500 ease-in-out active:*:font-bold ${isOpen ? "pointer-events-auto" : "opacity-0 pointer-events-none"}
-                              md:flex-row md:opacity-100 md:pointer-events-auto`}>
+                              lg:flex-row lg:opacity-100 lg:pointer-events-auto`}>
                 <Link to={"/"}>
                   <li className="text-black font-semibold transition-all duration-500 ease-in-out hover:text-white">
                     Home
