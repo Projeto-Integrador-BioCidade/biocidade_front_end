@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useState } from "react";
 import Produto from "../models/produto";
+import { ToastAlerta } from "../utils/ToastAlerta";
 
 
 export interface Items extends Produto{
@@ -41,11 +42,11 @@ export function CartProvider({ children }: CartProviderProps) {
             const novoCart = [...items];
             novoCart[itemIndex].quantidade += 1;
             setItems(novoCart);
-           alert('01 item adicionado!');
+           ToastAlerta('01 item adicionado!', "sucesso");
         } else {
             // Produto não está no carrinho, adiciona novo item
             setItems(prevItems => [...prevItems, { ...produto, quantidade: 1 }]);
-           alert('Produto adicionado ao carrinho!');
+           ToastAlerta('Produto adicionado ao carrinho!', "sucesso");
         }
     }
 
@@ -56,9 +57,9 @@ export function CartProvider({ children }: CartProviderProps) {
             const novoCart = [...items];
             novoCart[itemIndex].quantidade += 1;
             setItems(novoCart);
-           alert('01 item adicionado!');
+           ToastAlerta('01 item adicionado!', "sucesso");
         } else {
-           alert('Produto não encontrado no carrinho!');
+           ToastAlerta('Produto não encontrado no carrinho!', "erro");
         }
     }
 
@@ -73,19 +74,19 @@ export function CartProvider({ children }: CartProviderProps) {
                 // Reduz a quantidade do produto
                 novoCart[itemIndex].quantidade -= 1;
                 setItems(novoCart);
-               alert('01 Item removido!');
+               ToastAlerta('01 Item removido!', "sucesso");
             } else {
                 // Remove o produto se a quantidade for 1
                 novoCart.splice(itemIndex, 1);
                 setItems(novoCart);
-               alert('Produto removido!');
+               ToastAlerta('Produto removido!', "sucesso");
             }
         }
     }
 
     // Função para limpar o carrinho
     function limparCart() {
-       alert('Compra efetuada com sucesso!');
+       ToastAlerta('Compra efetuada com sucesso!', "sucesso");
         setItems([]);
     }
 

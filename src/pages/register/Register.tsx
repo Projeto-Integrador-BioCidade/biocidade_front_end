@@ -1,6 +1,6 @@
 import imagem from "../../assets/biocidade_bg.png";
 import { Link, useNavigate } from "react-router-dom";
-import { ChangeEvent, ReactNode, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import Usuario from "../../models/usuario";
 import { cadastrarUsuario } from "../../services/Service";
 import { ToastAlerta } from "../../utils/ToastAlerta";
