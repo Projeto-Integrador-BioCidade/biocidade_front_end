@@ -28,37 +28,25 @@ function Navbar() {
   if (usuario.token !== "") {
     component = (
       <>
-        <nav className="w-full bg-bio-City-footer-navbar-color p-6 text-lg">
+        <nav className="w-full bg-bio-City-footer-navbar-color p-6 text-lg shadow-lg">
           <div
-            className={`mx-auto items-center ${isOpen ? "flex-col" : "flex md:justify-between"} justify-start`}
+            className={`flex items-center justify-between`}
           >
-            <div className="flex h-20 md:hidden">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="text-white transition-all duration-500 ease-in-out  hover:text-white focus:outline-none"
-              >
-                {isOpen ? (
-                  <List size={28} color="gray" />
-                ) : (
-                  <List size={28} color="black" />
-                )}
-              </button>
-            </div>
-            <Link to={"/"}>
+            <Link to={"/"} className="order-2 md:order-1">
               <img
-                className={`mx-4 h-20 rounded-full ${isOpen ? "hidden" : "block"}`}
+                className={`h-[10vh] w-[10vh] rounded-full`}
                 src="src/assets/navbar_logo.png"
                 alt="Logo BioCidade"
               />
             </Link>
 
-            <div>
+            <div className="order-3 w-2/4 md:w-1/3">
               <form action="" className="flex">
                 <input
                   type="text"
                   id="pesquisa"
                   name="pesquisa"
-                  className="m-2 ml-14 h-9 w-64 rounded-full border-2 border-solid px-2 placeholder:px-1 placeholder:italic placeholder:text-slate-400 enabled:hover:border-gray-400 sm:w-3/4 md:w-3/5 lg:w-72 xl:w-96"
+                  className="w-full rounded-full border-2 border-solid placeholder:px-1 placeholder:italic placeholder:text-slate-400 enabled:hover:border-gray-400"
                   placeholder="Pesquisar produtos"
                 />
                 <button>
@@ -66,11 +54,19 @@ function Navbar() {
                 </button>
               </form>
             </div>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden"
+            >
+              <List size={28} color="black" weight={`${isOpen ? "light" : "bold"}`} />
+            </button>
 
             <div
-              className={`w-full md:flex md:w-auto ${isOpen ? "block" : "hidden"} `}
+              className={`absolute top-28 left-0 bg-bio-City-footer-navbar-color z-10 rounded-lg shadow-lg transition-all duration-500 ease-in-out ${isOpen ? "h-[50vh]" : "h-0"} 
+                          md:relative md:top-0 md:shadow-none md:h-auto md:order-3`}
             >
-              <ul className="flex flex-col text-nowrap font-sans p-3  gap-2 text-lg md:flex-row md:items-center md:gap-3 md:text-sm lg:gap-5 lg:text-lg">
+              <ul className={`flex flex-col text-nowrap p-3 gap-2 text-lg uppercase transition-all duration-500 ease-in-out active:*:font-bold ${isOpen ? "pointer-events-auto" : "opacity-0 pointer-events-none"}
+                              md:flex-row md:opacity-100 md:pointer-events-auto`}>
                 <Link to={"/"}>
                   <li className="text-white transition-all duration-500 ease-in-out hover:text-white">
                     Home
@@ -113,29 +109,32 @@ function Navbar() {
                   ""
                 )}
 
-                {usuario.token !== "" ? (
-                  <Link to="/cart">
-                    <ShoppingCart size={24} />
-                  </Link>
-                ) : (
-                  ""
-                )}
+                <div className="flex justify-between items-end">
 
-                {usuario.token !== "" ? (
-                  <Link to={"/perfil"}>
-                    <User size={24} color="black" />
-                  </Link>
-                ) : (
-                  ""
-                )}
+                  {usuario.token !== "" ? (
+                    <Link to="/cart">
+                      <ShoppingCart size={32} />
+                    </Link>
+                  ) : (
+                    ""
+                  )}
 
-                {usuario.token !== "" ? (
-                  <Link to="" onClick={logout} title="Sair">
-                    <SignOut size={24} color="black" />
-                  </Link>
-                ) : (
-                  ""
-                )}
+                  {usuario.token !== "" ? (
+                    <Link to={"/perfil"}>
+                      <User size={32} color="black" />
+                    </Link>
+                  ) : (
+                    ""
+                  )}
+
+                  {usuario.token !== "" ? (
+                    <Link to="" onClick={logout} title="Sair">
+                      <SignOut size={32} color="black" />
+                    </Link>
+                  ) : (
+                    ""
+                  )}
+                </div>
               </ul>
             </div>
           </div>
