@@ -63,7 +63,7 @@ function ListCategory() {
 
  <h2 className="pl-4 border-l-4 ml-4 pt-4 pb-4 border-bio-City-footer-navbar-color text-4xl font-bold">Categorias</h2>
  
-      <div className="flex justify-center bg-bio-City-cream">
+      <div className="flex items-center justify-center bg-bio-City-cream h-[63vh]">
         <div className="container flex flex-col">
           <div className="grid grid-cols-1 gap-8 p-4 md:grid-cols-2 lg:grid-cols-3">
             {categorias.map((categoria) => (

@@ -1,5 +1,5 @@
 import Carrossel from "../../components/carrossel/Carrossel";
-import ListCategory from "../../components/category/list/ListCategory";
+// import ListCategory from "../../components/category/list/ListCategory";
 import ListProduct from "../../components/product/list/ListProduct";
 
 function Home() {
@@ -12,10 +12,10 @@ function Home() {
             <h2 className="m-6 pl-4 border-l-4 border-bio-City-footer-navbar-color text-4xl font-bold">Novidades</h2>
             <ListProduct />
           </div>
-          <hr className="mt-6 mb-4 border border-b-0 border-black opacity-50" />
+          {/* <hr className="mt-6 mb-4 border border-b-0 border-black opacity-50" /> */}
           <div>
             <div className="h-[30vh]">
-              <ListCategory />
+              {/* <ListCategory /> */}
             </div>
           </div>
         </div>
