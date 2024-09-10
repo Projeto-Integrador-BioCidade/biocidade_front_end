@@ -54,7 +54,7 @@ function login() {
                 name="usuario"
                 placeholder="Insira seu E-mail"
                 className="h-10 rounded-lg p-2"
-                value={usuarioLogin.usuario}
+                value={usuarioLogin.usuario || ""}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   atualizarEstado(e)
                 }
@@ -68,7 +68,7 @@ function login() {
                 name="senha"
                 placeholder="Insira sua senha"
                 className="h-10 rounded-lg p-2"
-                value={usuarioLogin.senha}
+                value={usuarioLogin.senha || ""}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   atualizarEstado(e)
                 }
