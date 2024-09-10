@@ -4,7 +4,6 @@ import AuthContext from "../../../contexts/AuthContext";
 import Produto from "../../../models/produto";
 import { buscar } from "../../../services/Service";
 import CardProduct from "../card/CardProduct";
-import { DNA } from "react-loader-spinner";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function ListProduct() {
@@ -34,16 +33,41 @@ function ListProduct() {
 
   return (
     <>
-      {produtos.length === 0 && (
-        <DNA
-          visible={true}
-          height="200"
-          width="200"
-          ariaLabel="dna-loading"
-          wrapperStyle={{}}
-          wrapperClass="dna-wrapper mx-auto"
-        />
-      )}
+{produtos.length === 0 && (
+    <div className="flex justify-center w-full my-4">
+        <div className="container flex flex-col">
+            <div className="grid grid-cols-3 gap-8">
+                {[1, 2, 3].map((_, index) => (
+                    <div 
+                        key={index} 
+                        className="border flex flex-col rounded-2xl overflow-hidden justify-between bg-white shadow-md animate-pulse"
+                    >
+                        {/* Imagem (borrada) */}
+                        <div className="h-48 bg-gray-300"></div>
+
+                        {/* Título (borrado) */}
+                        <div className="py-2 px-6">
+                            <div className="h-4 bg-gray-300 rounded w-3/4 mx-auto"></div>
+                        </div>
+
+                        {/* Descrição e Preço (borrado) */}
+                        <div className="p-4 bg-gray-50 flex-grow flex flex-col items-center">
+                            <div className="h-4 bg-gray-300 rounded w-full mb-4"></div>
+                            <div className="h-4 bg-gray-300 rounded w-5/6 mb-4"></div>
+                            <div className="h-6 bg-gray-300 rounded w-1/3"></div>
+                        </div>
+
+                        {/* Botão Comprar" */}
+                        <div className="flex">
+                            <div className="w-full bg-gray-300 h-10"></div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+)}
+
       <div className="flex justify-center bg-bio-City-cream">
         <div className="container my-4 flex flex-col">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">

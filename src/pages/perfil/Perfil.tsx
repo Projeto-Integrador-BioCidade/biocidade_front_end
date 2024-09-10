@@ -22,12 +22,12 @@ function Perfil() {
       />
 
       <img
-        className="relative z-10 mx-auto mt-[-8rem] h-52 w-52 rounded-full border-8 border-bio-City-footer-navbar-color"
+        className="relative z-10 mx-auto mt-[-8rem] h-52 w-52 rounded-full border-8 border-white"
         src={usuario.foto}
         alt={`Foto de perfil de ${usuario.nome}`}
       />
 
-      <div className="relative flex h-60 flex-col items-center justify-center text-2xl">
+      <div className="relative mt-[-6rem] h-72 flex flex-col bg-slate-400 text-white text-2xl items-center justify-center">
         <p>Nome: {usuario.nome} </p>
         <p>Email: {usuario.usuario}</p>
         <p>Tipo de Usuário: {usuario.tipo}</p>
@@ -37,3 +37,7 @@ function Perfil() {
 }
 
 export default Perfil;
+
+
+
+

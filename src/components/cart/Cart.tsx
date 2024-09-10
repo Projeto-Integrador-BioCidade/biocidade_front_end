@@ -7,8 +7,8 @@ function Cart() {
     useContext(CartContext);
 
   return (
-    <div className="flex flex-col justify-center bg-gray-200">
-      <h1 className="my-4 text-center text-4xl">Carrinho de Compras</h1>
+    <div className="flex flex-col justify-center bg-bio-City-cream">
+      <h2 className="pl-4 border-l-4 ml-4 pt-4 pb-4 border-bio-City-footer-navbar-color text-4xl font-bold">Seu Carrinho</h2>
       <h2 className="my-4 text-center text-2xl">
         {items.length === 0 ? "O Carrinho está vazio!" : ""}
       </h2>
@@ -19,7 +19,7 @@ function Cart() {
       </div>
       <div className="text-center text-lg">
         <p>
-          <span className="font-semibold">Total de items adicionados: </span>
+          <span className="font-semibold text-black ">Total de items adicionados: </span>
           {quantidadeItems}
         </p>
         <p>
@@ -31,7 +31,7 @@ function Cart() {
         </p>
       </div>
       <button
-        className="mx-auto mt-8 flex w-1/4 justify-center rounded bg-slate-400 py-2 text-slate-100 hover:bg-slate-800"
+        className="mx-auto mb-10 mt-8 flex w-1/4 justify-center rounded bg-teal-600 py-2 text-slate-100 hover:bg-teal-900"
         type="submit"
         disabled={items.length === 0 ? true : false}
         onClick={limparCart}
