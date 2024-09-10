@@ -10,6 +10,7 @@ interface CardProdutoProps {
 
 function CardProdutos({ produto }: CardProdutoProps) {
   const { adicionarProduto } = useContext(CartContext);
+  
 
   return (
     <div className="my-2 flex flex-col justify-between overflow-hidden rounded-lg bg-white">
@@ -31,7 +32,7 @@ function CardProdutos({ produto }: CardProdutoProps) {
         />
 
         <div className="p-4">
-          <p className="text-center text-sm uppercase">{produto.nome}</p>
+          <p className="text-center text-sm uppercase">{produto.descricao}</p>
           <h3 className="text-center text-xl font-bold uppercase">
             {Intl.NumberFormat("pt-BR", {
               style: "currency",

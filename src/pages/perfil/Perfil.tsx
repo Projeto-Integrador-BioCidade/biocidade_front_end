@@ -22,7 +22,7 @@ function Perfil() {
       />
 
       <img
-        className="relative z-10 mx-auto mt-[-8rem] h-52 w-52 rounded-full border-8 border-bio-City-main-green"
+        className="relative z-10 mx-auto mt-[-8rem] h-52 w-52 rounded-full border-8 border-bio-City-footer-navbar-color"
         src={usuario.foto}
         alt={`Foto de perfil de ${usuario.nome}`}
       />

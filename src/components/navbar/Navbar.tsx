@@ -9,6 +9,7 @@ import {
   SignOut,
   User,
 } from "@phosphor-icons/react";
+import { ToastAlerta } from "../../utils/ToastAlerta";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +19,7 @@ function Navbar() {
 
   function logout() {
     handleLogout();
-    alert("O usuário foi desconectado!");
+    ToastAlerta("O usuário foi desconectado!", "info");
     navigate("/");
   }
 
@@ -34,7 +35,7 @@ function Navbar() {
             <div className="flex h-20 md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-white transition-all duration-500 ease-in-out hover:text-white focus:outline-none"
+                className="text-white transition-all duration-500 ease-in-out  hover:text-white focus:outline-none"
               >
                 {isOpen ? (
                   <List size={28} color="gray" />
@@ -46,7 +47,7 @@ function Navbar() {
             <Link to={"/"}>
               <img
                 className={`mx-4 h-20 rounded-full ${isOpen ? "hidden" : "block"}`}
-                src="src/assets/logoBioCidade.png"
+                src="src/assets/navbar_logo.png"
                 alt="Logo BioCidade"
               />
             </Link>
@@ -57,7 +58,7 @@ function Navbar() {
                   type="text"
                   id="pesquisa"
                   name="pesquisa"
-                  className="m-2 h-7 w-32 rounded-full border-2 border-solid border-green-400 px-2 placeholder:px-1 placeholder:italic placeholder:text-slate-400 enabled:hover:border-gray-400 sm:w-3/4 md:w-4/5 lg:w-72 xl:w-96"
+                  className="m-2 ml-14 h-9 w-64 rounded-full border-2 border-solid px-2 placeholder:px-1 placeholder:italic placeholder:text-slate-400 enabled:hover:border-gray-400 sm:w-3/4 md:w-3/5 lg:w-72 xl:w-96"
                   placeholder="Pesquisar produtos"
                 />
                 <button>
@@ -69,7 +70,7 @@ function Navbar() {
             <div
               className={`w-full md:flex md:w-auto ${isOpen ? "block" : "hidden"} `}
             >
-              <ul className="flex flex-col text-nowrap font-sans text-xs md:flex-row md:items-center md:gap-3 md:text-sm lg:gap-5 lg:text-lg">
+              <ul className="flex flex-col text-nowrap font-sans p-3  gap-2 text-lg md:flex-row md:items-center md:gap-3 md:text-sm lg:gap-5 lg:text-lg">
                 <Link to={"/"}>
                   <li className="text-white transition-all duration-500 ease-in-out hover:text-white">
                     Home
