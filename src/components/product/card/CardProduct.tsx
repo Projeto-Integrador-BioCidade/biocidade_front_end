@@ -49,7 +49,7 @@ function CardProdutos({ produto }: CardProdutoProps) {
         />
 
         <div className="p-2">
-          <p className="text-center text-sm uppercase">{produto.descricao}</p>
+          <p className="text-center text-sm uppercase">{produto.nome}</p>
           <h3 className="text-center text-xl font-bold uppercase">
             {Intl.NumberFormat("pt-BR", {
               style: "currency",

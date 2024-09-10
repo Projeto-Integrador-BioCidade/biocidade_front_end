@@ -7,6 +7,7 @@ function Slide01() {
                 bg-bio-City-light-green
                 flex 
                 justify-center
+                h-[100%]
                 ">
             <div className='
                     container 
@@ -17,14 +18,18 @@ function Slide01() {
                 <div className="
                         flex 
                         flex-col 
-                        gap-4 
+                        md:gap-4 
                         items-center 
                         justify-center 
-                        py-4
-                        ">
+                        md:py-4
+                        lg:mt-0
+                    ">
                     <h2 className='
-                            text-5xl 
+                            ml-14
+                            text-xl
                             font-bold
+                            md:text-5xl
+                            lg:text-4xl
                             '>
                         Conheça nossos parceiros e descubra seus produtos sustentáveis, feitos com carinho e responsabilidade!
                     </h2>
@@ -46,7 +51,7 @@ function Slide01() {
                     <img
                         src="https://i.imgur.com/VpRUgHY.png"
                         alt="Imagem Página Home"
-                        className='w-2/3'
+                        className='md:w-2/3'
                     />
                 </div>
             </div>
