@@ -28,7 +28,7 @@ function Navbar() {
   if (usuario.token !== "") {
     component = (
       <>
-        <nav className="w-full bg-bio-City-footer-navbar-color p-6 text-lg shadow-lg">
+        <nav className="w-full bg-bio-City-cream p-6 text-lg shadow-lg">
           <div
             className={`flex items-center justify-between`}
           >
@@ -41,7 +41,7 @@ function Navbar() {
             </Link>
 
             <div className="order-3 w-2/4 md:w-1/3">
-              <form action="" className="flex">
+              <form action="" className="flex gap-3">
                 <input
                   type="text"
                   id="pesquisa"
@@ -62,24 +62,24 @@ function Navbar() {
             </button>
 
             <div
-              className={`absolute top-28 left-0 bg-bio-City-footer-navbar-color z-10 rounded-lg shadow-lg transition-all duration-500 ease-in-out ${isOpen ? "h-[50vh]" : "h-0"} 
+              className={`absolute top-28 left-0 bg-bio-City-cream z-10 rounded-lg shadow-lg transition-all duration-500 ease-in-out ${isOpen ? "h-[50vh]" : "h-0"} 
                           md:relative md:top-0 md:shadow-none md:h-auto md:order-3`}
             >
-              <ul className={`flex flex-col text-nowrap p-3 gap-2 text-lg uppercase transition-all duration-500 ease-in-out active:*:font-bold ${isOpen ? "pointer-events-auto" : "opacity-0 pointer-events-none"}
+              <ul className={`flex flex-col text-nowrap p-3 gap-4 text-lg uppercase transition-all duration-500 ease-in-out active:*:font-bold ${isOpen ? "pointer-events-auto" : "opacity-0 pointer-events-none"}
                               md:flex-row md:opacity-100 md:pointer-events-auto`}>
                 <Link to={"/"}>
-                  <li className="text-white transition-all duration-500 ease-in-out hover:text-white">
+                  <li className="text-black font-semibold transition-all duration-500 ease-in-out hover:text-white">
                     Home
                   </li>
                 </Link>
                 <Link to={"/products"}>
-                  <li className="text-white transition-all duration-500 ease-in-out hover:text-white">
+                  <li className="text-black font-semibold transition-all duration-500 ease-in-out hover:text-white">
                     Produtos
                   </li>
                 </Link>
                 {usuario.tipo === "VENDEDOR" ? (
                   <Link to="/cadproducts">
-                    <li className="text-white transition-all duration-500 ease-in-out hover:text-white">
+                    <li className="text-black font-semibold transition-all duration-500 ease-in-out hover:text-white">
                       Cadastrar Produtos
                     </li>
                   </Link>
@@ -88,13 +88,13 @@ function Navbar() {
                 )}
 
                 <Link to={"/categories"}>
-                  <li className="text-white transition-all duration-500 ease-in-out hover:text-white">
+                  <li className="text-black font-semibold transition-all duration-500 ease-in-out hover:text-white">
                     Categoria
                   </li>
                 </Link>
                 {usuario.token === "" ? (
                   <Link to={"/register"}>
-                    <li className="text-white transition-all duration-500 ease-in-out hover:text-white">
+                    <li className="text-black font-semibold transition-all duration-500 ease-in-out hover:text-white">
                       Cadastre-se
                     </li>
                   </Link>
@@ -109,7 +109,7 @@ function Navbar() {
                   ""
                 )}
 
-                <div className="flex justify-between items-end">
+                <div className="flex gap-4 justify-between items-end">
 
                   {usuario.token !== "" ? (
                     <Link to="/cart">

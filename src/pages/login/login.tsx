@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import imagem from "../../assets/biocidade_bg.png";
+import imagem from "../../assets/login.png";
 import { ChangeEvent,  useContext, useEffect, useState } from "react";
 import UsuarioLogin from "../../models/usuarioLogin";
 import AuthContext from "../../contexts/AuthContext";
@@ -38,7 +38,7 @@ function login() {
     <>
       <div className="flex h-[100vh] w-full items-center justify-center bg-bio-City-cream">
         <div className="hidden w-1/2 items-center justify-center md:flex">
-          <img src={imagem} className="max-w-[65%]" alt="" />
+          <img src={imagem} className="h-auto w-[80wh]" alt="" />
         </div>
         <div className="flex w-full items-center justify-center p-5 md:w-1/2">
           <form
