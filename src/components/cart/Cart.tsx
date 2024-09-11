@@ -23,7 +23,7 @@ function Cart() {
     }
   return (
     <div className="flex flex-col justify-center bg-bio-City-cream">
-      <h2 className="pl-4 border-l-4 ml-4 mt-6 pt-4 pb-4 border-bio-City-footer-navbar-color text-4xl font-bold">Seu Carrinho</h2>
+      <h2 className="pl-4 border-l-4 ml-4 mt-6 pt-4 pb-4 border-verde-um text-4xl font-bold">Seu Carrinho</h2>
       <h2 className="my-4 text-center text-2xl">
         {items.length === 0 ? "O Carrinho está vazio!" : ""}
       </h2>
@@ -46,7 +46,7 @@ function Cart() {
         </p>
       </div>
       <button
-        className="mx-auto mb-10 mt-8 flex w-1/4 justify-center rounded bg-teal-600 py-2 text-slate-100 hover:bg-teal-900"
+        className="mx-auto mb-10 mt-8 flex w-1/4 justify-center rounded bg-verde-tres py-2 text-slate-100 hover:bg-verde-dois"
         type="submit"
         disabled={items.length === 0 ? true : false}
         onClick={handleFinalizarCompra}

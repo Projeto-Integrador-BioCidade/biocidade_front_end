@@ -22,7 +22,7 @@ function CardCart({ item }: CardProdutosProps) {
           <p className="mb-2 text-center text-base font-semibold text-gray-800">
             {item.nome}
           </p>
-          <h3 className="text-center text-2xl font-extrabold text-teal-800">
+          <h3 className="text-center text-2xl font-extrabold text-teal-500">
             {Intl.NumberFormat("pt-BR", {
               style: "currency",
               currency: "BRL",
@@ -40,13 +40,13 @@ function CardCart({ item }: CardProdutosProps) {
 
       <div className="flex flex-wrap">
         <button
-          className="flex w-1/2 items-center justify-center bg-teal-500 py-2 text-slate-100 transition-all hover:bg-teal-600"
+          className="flex w-1/2 items-center justify-center bg-verde-tres py-2 text-slate-100 transition-all hover:bg-verde-dois"
           onClick={() => aumentarProduto(item.id)}
         >
           <Plus size={32} />
         </button>
         <button
-          className="flex w-1/2 items-center justify-center bg-teal-700 py-2 text-slate-100 transition-all hover:bg-red-950"
+          className="flex w-1/2 items-center justify-center bg-verde-dois py-2 text-slate-100 transition-all hover:bg-red-950"
           onClick={() => removerProduto(item.id)}
         >
           <Minus size={32} />

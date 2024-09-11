@@ -40,7 +40,7 @@ function login() {
   return (
     <>
       <div className="flex h-[100vh] w-full items-center justify-center bg-bio-City-cream">
-        <div className="absolute left-8 top-8">
+        <div className="absolute left-8 top-8 font-semibold">
           {usuario.token === "" ? (
             // Se o token do usuário for vazio, exibe a imagem
             <div className="flex gap-4">
@@ -60,9 +60,9 @@ function login() {
             onSubmit={login}
             className="flex w-[500px] flex-col items-center justify-center gap-4 *:rounded-lg"
           >
-            <h2 className="font-roboto text-5xl font-bold">Faça Login!</h2>
+            <h2 className="mb-4 font-roboto text-5xl font-bold">Faça Login!</h2>
             <div className="flex w-full flex-col">
-              <label htmlFor="usuario">E-mail</label>
+              <label className="font-bold" htmlFor="usuario">E-mail</label>
               <input
                 type="text"
                 id="usuario"
@@ -76,7 +76,7 @@ function login() {
               />
             </div>
             <div className="flex w-full flex-col">
-              <label htmlFor="senha">Senha</label>
+              <label className="font-bold" htmlFor="senha">Senha</label>
               <input
                 type="password"
                 id="senha"
@@ -91,7 +91,7 @@ function login() {
             </div>
             <button
               type="submit"
-              className="flex h-10 w-full items-center justify-center bg-lime-500 hover:bg-lime-700"
+              className="flex h-10 w-full items-center justify-center bg-verde-tres hover:bg-verde-dois"
             >
               {isLoading ? (
                 <RotatingLines
@@ -112,7 +112,7 @@ function login() {
               Ainda não tem uma conta?{" "}
               <Link
                 to="/register"
-                className="font-bold text-lime-800 hover:underline"
+                className="font-bold text-verde-um hover:underline"
               >
                 Cadastre-se
               </Link>

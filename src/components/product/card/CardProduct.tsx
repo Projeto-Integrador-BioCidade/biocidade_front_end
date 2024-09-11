@@ -32,13 +32,22 @@ function CardProdutos({ produto }: CardProdutoProps) {
   return (
     <div className="my-2 flex flex-col justify-between overflow-hidden rounded-lg bg-white">
       <div className="flex items-end justify-end pr-2 pt-2">
-        <Link to={`/editarproduto/${produto.id}`}>
+        {usuario.tipo === "VENDEDOR" ? (
+          <Link to={`/editarproduto/${produto.id}`}>
           <Pencil size={24} className="mr-1 hover:fill-teal-700" />
         </Link>
+        ):(
+          ""
+        )}
 
-        <Link to={`/deletarproduto/${produto.id}`}>
+        {usuario.tipo === "VENDEDOR" ? (
+          <Link to={`/deletarproduto/${produto.id}`}>
           <Trash size={24} className="mr-1 hover:fill-red-700" />
         </Link>
+        ):(
+          ""
+        )}
+        
       </div>
 
       <div className="mt-1">
@@ -63,16 +72,16 @@ function CardProdutos({ produto }: CardProdutoProps) {
       </div>
       <div className="flex">
         <button
-          className="flex w-3/4 items-center justify-center border-b bg-teal-600 py-2 font-bold uppercase text-white transition-all duration-300 ease-in-out hover:bg-teal-900"
+          className="flex w-3/4 items-center justify-center bg-verde-tres py-2 font-bold uppercase text-white transition-all duration-300 ease-in-out hover:bg-verde-dois"
           onClick={comprar}
         >
           Comprar
         </button>
         <button
-          className="flex w-1/4 items-center justify-center bg-teal-500 py-2 text-white transition-all duration-300 ease-in-out hover:bg-teal-900"
+          className="flex w-1/4 items-center justify-center bg-verde-tres py-2 text-white transition-all duration-300 ease-in-out hover:bg-verde-dois"
           onClick={() => adionarItemCarrinho()}
         >
-          <ShoppingCart size={32} />
+          <ShoppingCart size={28} />
         </button>
       </div>
     </div>

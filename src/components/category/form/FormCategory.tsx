@@ -98,7 +98,7 @@ function FormCategory() {
   return (
     <div className="container mx-auto flex flex-col items-center justify-center">
       <h1 className="my-8 text-center text-4xl">
-        {id === undefined ? "Cadastre um novo categoria" : "Editar categoria"}
+        {id === undefined ? "Cadastre uma nova categoria" : "Editar categoria"}
       </h1>
       <form
         className="flex w-full flex-col gap-4 md:w-1/2"

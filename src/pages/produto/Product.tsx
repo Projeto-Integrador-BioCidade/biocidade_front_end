@@ -71,7 +71,7 @@ function Product() {
             }).format(produto.preco)}
           </p>
           <button
-            className="mt-6 rounded-lg bg-green-500 px-4 py-2 text-white transition duration-300 hover:bg-green-600"
+            className="mt-6 rounded-lg bg-verde-tres px-4 py-2 text-white transition duration-300 hover:bg-verde-dois"
             onClick={comprar}
           >
             Comprar

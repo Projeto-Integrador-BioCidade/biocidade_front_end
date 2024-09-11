@@ -15,6 +15,11 @@ export default {
         "bio-City-green": "#B9DC81",
         "bio-City-light-green": "#B6CF8D",
         "bio-City-cream": "#e8ceb3",
+        "verde-um": "#172B23",
+        "verde-dois": "#436045",
+        "verde-tres": "#7A9B7F",
+        "verde-quatro": "#CFE0BC",
+        "verde-cinco": "#EDF0E0"
       },
 
       padding: {

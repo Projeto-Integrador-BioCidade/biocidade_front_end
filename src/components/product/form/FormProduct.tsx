@@ -139,56 +139,56 @@ function FormProduct() {
 
   return (
     <div className="container mx-auto flex h-screen flex-col items-center justify-start">
-      <h1 className="text-center text-4xl">
+      <h1 className="text-center text-4xl mb-8 font-semibold">
         {id === undefined ? "Cadastre um novo produto" : "Editar produto"}
       </h1>
 
       <form className="flex w-1/2 flex-col gap-4" onSubmit={gerarNovoProduto}>
         <div className="flex flex-col gap-2">
-          <label htmlFor="descricao">Descrição do produto</label>
+        <label className="font-bold" htmlFor="nome">Nome</label>
           <input
             type="text"
-            placeholder="Descrição"
+            placeholder="Insira o nome do seu produto"
+            name="nome"
+            className="rounded-full border-2 border-slate-700 p-2"
+            value={produto.nome}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+          />
+          <label className="font-bold" htmlFor="descricao">Descrição</label>
+          <input
+            type="text"
+            placeholder="Descreva o seu produto"
             name="descricao"
-            className="rounded border-2 border-slate-700 p-2"
+            className="rounded-full border-2 border-slate-700 p-2"
             value={produto.descricao}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
-          <label htmlFor="preco">Preço</label>
+          <label className="font-bold" htmlFor="preco">Preço</label>
           <input
             type="number"
             step=".01"
-            placeholder="Preço do produto"
+            placeholder="Insira o preço do seu produto"
             name="preco"
-            className="rounded border-2 border-slate-700 p-2"
+            className="rounded-full border-2 border-slate-700 p-2"
             value={produto.preco}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
-          <label htmlFor="descricao">Imagem do produto</label>
+          <label className="font-bold" htmlFor="descricao">Imagem</label>
           <input
             type="text"
-            placeholder="Imagem do produto"
+            placeholder="Insira a imagem do produto"
             name="imagem_produto"
-            className="rounded border-2 border-slate-700 p-2"
+            className="rounded-full border-2 border-slate-700 p-2"
             value={produto.imagem_produto}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-          />
-          <label htmlFor="nome">Nome do produto</label>
-          <input
-            type="text"
-            placeholder="nome"
-            name="nome"
-            className="rounded border-2 border-slate-700 p-2"
-            value={produto.nome}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
         </div>
         <div className="flex flex-col gap-2">
-          <p>Tema da Categoria</p>
+          <p className="font-bold">Tema da Categoria</p>
           <select
             name="tema"
             id="tema"
-            className="rounded border border-slate-800 p-2"
+            className="rounded-full border-2 border-slate-800 p-2"
             onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
           >
             <option value="" selected disabled>
@@ -203,11 +203,11 @@ function FormProduct() {
         </div>
         <button
           disabled={carregandoCategoria}
-          className="mx-auto block w-1/2 rounded bg-indigo-400 py-2 text-slate-100 hover:bg-indigo-800"
+          className="mx-auto font-semibold block w-1/2 rounded bg-verde-tres py-2 text-slate-100 hover:bg-verde-dois"
           type="submit"
         >
           {carregandoCategoria ? (
-            <span>Carregando</span>
+            <span>Cadastrar</span>
           ) : id !== undefined ? (
             "Editar"
           ) : (

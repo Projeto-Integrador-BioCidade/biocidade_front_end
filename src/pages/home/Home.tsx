@@ -8,7 +8,7 @@ function Home() {
         <Carrossel />
         <div className="mx-10">
           <div>
-            <h2 className="m-6 border-l-4 border-bio-City-footer-navbar-color pl-4 text-4xl font-bold">
+            <h2 className="m-6 border-l-4 border-verde-um pl-4 text-4xl font-bold">
               Novidades
             </h2>
             <ListProduct />

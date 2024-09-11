@@ -9,7 +9,7 @@ function Footer() {
             <Link to="/Contact">Contato</Link>
             <Link to="/About">Sobre</Link>
             <Link to="https://linktr.ee/biocidade" target="_blank">
-              Github
+              Linktree
             </Link>
           </div>
           <p className="p-4 text-center text-lg">

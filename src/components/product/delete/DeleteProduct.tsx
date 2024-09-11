@@ -58,7 +58,7 @@ function DeleteProduct() {
 
   return (
     <div className="flex justify-center py-50p">
-      <div className="flex min-w-[300px] max-w-[500px] flex-col gap-4 rounded-lg border border-black p-2">
+      <div className="bg-verde-cinco flex min-w-[300px] max-w-[500px] flex-col gap-4 rounded-lg border border-[#C3C3C3] p-2">
         <div className="p-4">
           <h1 className="m-2 text-center text-2xl font-bold">
             Deletar Produto
@@ -78,7 +78,7 @@ function DeleteProduct() {
             </button>
             <button
               onClick={deletarProduto}
-              className="flex w-3/6 items-center justify-center rounded-xl bg-bio-City-main-green font-bold transition ease-in-out hover:bg-lime-400"
+              className="flex w-3/6 items-center justify-center rounded-xl bg-verde-tres font-bold transition ease-in-out hover:bg-verde-dois"
             >
               Sim
             </button>

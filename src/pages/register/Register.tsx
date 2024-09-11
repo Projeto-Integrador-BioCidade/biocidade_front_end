@@ -118,7 +118,7 @@ function Register() {
             className="h-12 rounded-lg p-2"
           />
           <label className="font-bold" htmlFor="Usuario">
-            Email
+            E-mail
           </label>
           <input
             type="email"
@@ -138,7 +138,7 @@ function Register() {
             value={usuario.foto || ""}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             id="foto"
-            placeholder="Insira o link de sua foto"
+            placeholder="Insira o link da sua foto"
             className="h-12 rounded-lg p-2"
           />
           <label className="font-bold" htmlFor="Senha">
@@ -150,13 +150,13 @@ function Register() {
             value={usuario.senha || ""}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             id="Senha"
-            placeholder="Insira seu Senha"
+            placeholder="Insira sua senha"
             className="h-12 rounded-lg p-2"
           />
           {senhaTamanho && <span>Mínimo: 8 digitos</span>}
 
           <label className="font-bold" htmlFor="confirmesuasenha">
-            Confirme sua senha
+            Confirmação
           </label>
           <input
             type="password"
@@ -185,12 +185,12 @@ function Register() {
                     className="peer hidden"
                   />
                   <span
-                    className={`rounded-lg rounded-r-none px-7 py-2 transition-colors duration-300 ${isSeller ? "bg-bio-City-input-color text-black" : "bg-gray-500 text-black"}`}
+                    className={`rounded-lg rounded-r-none px-7 py-2 transition-colors duration-300 ${isSeller ? "bg-gray-400 text-black" : "bg-green-600 text-black"}`}
                   >
                     Sim
                   </span>
                   <span
-                    className={`rounded-lg rounded-l-none px-7 py-2 transition-colors duration-300 ${isSeller ? "bg-gray-500 text-black" : "bg-bio-City-input-color text-black"}`}
+                    className={`rounded-lg rounded-l-none px-7 py-2 transition-colors duration-300 ${isSeller ? "bg-green-600 text-black" : "bg-gray-400 text-black"}`}
                   >
                     Não
                   </span>
@@ -201,13 +201,13 @@ function Register() {
           <div className="flex w-full items-center justify-center gap-2">
             <button
               type="submit"
-              className="w-full rounded-lg bg-bio-City-main-green p-2 font-bold"
+              className="w-full rounded-lg bg-green-600 p-2 font-bold"
             >
               Cadastrar-se
             </button>
             <button
               onClick={retornar}
-              className="flex w-full justify-center rounded-lg bg-gray-500 p-2"
+              className="flex w-full justify-center bg-gray-400 rounded-lg bg- p-2"
             >
               Cancelar
             </button>
