@@ -1,9 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
 import imagem from "../../assets/login.png";
-import { ChangeEvent,  useContext, useEffect, useState } from "react";
+import { ChangeEvent, useContext, useEffect, useState } from "react";
 import UsuarioLogin from "../../models/usuarioLogin";
 import AuthContext from "../../contexts/AuthContext";
 import { RotatingLines } from "react-loader-spinner";
+import { ArrowLeft } from "@phosphor-icons/react";
 
 function login() {
   const navigate = useNavigate();
@@ -32,11 +33,25 @@ function login() {
 
     handleLogin(usuarioLogin);
   }
-
+  const retornar = () => {
+    navigate("/");
+  };
 
   return (
     <>
       <div className="flex h-[100vh] w-full items-center justify-center bg-bio-City-cream">
+        <div className="absolute left-8 top-8">
+          {usuario.token === "" ? (
+            // Se o token do usuário for vazio, exibe a imagem
+            <div className="flex gap-4">
+              <ArrowLeft size={28} />
+              <button onClick={retornar}>Retornar a página inicial</button>
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+
         <div className="hidden w-1/2 items-center justify-center md:flex">
           <img src={imagem} className="h-[90%] w-[90%]" alt="" />
         </div>

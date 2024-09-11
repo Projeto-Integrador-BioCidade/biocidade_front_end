@@ -1,5 +1,5 @@
 import imagem from "../../assets/biocidade_bg.png";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ChangeEvent, useEffect, useState } from "react";
 import Usuario from "../../models/usuario";
 import { cadastrarUsuario } from "../../services/Service";
@@ -87,6 +87,10 @@ function Register() {
     }
   }
 
+  function retornar() {
+    navigate("/login");
+  }
+
   return (
     <div className="flex h-[100vh] w-full items-center justify-center bg-bio-City-cream">
       <div className="hidden w-1/2 items-center justify-center md:flex">
@@ -125,7 +129,7 @@ function Register() {
             placeholder="Insira seu email"
             className="h-12 rounded-lg p-2"
           />
-           <label className="font-bold" htmlFor="Usuario">
+          <label className="font-bold" htmlFor="Usuario">
             Foto
           </label>
           <input
@@ -194,18 +198,19 @@ function Register() {
               </div>
             </div>
           </div>
-          <div className="flex w-full flex-col items-center justify-center gap-2">
+          <div className="flex w-full items-center justify-center gap-2">
             <button
               type="submit"
               className="w-full rounded-lg bg-bio-City-main-green p-2 font-bold"
             >
               Cadastrar-se
             </button>
-            <Link to={"/login"} className="w-full rounded-lg bg-gray-500 p-2 flex justify-center">
-              <button className="font-bold">
-                Cancelar
-              </button>
-            </Link>
+            <button
+              onClick={retornar}
+              className="flex w-full justify-center rounded-lg bg-gray-500 p-2"
+            >
+              Cancelar
+            </button>
           </div>
         </form>
       </div>
