@@ -19,7 +19,10 @@ export default {
         "verde-dois": "#436045",
         "verde-tres": "#7A9B7F",
         "verde-quatro": "#CFE0BC",
-        "verde-cinco": "#EDF0E0"
+        "verde-cinco": "#EDF0E0",
+        "fundo-nav": "#F0EDE5",
+        "fundo-botao": "#A9B298",
+        "botao-hover": "#6D7761"
       },
 
       padding: {
