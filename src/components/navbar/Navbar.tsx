@@ -169,7 +169,7 @@ function Navbar() {
 
       <div className={`bg-fundo-nav fixed lg:w-1/3 h-screen z-10 top-0 right-0 shadow-2xl transition-all duration-300 ease-in-out ${asideCart ? "w-full opacity-100" : "w-0 opacity-0 pointer-events-none"}`}>
         <div className="grid grid-cols-3 gap-[30%] justify-center items-center w-full h-[10%] bg-black text-white px-10">
-          <CaretRight onClick={() => setAsideCart(false)} className="w-auto" size={30} />
+          <CaretRight onClick={() => setAsideCart(false)} className="w-auto cursor-pointer" size={30} />
           <h2 className="text-2xl capitalize">carrinho</h2>
         </div>
         <div className="overflow-y-auto h-[65%]">
@@ -189,7 +189,7 @@ function Navbar() {
           </span>
         </div>
         <div className="flex items-center justify-center w-full">
-          <button className="bg-fundo-botao hover:bg-botao-hover w-10/12 py-4 text-3xl rounded shadow-md capitalize">ver carrinho</button>
+          <button className="bg-fundo-botao hover:bg-hover-botao w-10/12 py-4 text-3xl rounded shadow-md capitalize">ver carrinho</button>
         </div>
       </div>
     </>
@@ -199,6 +199,10 @@ function Navbar() {
   } else if (pathname == "/") {
     return <>{component}</>;
   } else if (pathname == "/products") {
+    return <>{component}</>;
+  } else if (pathname == "/about") {
+    return <>{component}</>;
+  }else if (pathname == "/contact") {
     return <>{component}</>;
   }
 }
