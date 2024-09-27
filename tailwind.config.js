@@ -7,6 +7,13 @@ export default {
         roboto: "roboto",
       },
       colors: {
+        "fundo-nav": "#F0EDE5",
+        "fundo-botao": "#A9B298",
+        "hover-botao": "#6D7761",
+
+        "fundo-footer": "#000000",
+        "texto-footer": "#FFFFFF",
+
         "bio-City-footer-navbar-color": "#426212",
         "bio-City-main-green": "#84CC16",
         "bio-City-text-900": "#3a5314",
@@ -20,9 +27,6 @@ export default {
         "verde-tres": "#7A9B7F",
         "verde-quatro": "#CFE0BC",
         "verde-cinco": "#EDF0E0",
-        "fundo-nav": "#F0EDE5",
-        "fundo-botao": "#A9B298",
-        "botao-hover": "#6D7761"
       },
 
       padding: {
