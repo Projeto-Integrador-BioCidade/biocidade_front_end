@@ -62,8 +62,8 @@ function Navbar() {
             <List size={28} color="black" weight={`${isOpen ? "light" : "bold"}`} />
           </button>
           <div className={`
-          transition-all duration-300 ease-in-out absolute left-0 top-20 lg:static rounded-b-lg lg:flex
-          ${isOpen ? "  opacity-100 "
+          transition-all duration-300 ease-in-out absolute left-0 top-20 lg:static rounded-b-lg lg:flex 
+          ${isOpen ? "  opacity-100 shadow-xl border border-opacity-10 border-black"
               : "opacity-0 pointer-events-none lg:opacity-100 lg:pointer-events-auto"} 
             px-8 min-h-35 z-10 py-5 lg:py-0 bg-fundo-nav w-1/2 md:w-auto
           } `}>
@@ -117,7 +117,7 @@ function Navbar() {
             <div
               className={`transition-all duration-200 ease-in-out transform 
       ${menuPerfil ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"} 
-      absolute right-0 top-20 px-8 min-h-35 z-10 pb-7 bg-fundo-nav 
+      absolute right-0 top-20 px-8 min-h-35 z-10 pb-7 bg-fundo-nav shadow-xl border border-opacity-10 border-black
       text-center flex flex-col justify-center rounded-b-lg w-1/2 md:w-auto`}
               onMouseLeave={handleMouseLeave}>
               {usuario.token ? (
