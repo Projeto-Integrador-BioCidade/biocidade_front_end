@@ -23,15 +23,15 @@ function CardProdutos({ produto }: CardProdutoProps) {
   const adionarItemCarrinho = () => {
     usuario.token === "" || usuario.token === null
       ? ToastAlerta(
-          "Você precisa estar logado para adicionar produtos ao carrinho!",
-          "info",
-        )
+        "Você precisa estar logado para adicionar produtos ao carrinho!",
+        "info",
+      )
       : adicionarProduto(produto);
   };
 
   return (
-    <div className="my-2 flex flex-col justify-between overflow-hidden rounded-lg bg-white">
-      <div className="flex items-end justify-end pr-2 pt-2">
+    <div className="rounded-lg w-1/4 h-96">
+      {/* <div className="flex items-end justify-end pr-2 pt-2">
         {usuario.tipo === "VENDEDOR" ? (
           <Link to={`/editarproduto/${produto.id}`}>
           <Pencil size={24} className="mr-1 hover:fill-teal-700" />
@@ -48,40 +48,31 @@ function CardProdutos({ produto }: CardProdutoProps) {
           ""
         )}
         
-      </div>
+      </div> */}
 
-      <div className="mt-1">
+      <div className="cursor-pointer bg-fundo-card flex items-center" onClick={comprar}>
         <img
           src={produto.imagem_produto}
-          className="max-w-75 mx-auto h-44 rounded-xl"
+          className="w-full"
           alt={produto.nome}
         />
-
-        <div className="p-2">
-          <p className="text-center text-sm uppercase">{produto.nome}</p>
-          <h3 className="text-center text-xl font-bold uppercase">
-            {Intl.NumberFormat("pt-BR", {
-              style: "currency",
-              currency: "BRL",
-            }).format(produto.preco)}
-          </h3>
-          <p className="text-center text-sm italic">
-            Categoria: {produto.categoria?.descricao}
-          </p>
-        </div>
       </div>
-      <div className="flex">
+
+      <div className="py-2 capitalize">
+        <p className="">{produto.nome}</p>
+        <h3 className="">
+          {Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(produto.preco)}
+        </h3>
+      </div>
+      <div>
         <button
-          className="flex w-3/4 items-center justify-center bg-verde-tres py-2 font-bold uppercase text-white transition-all duration-300 ease-in-out hover:bg-verde-dois"
-          onClick={comprar}
-        >
-          Comprar
-        </button>
-        <button
-          className="flex w-1/4 items-center justify-center bg-verde-tres py-2 text-white transition-all duration-300 ease-in-out hover:bg-verde-dois"
+          className="flex justify-center w-full py-1 text-black border border-black transition-all duration-300 hover:bg-hover-botao-card rounded"
           onClick={() => adionarItemCarrinho()}
         >
-          <ShoppingCart size={28} />
+          <p>Adicionar ao carrinho</p>
         </button>
       </div>
     </div>

@@ -14,11 +14,11 @@ import {
 } from "@phosphor-icons/react";
 import { ToastAlerta } from "../../utils/ToastAlerta";
 import { CartContext } from "../../contexts/CartContext";
-import CardCart from "../cart/cardcart/CardCart";
+import NavCard from "../cart/NavCard";
 
 function Navbar() {
 
-  const { items, quantidadeItems, valorTotal, limparCart } = useContext(CartContext);
+  const { items, valorTotal } = useContext(CartContext);
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { handleLogout, usuario } = useContext(AuthContext);
@@ -145,7 +145,7 @@ function Navbar() {
                 </div>
               ) : (
                 <div className="capitalize pt-3">
-                  <div className="border-[1px] bg-fundo-botao rounded-lg">
+                  <div className="border-[1px] bg-fundo-botao-nav-cart rounded-lg">
                     <Link className="hover:underline" to="/login">
                       <p>Login</p>
                     </Link>
@@ -167,14 +167,14 @@ function Navbar() {
       </nav>
 
 
-      <div className={`bg-fundo-nav fixed lg:w-1/3 h-screen z-10 top-0 right-0 shadow-2xl transition-all duration-300 ease-in-out ${asideCart ? "w-full opacity-100" : "w-0 opacity-0 pointer-events-none"}`}>
+      <div className={`bg-fundo-nav-cart fixed lg:w-1/3 h-screen z-10 top-0 right-0 shadow-2xl transition-all duration-300 ease-in-out ${asideCart ? "w-full opacity-100" : "w-0 opacity-0 pointer-events-none"}`}>
         <div className="grid grid-cols-3 gap-[30%] justify-center items-center w-full h-[10%] bg-black text-white px-10">
           <CaretRight onClick={() => setAsideCart(false)} className="w-auto cursor-pointer" size={30} />
           <h2 className="text-2xl capitalize">carrinho</h2>
         </div>
         <div className="overflow-y-auto h-[65%]">
           {items.map((produto) => (
-            <CardCart key={produto.id} item={produto} />
+            <NavCard key={produto.id} item={produto} />
           ))}
         </div>
         <div className="flex flex-col items-start justify-center p-5 w-full">
@@ -189,7 +189,7 @@ function Navbar() {
           </span>
         </div>
         <div className="flex items-center justify-center w-full">
-          <button className="bg-fundo-botao hover:bg-hover-botao w-10/12 py-4 text-3xl rounded shadow-md capitalize">ver carrinho</button>
+          <button className="bg-fundo-botao-nav-cart hover:bg-hover-botao-nav-cart w-10/12 py-4 text-3xl rounded shadow-md capitalize">ver carrinho</button>
         </div>
       </div>
     </>

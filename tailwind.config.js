@@ -7,9 +7,17 @@ export default {
         roboto: "roboto",
       },
       colors: {
+        "fundo-base": "#DADADA",
         "fundo-nav": "#F0EDE5",
-        "fundo-botao": "#A9B298",
-        "hover-botao": "#6D7761",
+        
+        "fundo-nav-cart": "#FFFFFF",
+        "fundo-botao-nav-cart": "#A9B298",
+        "hover-botao-nav-cart": "#6D7761",
+        
+        "fundo-card": "#F0EDE5",
+
+        "hover-botao-card": "#F0EDE5",
+        "fundo-lista-produtos": "#DADADA",
 
         "fundo-footer": "#000000",
         "texto-footer": "#FFFFFF",
