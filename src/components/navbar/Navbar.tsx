@@ -77,7 +77,7 @@ function Navbar() {
               <Link to={"/about"}>
                 <p>sobre</p>
               </Link>
-              <Link to={"/"}>
+              <Link to={"/blog"}>
                 <p>blog</p>
               </Link>
               <form action="" className="lg:hidden flex items-center border-b-[1px] border-b-black">
@@ -203,6 +203,8 @@ function Navbar() {
   } else if (pathname == "/about") {
     return <>{component}</>;
   }else if (pathname == "/contact" || pathname == "/cart") {
+    return <>{component}</>;
+  }else if (pathname == "/blog") {
     return <>{component}</>;
   }
 }

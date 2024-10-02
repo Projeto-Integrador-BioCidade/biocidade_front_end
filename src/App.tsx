@@ -16,6 +16,7 @@ import Cart from "./components/cart/Cart";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Product from "./pages/produto/Product";
+import Blog from "./pages/blog/Blog";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
                 <Route path="/deletarproduto/:id" element={<DeleteProduct />} />
                 <Route path="/perfil" element={<Perfil />} />
                 <Route path="/cart" element={<Cart />} />
+                <Route path="/blog" element={<Blog />} />
               </Routes>
             </div>
             <Footer />

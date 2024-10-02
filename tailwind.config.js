@@ -22,19 +22,12 @@ export default {
         "fundo-footer": "#000000",
         "texto-footer": "#FFFFFF",
 
-        "bio-City-footer-navbar-color": "#426212",
-        "bio-City-main-green": "#84CC16",
-        "bio-City-text-900": "#3a5314",
-        "bio-City-input-color": "#BEF264",
-        "bio-City-green-100": "#D9F99D",
-        "bio-City-green": "#B9DC81",
-        "bio-City-light-green": "#B6CF8D",
-        "bio-City-cream": "#e8ceb3",
-        "verde-um": "#172B23",
-        "verde-dois": "#436045",
-        "verde-tres": "#7A9B7F",
-        "verde-quatro": "#CFE0BC",
-        "verde-cinco": "#EDF0E0",
+        "cor-um": "#6d7761",
+        "cor-dois": "#a9b298",
+        "cor-tres": "#87b7a0",
+        "cor-quatro": "#dadada",
+        "cor-cinco": "#f0ede5",
+
       },
 
       padding: {
