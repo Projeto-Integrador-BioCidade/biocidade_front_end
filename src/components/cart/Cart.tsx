@@ -23,40 +23,38 @@ function Cart() {
   }
   return (
     <>
-      <div className="p-10">
-        <div>
-          <h2 className="">meu carrinho</h2>
+      <div className="flex flex-col lg:flex-row justify-between items-center p-10">
+        <div className="md:w-3/4">
+          <h2 className="text-2xl capitalize">meu carrinho</h2>
           <h2 className="my-4 text-center text-2xl">
             {items.length === 0 ? "O Carrinho está vazio!" : ""}
           </h2>
+          <div className="border-y border-black border-opacity-40">
+            {items.map((produto) => (
+              <CardCart key={produto.id} item={produto} />
+            ))}
+          </div>
         </div>
-        <div className="">
-          {items.map((produto) => (
-            <CardCart key={produto.id} item={produto} />
-          ))}
-        </div>
-        <div className="text-center text-lg">
-          <p>
-            <span className="font-semibold text-black ">Total de items adicionados: </span>
-            {quantidadeItems}
-          </p>
-          <p>
-            <span className="font-semibold">Valor Total compra: </span>
+        <div className="text-center text-lg md:w-1/4 px-10">
+        <div className="flex justify-between">
+          <p>total</p>
+          <span>
             {Intl.NumberFormat("pt-BR", {
               style: "currency",
               currency: "BRL",
             }).format(valorTotal)}
-          </p>
+          </span>
         </div>
-        <button
-          className="mx-auto mb-10 mt-8 flex w-1/4 justify-center rounded bg-verde-tres py-2 text-slate-100 hover:bg-verde-dois"
-          type="submit"
-          disabled={items.length === 0 ? true : false}
-          onClick={handleFinalizarCompra}
-        >
-          Finalizar Compra
+          <button
+            className="p-2 rounded bg-fundo-botao-nav-cart hover:bg-hover-botao-nav-cart"
+            type="submit"
+            disabled={items.length === 0 ? true : false}
+            onClick={handleFinalizarCompra}
+          >
+            Finalizar Compra
 
-        </button>
+          </button>
+        </div>
 
       </div>
     </>

@@ -10,8 +10,8 @@ function CardCart({ item }: CardProdutosProps) {
   const { aumentarProduto, removerProduto } = useContext(CartContext);
 
   return (
-    <div className="flex justify-between items-start p-5 gap-5 w-full">
-      <div className="w-1/6">
+    <div className="flex  justify-between items-center p-5 gap-1 w-full">
+      <div className="w-1/4 md:w-[10%]">
         <img
           src={item.imagem_produto}
           className="object-contain"
@@ -55,7 +55,7 @@ function CardCart({ item }: CardProdutosProps) {
           currency: "BRL",
         }).format(item.quantidade * item.preco)}</p>
       </div>
-      <div>
+      <div className="hidden md:block">
         <Trash size={32} />
       </div>
 
