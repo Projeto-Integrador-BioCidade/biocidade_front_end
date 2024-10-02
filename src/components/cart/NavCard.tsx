@@ -10,10 +10,10 @@ function NavCard({ item }: CardProdutosProps) {
     const { aumentarProduto, removerProduto } = useContext(CartContext);
 
     return (
-        <div className="flex items-center h-1/4 p-5 gap-5 w-full">
+        <div className="flex items-center h-1/4 p-5 gap-5 w-1/2">
             <img
                 src={item.imagem_produto}
-                className="h-full"
+                className="object-contain"
                 alt={item.nome}
             />
             <div>
@@ -29,7 +29,7 @@ function NavCard({ item }: CardProdutosProps) {
                     </h2>
 
 
-                    <div className="flex justify-between w-2/3 border border-black px-1">
+                    <div className="flex justify-between border border-black px-1">
                         <button
                             className=""
                             onClick={() => removerProduto(item.id)}

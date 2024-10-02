@@ -7,7 +7,7 @@ function Home() {
         <div className="1/2">
           <Carrossel />
         </div>
-        <div className="h-1/2 mx-10">
+        <div className="h-1/2 p-10">
           <h2 className=" border-l-4 border-black  text-3xl font-bold my-2">
             Novidades
           </h2>

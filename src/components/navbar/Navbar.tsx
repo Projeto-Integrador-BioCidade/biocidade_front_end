@@ -172,7 +172,7 @@ function Navbar() {
           <CaretRight onClick={() => setAsideCart(false)} className="w-auto cursor-pointer" size={30} />
           <h2 className="text-2xl capitalize">carrinho</h2>
         </div>
-        <div className="overflow-y-auto h-[65%]">
+        <div className="overflow-y-auto">
           {items.map((produto) => (
             <NavCard key={produto.id} item={produto} />
           ))}
@@ -189,7 +189,7 @@ function Navbar() {
           </span>
         </div>
         <div className="flex items-center justify-center w-full">
-          <button className="bg-fundo-botao-nav-cart hover:bg-hover-botao-nav-cart w-10/12 py-4 text-3xl rounded shadow-md capitalize">ver carrinho</button>
+          <Link to={"/cart"} onClick={() => setAsideCart(false)} className="bg-fundo-botao-nav-cart hover:bg-hover-botao-nav-cart w-10/12 py-4 text-3xl rounded shadow-md capitalize text-center">ver carrinho</Link>
         </div>
       </div>
     </>
@@ -202,7 +202,7 @@ function Navbar() {
     return <>{component}</>;
   } else if (pathname == "/about") {
     return <>{component}</>;
-  }else if (pathname == "/contact") {
+  }else if (pathname == "/contact" || pathname == "/cart") {
     return <>{component}</>;
   }
 }

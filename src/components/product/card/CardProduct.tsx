@@ -30,7 +30,8 @@ function CardProdutos({ produto }: CardProdutoProps) {
   };
 
   return (
-    <div className="rounded-lg w-1/4 h-96">
+    <div className="rounded-lg w-full md:w-1/2 lg:w-1/4">
+      
       {/* <div className="flex items-end justify-end pr-2 pt-2">
         {usuario.tipo === "VENDEDOR" ? (
           <Link to={`/editarproduto/${produto.id}`}>
@@ -53,7 +54,7 @@ function CardProdutos({ produto }: CardProdutoProps) {
       <div className="cursor-pointer bg-fundo-card flex items-center" onClick={comprar}>
         <img
           src={produto.imagem_produto}
-          className="w-full"
+          className="object-contain"
           alt={produto.nome}
         />
       </div>
