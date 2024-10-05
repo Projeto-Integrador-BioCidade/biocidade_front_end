@@ -52,9 +52,9 @@ function Navbar() {
     setMenuPerfil(false)
   }, [location.pathname])
 
-  let component: ReactNode;
+  // let component: ReactNode;
 
-  component = (
+  return (
     <>
       <nav className="w-full h-20 bg-fundo-nav px-6 text-lg flex items-center justify-between">
         <div className="w-1/2 ">
@@ -194,19 +194,19 @@ function Navbar() {
       </div>
     </>
   );
-  if (usuario.token !== "") {
-    return <>{component}</>;
-  } else if (pathname == "/") {
-    return <>{component}</>;
-  } else if (pathname == "/products") {
-    return <>{component}</>;
-  } else if (pathname == "/about") {
-    return <>{component}</>;
-  }else if (pathname == "/contact" || pathname == "/cart") {
-    return <>{component}</>;
-  }else if (pathname == "/blog") {
-    return <>{component}</>;
-  }
+  // if (usuario.token !== "") {
+  //   return <>{component}</>;
+  // } else if (pathname == "/") {
+  //   return <>{component}</>;
+  // } else if (pathname == "/products") {
+  //   return <>{component}</>;
+  // } else if (pathname == "/about") {
+  //   return <>{component}</>;
+  // }else if (pathname == "/contact" || pathname == "/cart") {
+  //   return <>{component}</>;
+  // }else if (pathname == "/blog") {
+  //   return <>{component}</>;
+  // }
 }
 
 export default Navbar;

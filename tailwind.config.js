@@ -7,6 +7,10 @@ export default {
         roboto: "roboto",
       },
       colors: {
+        "login-input": "#CCCCCC",
+        "login-botao": "#202D11",
+        "login-fundo": "#737D62",
+        "login-perfil": "#B2B2B2",
         "fundo-base": "#DADADA",
         "fundo-nav": "#F0EDE5",
         
