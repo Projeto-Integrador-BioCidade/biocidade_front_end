@@ -1,5 +1,4 @@
-import { Pencil, ShoppingCart, Trash } from "@phosphor-icons/react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../../contexts/CartContext";
 import Produto from "../../../models/produto";
@@ -23,35 +22,18 @@ function CardProdutos({ produto }: CardProdutoProps) {
   const adionarItemCarrinho = () => {
     usuario.token === "" || usuario.token === null
       ? ToastAlerta(
-        "Você precisa estar logado para adicionar produtos ao carrinho!",
-        "info",
-      )
+          "Você precisa estar logado para adicionar produtos ao carrinho!",
+          "info",
+        )
       : adicionarProduto(produto);
   };
 
   return (
-    <div className="rounded-lg w-full md:w-1/2 lg:w-1/4">
-      
-      {/* <div className="flex items-end justify-end pr-2 pt-2">
-        {usuario.tipo === "VENDEDOR" ? (
-          <Link to={`/editarproduto/${produto.id}`}>
-          <Pencil size={24} className="mr-1 hover:fill-teal-700" />
-        </Link>
-        ):(
-          ""
-        )}
-
-        {usuario.tipo === "VENDEDOR" ? (
-          <Link to={`/deletarproduto/${produto.id}`}>
-          <Trash size={24} className="mr-1 hover:fill-red-700" />
-        </Link>
-        ):(
-          ""
-        )}
-        
-      </div> */}
-
-      <div className="cursor-pointer bg-fundo-card flex items-center" onClick={comprar}>
+    <div className="w-full rounded-lg md:w-1/2 lg:w-1/4">
+      <div
+        className="flex cursor-pointer items-center bg-fundo-card"
+        onClick={comprar}
+      >
         <img
           src={produto.imagem_produto}
           className="object-contain"
@@ -70,7 +52,7 @@ function CardProdutos({ produto }: CardProdutoProps) {
       </div>
       <div>
         <button
-          className="flex justify-center w-full py-1 text-black border border-black transition-all duration-300 hover:bg-hover-botao-card rounded"
+          className="flex w-full justify-center rounded border border-black py-1 text-black transition-all duration-300 hover:bg-hover-botao-card"
           onClick={() => adionarItemCarrinho()}
         >
           <p>Adicionar ao carrinho</p>

@@ -1,10 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { buscar } from "../../services/Service";
 import AuthContext from "../../contexts/AuthContext";
 import { ToastAlerta } from "../../utils/ToastAlerta";
 import Produto from "../../models/produto";
 import { CartContext } from "../../contexts/CartContext";
+import { Heart, Pencil, Trash } from "@phosphor-icons/react";
+import QuantityItemSelected from "../../components/quantityItemSelected/quantityItemSelected";
 
 function Product() {
   const navigate = useNavigate();
@@ -51,36 +53,78 @@ function Product() {
   }, [token]);
 
   return (
-    <div className="flex items-center justify-center">
-      <div className="flex flex-col justify-between rounded-lg bg-slate-100 shadow-lg
-                      md:flex-row md:w-3/4">
-        <img
-          src={produto.imagem_produto}
-          alt={produto.nome}
-          className="rounded-lg shadow-xl md:w-1/2"
-        />
-        <div className="flex flex-col justify-center items-center w-1/2 p-6 text-center">
-          <h2 className="mb-2 text-2xl font-bold text-gray-800">
-            {produto.nome}
-          </h2>
-          <p className="mb-4 text-lg text-gray-700">{produto.descricao}</p>
-          <p className="text-xl font-semibold text-green-500">
-            {Intl.NumberFormat("pt-BR", {
-              style: "currency",
-              currency: "BRL",
-            }).format(produto.preco)}
-          </p>
-          <button
-            className="mt-6 rounded-lg bg-verde-tres px-4 py-2 text-white transition duration-300 hover:bg-verde-dois"
-            onClick={comprar}
-          >
-            Comprar
-          </button>
-          <div className="mt-4">
-            <p className="text-gray-600">
-              Vendido por:{" "}
-              <span className="font-semibold">{produto.usuario?.nome}</span>
+    <div className="flex items-center justify-center gap-5">
+      <div className="flex flex-col gap-4">
+        <div className="mt-6 flex justify-between">
+          <div>
+            <Link to="/home">Inicio/</Link>
+            {produto.categoria && (
+              <Link to={`/products/nome/${produto.nome}`} className="">
+                {produto.nome}
+              </Link>
+            )}
+          </div>
+          <div className="flex items-end justify-end">
+            {usuario.tipo === "VENDEDOR" ? (
+              <Link to={`/editarproduto/${produto.id}`}>
+                <Pencil size={24} className="mr-1 hover:fill-teal-700" />
+              </Link>
+            ) : (
+              ""
+            )}
+
+            {usuario.tipo === "VENDEDOR" ? (
+              <Link to={`/deletarproduto/${produto.id}`}>
+                <Trash size={24} className="mr-1 hover:fill-red-700" />
+              </Link>
+            ) : (
+              ""
+            )}
+          </div>
+        </div>
+        <div className="flex flex-col gap-4 md:flex-row">
+          <img
+            src={produto.imagem_produto}
+            alt={produto.nome}
+            className="w-96 md:w-[474px]"
+          />
+          <div className="flex flex-col gap-4">
+            <h1 className="text-3xl">{produto.nome}</h1>
+            <p className="text-2xl">
+              {Intl.NumberFormat("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              }).format(produto.preco)}
             </p>
+            <p className="flex gap-1">{produto.descricao}</p>
+            <Link
+              to={`/products/${produto.id}`}
+              className="underline underline-offset-2"
+            >
+              Saiba mais
+            </Link>
+            <div className="flex flex-col gap-2">
+              <div className="my-3 flex">
+                <QuantityItemSelected />
+              </div>
+              <div className="flex w-full gap-2">
+                <button
+                  className="flex w-full items-center justify-center gap-2 border border-black p-[6px] text-base"
+                  onClick={comprar}
+                >
+                  Adicionar ao carrinho
+                </button>
+                <span className="border border-black p-1">
+                  <Heart size={32} />
+                </span>
+              </div>
+              <button
+                className="mb-6 w-full bg-black p-2 text-white md:mb-0"
+                onClick={comprar}
+              >
+                Comprar
+              </button>
+            </div>
           </div>
         </div>
       </div>
