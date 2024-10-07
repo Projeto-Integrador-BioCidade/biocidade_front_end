@@ -64,10 +64,28 @@ function ListProduct() {
           </div>
         </div>
       )}
-      <div className="h-full">
-        {produtos.map((produto) => (
-          <CardProduct key={produto.id} produto={produto} />
-        ))}
+      <div className="flex h-full flex-col p-8">
+        <div className="flex w-full justify-between">
+          <div>&nbsp;</div>
+          <select className="mb-8 border border-black bg-gray-300 p-[6px]">
+            <option
+              value=""
+              selected
+              disabled
+              className="flex items-center justify-center capitalize"
+            >
+              Selecionar por
+            </option>
+            <option value="">Nome</option>
+            <option value="">Maior preço</option>
+            <option value="">Menor preço</option>
+          </select>
+        </div>
+        <div className="grid grid-cols-1 items-center justify-items-center gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          {produtos.map((produto) => (
+            <CardProduct key={produto.id} produto={produto} />
+          ))}
+        </div>
       </div>
     </>
   );

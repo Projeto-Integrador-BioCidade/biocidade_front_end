@@ -82,7 +82,7 @@ function Product() {
             )}
           </div>
         </div>
-        <div className="flex flex-col gap-4 md:flex-row">
+        <div className="flex flex-col gap-10 md:flex-row">
           <img
             src={produto.imagem_produto}
             alt={produto.nome}
