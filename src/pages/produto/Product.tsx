@@ -55,7 +55,7 @@ function Product() {
   return (
     <div className="flex items-center justify-center gap-5">
       <div className="flex flex-col gap-4">
-        <div className="mt-6 flex justify-between">
+        <div className="my-6 flex justify-between">
           <div>
             <Link to="/home">Inicio/</Link>
             {produto.categoria && (
@@ -125,6 +125,37 @@ function Product() {
                 Comprar
               </button>
             </div>
+          </div>
+        </div>
+        <div className="my-14 flex gap-8">
+          <div className="max-w-56">
+            <p className="text-black">INFORMAÇÕES DO PRODUTO</p>
+            <span className="flex text-left">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed
+              cumque ad tempore soluta nulla. Sequi, ea temporibus enim
+              accusamus possimus rem error excepturi molestiae aut dolore minima
+              voluptatem iusto? Deleniti!
+            </span>
+          </div>
+          <p className="border-r-2 border-[#d3d1d0]">&nbsp;</p>
+          <div className="max-w-56">
+            <p className="text-black">POLÍTICA DE RETORNO</p>
+            <span className="flex text-left">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
+              facilis debitis veniam animi qui quisquam perferendis deleniti
+              praesentium. Sequi vitae doloremque in eligendi. Laudantium rem
+              corporis vel labore sit voluptatem.
+            </span>
+          </div>
+          <p className="border-r-2 border-[#d3d1d0]">&nbsp;</p>
+          <div className="max-w-56">
+            <p className="text-black">INFORMAÇÕES DE ENTREGA</p>
+            <span className="flex text-left">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
+              facilis debitis veniam animi qui quisquam perferendis deleniti
+              praesentium. Sequi vitae doloremque in eligendi. Laudantium rem
+              corporis vel labore sit voluptatem.
+            </span>
           </div>
         </div>
       </div>
