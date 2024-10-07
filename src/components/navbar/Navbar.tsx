@@ -168,7 +168,7 @@ function Navbar() {
 
 
       <div className={`bg-fundo-nav-cart fixed lg:w-1/3 h-screen z-10 top-0 right-0 shadow-2xl transition-all duration-300 ease-in-out ${asideCart ? "w-full opacity-100" : "w-0 opacity-0 pointer-events-none"}`}>
-        <div className="grid grid-cols-3 gap-[30%] justify-center items-center w-full h-[10%] bg-black text-white px-10">
+        <div className="grid grid-cols-3 gap-[30%] justify-center items-center w-full h-20 bg-black text-white px-10">
           <CaretRight onClick={() => setAsideCart(false)} className="w-auto cursor-pointer" size={30} />
           <h2 className="text-2xl capitalize">carrinho</h2>
         </div>
