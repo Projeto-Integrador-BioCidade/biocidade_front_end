@@ -28,7 +28,7 @@ function Footer() {
           </div>
           <div className="hover:*:underline">
             <h2 className="text-2xl mb-4 *:hover:underline">links úteis</h2>
-            <Link to="/404"><span className="uppercase">faq</span></Link>
+            <Link to="/404"><p className="uppercase">faq</p></Link>
             <Link to="/404"><p>entregas e devoluções</p></Link>
             <Link to="/404"><p>termos e condições</p></Link>
             <Link to="/404"><p>política e cookies</p></Link>

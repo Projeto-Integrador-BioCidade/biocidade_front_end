@@ -10,12 +10,14 @@ function NavCard({ item }: CardProdutosProps) {
     const { aumentarProduto, removerProduto } = useContext(CartContext);
 
     return (
-        <div className="flex items-center h-1/4 p-5 gap-5 w-1/2">
+        <div className="flex items-center h-1/4 p-5 gap-5 w-full">
+            <div className="flex h-24 w-24 bg-gray-300 rounded-md">
             <img
                 src={item.imagem_produto}
-                className="object-contain"
+                className="h-24 w-24 rounded"
                 alt={item.nome}
             />
+            </div>
             <div>
                 <div className="">
                     <p className=" capitalize text-gray-800">

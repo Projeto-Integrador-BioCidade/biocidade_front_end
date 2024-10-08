@@ -20,7 +20,7 @@ function Navbar() {
 
   const { items, valorTotal } = useContext(CartContext);
   const navigate = useNavigate();
-  const { pathname } = useLocation();
+  // const { pathname } = useLocation();
   const { handleLogout, usuario } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const [menuPerfil, setMenuPerfil] = useState(false);
@@ -172,30 +172,34 @@ function Navbar() {
       </nav>
 
 
-      <div className={`bg-fundo-nav-cart fixed lg:w-1/3 h-screen z-10 top-0 right-0 shadow-2xl transition-all duration-300 ease-in-out ${asideCart ? "w-full opacity-100" : "w-0 opacity-0 pointer-events-none"}`}>
+      <div className={`bg-fundo-nav-cart flex flex-col items-center justify-between fixed lg:w-1/3 h-screen z-10 top-0 right-0 shadow-2xl transition-all duration-300 ease-in-out ${asideCart ? "w-full opacity-100" : "w-0 opacity-0 pointer-events-none"}`}>
         <div className="grid grid-cols-3 gap-[30%] justify-center items-center w-full h-20 bg-black text-white px-10">
           <CaretRight onClick={() => setAsideCart(false)} className="w-auto cursor-pointer" size={30} />
           <h2 className="text-2xl capitalize">carrinho</h2>
         </div>
-        <div className="overflow-y-auto h-1/2 pt-16">
+        <div className="flex flex-col gap-10 overflow-y-auto h-[60vh] w-9/12 mt-3">
+          {items.map((produto) => (
+            <NavCard key={produto.id} item={produto} />
+          ))}
           {items.map((produto) => (
             <NavCard key={produto.id} item={produto} />
           ))}
         </div>
-        <div className="flex flex-col justify-end h-1/3">
-          <div className="flex flex-col items-start justify-center p-5 w-full">
-            <p className="text-3xl capitalize mb-3">
+        <div className="flex flex-col justify-end w-full text-2xl gap-5 pb-5">
+          <div className="flex flex-col items-start justify-center px-10 mb-3 w-full">
+            <p className=" capitalize">
               subtotal:
             </p>
-            <span className="text-3xl">
+            <p className="font-bold">
               {Intl.NumberFormat("pt-BR", {
                 style: "currency",
                 currency: "BRL",
               }).format(valorTotal)}
-            </span>
+            </p>
           </div>
+          <hr className="border-black opacity-40"/>
           <div className="flex items-center justify-center w-full">
-            <Link to={"/cart"} onClick={() => setAsideCart(false)} className="bg-fundo-botao-nav-cart hover:bg-hover-botao-nav-cart w-10/12 py-4 text-3xl rounded shadow-md capitalize text-center">ver carrinho</Link>
+            <Link to={"/cart"} onClick={() => setAsideCart(false)} className="bg-fundo-botao-nav-cart hover:bg-hover-botao-nav-cart w-9/12 py-2  text-xl rounded shadow-md capitalize text-center">ver carrinho</Link>
           </div>
         </div>
       </div>
