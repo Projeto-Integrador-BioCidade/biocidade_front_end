@@ -11,15 +11,15 @@ function CardCart({ item }: CardProdutosProps) {
 
   return (
     <div className="flex  justify-between items-center p-5 gap-1 w-full">
-      <div className="w-1/4 md:w-[10%]">
+      <div className="">
         <img
           src={item.imagem_produto}
-          className="object-contain"
+          className="h-24 w-24"
           alt={item.nome}
         />
       </div>
 
-      <div className="h-full flex flex-col justify-center">
+      <div className="h-full flex flex-col justify-center items-start w-52">
         <p className=" capitalize text-gray-800">
           {item.nome}
         </p>
@@ -49,7 +49,7 @@ function CardCart({ item }: CardProdutosProps) {
           <Plus />
         </button>
       </div>
-      <div>
+      <div className="w-24">
         <p>{Intl.NumberFormat("pt-BR", {
           style: "currency",
           currency: "BRL",
