@@ -26,6 +26,7 @@ function Navbar() {
   const [menuPerfil, setMenuPerfil] = useState(false);
   const [asideCart, setAsideCart] = useState(false);
 
+
   const handleMouseEnter = () => {
     setMenuPerfil(true);
   };
@@ -117,34 +118,38 @@ function Navbar() {
             <div
               className={`transition-all duration-200 ease-in-out transform 
       ${menuPerfil ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"} 
-      absolute right-0 top-20 px-8 min-h-35 z-10 pb-7 bg-fundo-nav shadow-xl border border-opacity-10 border-black
+      absolute right-0 top-20 min-h-35 z-10 pb-7 bg-fundo-nav shadow-xl border border-opacity-10 border-black
       text-center flex flex-col justify-center rounded-b-lg w-1/2 md:w-auto`}
               onMouseLeave={handleMouseLeave}>
               {usuario.token ? (
-                <div className="capitalize flex flex-col items-start">
-                  <div className="flex items-center justify-start gap-2">
-                    <div className="w-[24px]" />
-                    <p>Olá, {usuario.nome}</p>
+                <>
+                <div className="flex pl-8 py-2 items-center border-b-[1px] border-gray-400">
+                    <div className="">
+                    <img className="w-[30px] h-[30px] rounded-full" src={usuario.foto} alt="" />
+                    </div>
+                    <p className="pl-5">Olá, {usuario.nome}</p>
                   </div>
-                  <Link className="flex items-center justify-start gap-2 hover:underline" to="/perfil">
+                <div className="capitalize flex px-8 pt-3 flex-col items-start">
+                  <Link className="flex items-center  justify-start gap-2 hover:underline" to="/perfil">
                     <User size={24} weight="thin" />
-                    <p>Minha conta</p>
+                    <p className="md:pl-3 pl-1">Minha conta</p>
                   </Link>
                   <Link className="flex items-center justify-start gap-2 hover:underline" to="/pedidos">
                     <Package size={24} weight="thin" />
-                    <p>Pedidos</p>
+                    <p className="pl-3">Pedidos</p>
                   </Link>
                   <Link className="flex items-center justify-start gap-2 hover:underline" to="/favoritos">
                     <Heart size={24} weight="thin" />
-                    <p>Desejos</p>
+                    <p className="pl-3">Desejos</p>
                   </Link>
                   <Link className="flex items-center justify-start gap-2 hover:underline" to="/" onClick={logout}>
                     <SignOut size={24} weight="thin" />
-                    <p>Sair</p>
+                    <p className="pl-3">Sair</p>
                   </Link>
                 </div>
+                </>
               ) : (
-                <div className="capitalize pt-3">
+                <div className="capitalize px-8 pt-3">
                   <div className="border-[1px] bg-fundo-botao-nav-cart rounded-lg">
                     <Link className="hover:underline" to="/login">
                       <p>Login</p>

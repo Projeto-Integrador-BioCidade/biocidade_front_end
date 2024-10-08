@@ -83,4 +83,12 @@
   .interaction-icons span svg {
     margin-right: 5px;
   }
-  
+  @media(max-width: 768px){
+    .blog-list{
+      flex-direction: column;
+    }
+
+    .blog-card{
+      width: 95%;
+    }
+  }
