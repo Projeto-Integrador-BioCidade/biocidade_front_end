@@ -1,50 +1,95 @@
-# React + TypeScript + Vite
+# BioCidade 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Sobre o projeto
 
-Currently, two official plugins are available:
+https://main--biocidade.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+BioCidade é uma aplicação full stack web e mobile construída para o Projeto Integrador da Turma JS05 da Generation.
 
-## Expanding the ESLint configuration
+Nosso projeto foi desenvolvido pensando na ODS 11, "Cidades e Comunidades sustentáveis".
+Visando tornar as cidades e os assentamentos humanos inclusivos, seguros, resilientes e sustentáveis.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+A nossa solução é uma plataforma que conecta compradores e vendedores de materiais de construção e objetos sustentáveis. O principal objetivo é promover uma economia local mais forte e sustentável. Além disso, incentivamos a reutilização de materiais e reduzimos o impacto ambiental. Por meio da nossa plataforma, também oferecemos incentivos para compras conscientes, fomentando um consumo mais responsável.
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Layout mobile
+![Mobile 1]() ![Mobile 2]()
+
+## Layout web
+![Web 1](Link)
+
+![Web 2]()
+
+## Modelo conceitual
+![Modelo Conceitual](https://github.com/Projeto-Integrador-BioCidade/Documentos/blob/main/db_biocidade.png)
+
+# Tecnologias utilizadas
+## Back end
+- JavaScript
+- TypeScript
+- Node.js
+- MySQL
+
+## Front end
+- HTML / CSS /
+- JS / TypeScript
+- ReactJS
+
+## Implantação em produção
+- Back end: Render
+- Front end web: Netlify
+- Banco de dados: MySQL Workbench
+
+# Como executar o projeto
+
+## Back end
+Pré-requisitos: 
+```bash
+# clonar repositório
+git clone https://github.com/Projeto-Integrador-BioCidade/
+
+# entrar na pasta do projeto back end
+cd biocidade_back-end
+
+# executar o projeto
+yarn dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Front end web
+Pré-requisitos: npm / yarn
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+```bash
+# clonar repositório
+git clone https://github.com/Projeto-Integrador-BioCidade/biocidade_front_end
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+# entrar na pasta do projeto front end web
+cd biocidade_front_end
+
+# instalar dependências
+yarn install
+
+# executar o projeto
+yarn dev
 ```
+
+# Autor
+
+Grupo 05
+
+Participantes:
+
+Ana Cláudia - https://www.linkedin.com/in/anaclaudia-dev/
+
+Gabrielli - https://www.linkedin.com/in/gabrielli-virgilio/
+
+Geana - https://www.linkedin.com/in/geana-almeida/
+
+Joshua - https://www.linkedin.com/in/joshua-simionato/
+
+Luana - https://www.linkedin.com/in/luana-marinho/
+
+Lucas - https://linkedin.com/in/lucassrsilva/
+
+Pierre - https://www.linkedin.com/in/pierre-souza/
+
+
