@@ -41,9 +41,10 @@ A nossa solução é uma plataforma que conecta compradores e vendedores de mate
 - Banco de dados: MySQL Workbench
 
 # Como executar o projeto
+Para iniciar o front end, deve-se criar o arquivo .env na pasta raiz do projeto e colocar a variável ambiente com o link do back end para rodar corretamente: VITE_API_URL=https://biocidade-back-end.onrender.com
 
 ## Back end
-Pré-requisitos: 
+Pré-requisitos: Node.js / NPM
 ```bash
 # clonar repositório
 git clone https://github.com/Projeto-Integrador-BioCidade/
@@ -56,7 +57,7 @@ yarn dev
 ```
 
 ## Front end web
-Pré-requisitos: npm / yarn
+Pré-requisitos: Node.js / YARN
 
 ```bash
 # clonar repositório
