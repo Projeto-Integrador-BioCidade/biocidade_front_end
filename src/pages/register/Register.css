@@ -1,0 +1,27 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 30%;
+    right: 0;
+    top: 10%;
+    width: 42%;
+    height: 75%;
+    background-color: white ;
+}
+
+.modal > p {
+    margin: 20px;
+}
+
+@media(max-width: 768px){
+    .modal{
+        width: 90%;
+        height: 75%;
+        left: 5%;
+        top: 10%;
+    }
+    .modal > p {
+        margin: 10px;
+    }
+  }

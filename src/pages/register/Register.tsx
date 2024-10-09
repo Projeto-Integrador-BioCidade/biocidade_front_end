@@ -5,7 +5,8 @@ import Usuario from "../../models/usuario";
 import { cadastrarUsuario } from "../../services/Service";
 import { ToastAlerta } from "../../utils/ToastAlerta";
 import "../login/login.css";
-import { FacebookLogo, GoogleLogo, IdentificationBadge, Image, LinkedinLogo, LockKey, SignIn, User, UserPlus } from "@phosphor-icons/react";
+import "../register/Register.css";
+import { FacebookLogo, GoogleLogo, IdentificationBadge, Image, LinkedinLogo, LockKey, Question, SignIn, User, UserPlus } from "@phosphor-icons/react";
 
 function Register() {
   let navigate = useNavigate();
@@ -89,17 +90,39 @@ function Register() {
     }
   }
 
-  // function retornar() {
-  //   navigate("/login");
-  // }
+
+  // Modal 
+  useEffect(() => {
+    let modalRegistro = document.querySelector<HTMLElement>(".modal");
+    let fecharModal = document.querySelector(".fechar-modal");
+
+    const closeModal = () => {
+      if (modalRegistro) {
+        modalRegistro.style.display = "none";
+      }
+    };
+
+    fecharModal?.addEventListener("click", closeModal);
+
+    return () => {
+      fecharModal?.removeEventListener("click", closeModal);
+    };
+  }, []); 
+
+  const clienteVendedor = () => {
+    let modalRegistro = document.querySelector<HTMLElement>(".modal");
+    if (modalRegistro) {
+      modalRegistro.style.display = "block";
+    }
+  };
 
   return (
     <>
       <div className=" login flex h-auto w-full items-center justify-center ">
-        <div className="flex border-2 flex-col bg-fundo-botao-nav-cart  rounded-2xl w-96 mt-[90px] mb-48 items-center justify-center pb-3 md:pb-5 md:w-96 md:mt-[130px] shadow-[10px_10px_10px_5px_rgba(0,0,0,0.75)] ">
+        <div className="flex border-2 flex-col bg-fundo-botao-nav-cart  rounded-2xl w-96 mt-[90px] mb-48 items-center justify-center pb-3 md:pb-5 md:w-96 md:mt-[120px] shadow-[10px_10px_10px_5px_rgba(0,0,0,0.75)] ">
           <div className="flex rounded-t-lg items-center">
             <div className="flex">
-              <Link to="/login" className=" ml-14 text-verde-um flex items-center gap-1"> <SignIn size={24} />
+              <Link to="/login" className=" ml-14 te xt-verde-um flex items-center gap-1"> <SignIn size={24} />
                 Login
               </Link>
             </div>
@@ -115,7 +138,7 @@ function Register() {
             className="items-center flex w-full flex-col justify-center gap-6"
           >
 
-            <div className="flex w-80 mt-20 flex-col">
+            <div className="flex w-80 mt-16 flex-col">
               <label className="font-bold" htmlFor="Nome"></label>
               <input
                 type="text"
@@ -142,8 +165,8 @@ function Register() {
                 className="h-12 pl-12 rounded p-2 bg-login-input placeholder-black focus:outline-none focus:ring-2 focus:ring-login-botao"
               />
               <div className="absolute mt-3 flex items-center">
-                  <User size={22} className="flex ml-3" /> 
-                </div>
+                <User size={22} className="flex ml-3" />
+              </div>
             </div>
             <div className="flex w-80 flex-col">
               <label className="font-bold" htmlFor="Usuario"></label>
@@ -171,7 +194,7 @@ function Register() {
                 placeholder="Senha"
                 className="h-12 pl-12 rounded p-2 bg-login-input focus:outline-none focus:ring-2 focus:ring-login-botao placeholder-black"
               />
-               <div className="absolute mt-3 flex items-center">
+              <div className="absolute mt-3 flex items-center">
                 <LockKey size={22} className="flex ml-3" />
               </div>
             </div>
@@ -189,7 +212,7 @@ function Register() {
                 }
                 className="h-12 pl-12 rounded p-2 bg-login-input focus:outline-none focus:ring-2 focus:ring-login-botao placeholder-black "
               />
-               <div className="absolute mt-3 flex items-center">
+              <div className="absolute mt-3 flex items-center">
                 <LockKey size={22} className="flex ml-3" />
               </div>
             </div>
@@ -228,18 +251,33 @@ function Register() {
                 type="submit"
                 className="w-80 rounded bg-login-botao text-white p-2"
               >
-               CRIAR
+                CRIAR
               </button>
             </div>
           </form>
           <p className="mt-3 text-black">Ou faça login com</p>
           <div className="flex gap-6 ">
-          <a href=""><GoogleLogo size={30} className="mt-3 " /></a>
-          <a href=""><LinkedinLogo size={30} className="mt-3" /></a>
-          <a href=""><FacebookLogo size={30} className="mt-3" /></a>
+            <a href=""><GoogleLogo size={32} className="mt-3 " /></a>
+            <a href=""><LinkedinLogo size={32} className="mt-3" /></a>
+            <a href=""><FacebookLogo size={32} className="mt-3" /></a>
+          </div>
+          <div className="ml-[85%]">
+            <button className="bg-login-botao rounded-full" onClick={clienteVendedor}>
+             <Question size={30} color="white" />
+            </button>
           </div>
         </div>
+        <div className="modal rounded-2xl md:p-10 p-5" id="modal">
+          <p className="font-bold">Ao se cadastrar no nosso e-commerce sustentável, você tem a opção de se registrar como cliente ou vendedor.</p>
+          <p><span className="text-login-botao font-bold">Cliente:</span> Caso deseje apenas comprar produtos sustentáveis, basta se cadastrar como cliente. Você terá acesso a uma ampla variedade de produtos eco-friendly para melhorar seu dia a dia com responsabilidade ambiental.</p>
+          <p><span className="text-login-botao font-bold">Vendedor:</span> Se você é um produtor ou revendedor de produtos sustentáveis e deseja fazer parte da nossa comunidade, pode se registrar como vendedor. Isso permitirá que você liste seus produtos no nosso marketplace, alcance novos clientes e promova a sustentabilidade.</p>
+          <div className="flex justify-center mt-11 ">
+          <button className="w-[80%] rounded bg-login-botao text-white p-2 fechar-modal">FECHAR</button>
+          </div>
+           
+          </div>
       </div>
+     
     </>
   );
 }

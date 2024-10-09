@@ -29,17 +29,17 @@ function Perfil() {
         <p>{usuario.usuario}</p>
         <p className="text-xl mt-6 md:mt-3 text-login-botao font-bold">{usuario.tipo}</p>
       </div>
-      <div className="flex mt-8 md:mt-2 ml-8 md:ml-8 md:gap-20 gap-11 flex-row">
+      <div className="flex mt-8 md:mt-2 ml-4 md:ml-8 md:gap-20 gap-11 flex-row">
         <div>
-        <p className="ml-1 md:text-3xl text-login-botao font-bold">04</p>
+        <p className="ml-3 md:ml-1 md:text-3xl text-login-botao font-bold">04</p>
         <span>Posts</span>
         </div>
         <div>
-        <p className="ml-4 md:text-3xl text-login-botao font-bold">15</p>
+        <p className="ml-5 md:ml-4 md:text-3xl text-login-botao font-bold">15</p>
         <span>Produtos</span>
         </div>
         <div>
-        <p className="ml-4 md:text-3xl text-login-botao font-bold">34</p>
+        <p className="ml-6 md:ml-5  md:text-3xl text-login-botao font-bold">34</p>
         <span>Avaliações</span>
         </div>
       </div>
