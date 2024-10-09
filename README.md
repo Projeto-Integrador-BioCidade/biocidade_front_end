@@ -2,7 +2,7 @@
 
 ## Sobre o projeto
 
-https://main--biocidade.netlify.app/
+Deploy da aplicação: https://main--biocidade.netlify.app/
 
 BioCidade é uma aplicação full stack web e mobile construída para o Projeto Integrador da Turma JS05 da Generation.
 
