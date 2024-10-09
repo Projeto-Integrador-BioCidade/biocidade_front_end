@@ -54,7 +54,7 @@ function Product() {
 
   return (
     <div className="flex items-center justify-center gap-5">
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col justify-center gap-4">
         <div className="my-6 flex justify-between">
           <div>
             <Link to="/home">Inicio/</Link>
@@ -86,9 +86,9 @@ function Product() {
           <img
             src={produto.imagem_produto}
             alt={produto.nome}
-            className="w-96 md:w-[474px]"
+            className="h-[500px] w-96 md:w-[474px]"
           />
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col justify-around">
             <h1 className="text-3xl">{produto.nome}</h1>
             <p className="text-2xl">
               {Intl.NumberFormat("pt-BR", {
@@ -96,7 +96,7 @@ function Product() {
                 currency: "BRL",
               }).format(produto.preco)}
             </p>
-            <p className="flex gap-1">{produto.descricao}</p>
+            <p className="flex max-w-96 gap-1 text-xl">{produto.descricao}</p>
             <Link
               to={`/products/${produto.id}`}
               className="underline underline-offset-2"
