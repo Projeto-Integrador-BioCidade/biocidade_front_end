@@ -29,16 +29,17 @@ function CardProdutos({ produto }: CardProdutoProps) {
   };
 
   return (
-    <div className="w-full rounded-lg">
+    <div className="">
       <div
-        className="flex cursor-pointer items-center justify-center"
+        className="flex flex-col w-full cursor-pointer items-center justify-center relative"
         onClick={comprar}
       >
         <img
           src={produto.imagem_produto}
-          className="object-containr max-h-64 min-h-52 min-w-52 max-w-96 rounded-lg"
+          className="w-44 h-60"
           alt={produto.nome}
         />
+        <button className="bg-white shadow-xl absolute bottom-0 w-44 text-sm py-2 lg:opacity-0 hover:opacity-100 duration-200 ease-in-out">Visualização rápida</button>
       </div>
 
       <div className="flex flex-col px-12 py-2 capitalize">
@@ -52,7 +53,7 @@ function CardProdutos({ produto }: CardProdutoProps) {
       </div>
       <div className="flex justify-center">
         <button
-          className="mx-12 flex w-4/5 justify-center rounded border border-black py-1 text-black transition-all duration-300 hover:bg-hover-botao-card"
+          className="mx-12 flex w-44 justify-center rounded border border-black py-1 text-black transition-all duration-300 hover:bg-hover-botao-card"
           onClick={() => adionarItemCarrinho()}
         >
           <p>Adicionar ao carrinho</p>

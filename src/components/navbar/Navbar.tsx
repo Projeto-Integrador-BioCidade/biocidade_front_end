@@ -181,9 +181,6 @@ function Navbar() {
           {items.map((produto) => (
             <NavCard key={produto.id} item={produto} />
           ))}
-          {items.map((produto) => (
-            <NavCard key={produto.id} item={produto} />
-          ))}
         </div>
         <div className="flex flex-col justify-end w-full text-2xl gap-5 pb-5">
           <div className="flex flex-col items-start justify-center px-10 mb-3 w-full">
