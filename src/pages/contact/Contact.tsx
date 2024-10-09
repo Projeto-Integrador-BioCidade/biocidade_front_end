@@ -20,7 +20,8 @@ function Contact() {
 
     if (message.length > 100) {
       isValid = false;
-      formErrors["message"] = "Por favor, insira uma mensagem com menos de 100 caracteres!";
+      formErrors["message"] =
+        "Por favor, insira uma mensagem com menos de 100 caracteres!";
     }
 
     setErrors(formErrors);
@@ -50,18 +51,19 @@ function Contact() {
           setNome("");
           setEmail("");
           setMessage("");
-        }
+        },
       );
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full bg-bio-City-cream md:flex-row md:h-[73vh]  ">
-      <div className="flex flex-col justify-center items-center  md:w-1/2  gap-4">
-        <div className="flex flex-col gap-4 m-4 ">
-          <h1 className="font-bold text-6xl">Biocidade</h1>
+    <div className="bg-bio-City-cream flex w-full flex-col items-center justify-center md:h-[73vh] md:flex-row">
+      <div className="flex flex-col items-center justify-center gap-4 md:w-1/2">
+        <div className="m-4 flex flex-col gap-4">
+          <h1 className="text-6xl font-bold">Biocidade</h1>
           <p className="md:max-w-[475px]">
-            Nosso compromisso é com a comunidade e com o planeta. Ao escolher o BioCidade, você está não apenas adquirindo produtos de qualidade, mas também contribuindo para um futuro mais
-            sustentável.
+            Nosso compromisso é com a comunidade e com o planeta. Ao escolher o
+            BioCidade, você está não apenas adquirindo produtos de qualidade,
+            mas também contribuindo para um futuro mais sustentável.
           </p>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
@@ -70,32 +72,66 @@ function Contact() {
                 biocidades.projeto@gmail.com
               </a>
             </div>
-            <div className="flex items-center gap-2 mb-4">
+            <div className="mb-4 flex items-center gap-2">
               <GithubLogo size={28} color="black" />
-              <a href="https://github.com/Projeto-Integrador-BioCidade/biocidade_front_end" target="_blank">
+              <a
+                href="https://github.com/Projeto-Integrador-BioCidade/biocidade_front_end"
+                target="_blank"
+              >
                 github.com/Projeto-Integrador-BioCidade/biocidade_front_end
               </a>
             </div>
           </div>
         </div>
       </div>
-      <div className="md:w-1/2 w-4/5 flex h-full justify-center items-center">
-        <form ref={form} method="POST" onSubmit={sendEmail} className="flex flex-col justify-center w-[500px] h-[400px] gap-4">
+      <div className="flex h-full w-4/5 items-center justify-center md:w-1/2">
+        <form
+          ref={form}
+          method="POST"
+          onSubmit={sendEmail}
+          className="flex h-[400px] w-[500px] flex-col justify-center gap-4"
+        >
           <label className="font-bold" htmlFor="Nome">
             Nome
           </label>
-          <input type="text" id="Nome" name="name" value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Insira seu nome" className=" h-12 rounded-lg p-2" />
+          <input
+            type="text"
+            id="Nome"
+            name="name"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            placeholder="Insira seu nome"
+            className="h-12 rounded-[4px] border-2 p-2 transition-all duration-500 ease-in-out hover:border-black"
+          />
           <label className="font-bold" htmlFor="Email">
             Email
           </label>
-          <input type="email" name="email" id="Email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Insira seu Email" className=" h-12 rounded-lg p-2" />
+          <input
+            type="email"
+            name="email"
+            id="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Insira seu Email"
+            className="h-12 rounded-[4px] border-2 p-2 transition-all duration-500 ease-in-out hover:border-black"
+          />
           <label className="font-bold" htmlFor="Comentario">
             Nos deixe uma mensagem
           </label>
-          <textarea name="message" id="Comentario" value={message} onChange={(e) => setMessage(e.target.value)} className=" h-12 rounded-lg p-2 min-h-20"></textarea>
+          <textarea
+            name="message"
+            id="Comentario"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            className="h-12 min-h-20 rounded-[4px] border-2 p-2 transition-all duration-500 ease-in-out hover:border-black"
+          ></textarea>
           {errors.message && <p className="text-red-500">{errors.message}</p>}
-          <div className="w-full flex justify-end">
-            <button type="submit" value="Send" className="w-32 bg-bio-City-main-green rounded-lg p-2">
+          <div className="flex w-full justify-end">
+            <button
+              type="submit"
+              value="Send"
+              className="bg-bio-City-main-green w-32 rounded-[4px] border border-black p-2 transition-all duration-500 ease-in-out hover:bg-black hover:text-white"
+            >
               Enviar
             </button>
           </div>
