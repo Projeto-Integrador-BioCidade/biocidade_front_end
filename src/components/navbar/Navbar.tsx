@@ -81,6 +81,9 @@ function Navbar() {
               <Link to={"/blog"}>
                 <p>blog</p>
               </Link>
+              {usuario.tipo === "VENDEDOR" ?
+                <Link to={"/registerproduct"}><p>Cadastrar Produtos</p></Link> : ""
+              }
               <form action="" className="lg:hidden flex items-center border-b-[1px] border-b-black">
                 <MagnifyingGlass size={24} weight="thin" />
                 <input
@@ -123,30 +126,30 @@ function Navbar() {
               onMouseLeave={handleMouseLeave}>
               {usuario.token ? (
                 <>
-                <div className="flex pl-8 py-2 items-center border-b-[1px] border-gray-400">
+                  <div className="flex pl-8 py-2 items-center border-b-[1px] border-gray-400">
                     <div className="">
-                    <img className="w-[30px] h-[30px] rounded-full" src={usuario.foto} alt="" />
+                      <img className="w-[30px] h-[30px] rounded-full" src={usuario.foto} alt="" />
                     </div>
                     <p className="pl-5">Olá, {usuario.nome}</p>
                   </div>
-                <div className="capitalize flex px-8 pt-3 flex-col items-start">
-                  <Link className="flex items-center  justify-start gap-2 hover:underline" to="/perfil">
-                    <User size={24} weight="thin" />
-                    <p className="md:pl-3 pl-1">Minha conta</p>
-                  </Link>
-                  <Link className="flex items-center justify-start gap-2 hover:underline" to="/pedidos">
-                    <Package size={24} weight="thin" />
-                    <p className="pl-3">Pedidos</p>
-                  </Link>
-                  <Link className="flex items-center justify-start gap-2 hover:underline" to="/favoritos">
-                    <Heart size={24} weight="thin" />
-                    <p className="pl-3">Desejos</p>
-                  </Link>
-                  <Link className="flex items-center justify-start gap-2 hover:underline" to="/" onClick={logout}>
-                    <SignOut size={24} weight="thin" />
-                    <p className="pl-3">Sair</p>
-                  </Link>
-                </div>
+                  <div className="capitalize flex px-8 pt-3 flex-col items-start">
+                    <Link className="flex items-center  justify-start gap-2 hover:underline" to="/perfil">
+                      <User size={24} weight="thin" />
+                      <p className="md:pl-3 pl-1">Minha conta</p>
+                    </Link>
+                    <Link className="flex items-center justify-start gap-2 hover:underline" to="/pedidos">
+                      <Package size={24} weight="thin" />
+                      <p className="pl-3">Pedidos</p>
+                    </Link>
+                    <Link className="flex items-center justify-start gap-2 hover:underline" to="/favoritos">
+                      <Heart size={24} weight="thin" />
+                      <p className="pl-3">Desejos</p>
+                    </Link>
+                    <Link className="flex items-center justify-start gap-2 hover:underline" to="/" onClick={logout}>
+                      <SignOut size={24} weight="thin" />
+                      <p className="pl-3">Sair</p>
+                    </Link>
+                  </div>
                 </>
               ) : (
                 <div className="capitalize px-8 pt-3">
@@ -194,7 +197,7 @@ function Navbar() {
               }).format(valorTotal)}
             </p>
           </div>
-          <hr className="border-black opacity-40"/>
+          <hr className="border-black opacity-40" />
           <div className="flex items-center justify-center w-full">
             <Link to={"/cart"} onClick={() => setAsideCart(false)} className="bg-fundo-botao-nav-cart hover:bg-hover-botao-nav-cart w-9/12 py-2  text-xl rounded shadow-md capitalize text-center">ver carrinho</Link>
           </div>
