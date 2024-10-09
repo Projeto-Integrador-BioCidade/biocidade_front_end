@@ -1,7 +1,8 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Pencil } from "@phosphor-icons/react";
+import fotoGenerica from "../../assets/fundo_perfil.jpg"
 
 function Perfil() {
   const navigate = useNavigate();
@@ -14,39 +15,47 @@ function Perfil() {
     }
   }, [usuario.token]);
 
+  const [fotoPerfil, setFotoPerfil] = useState(fotoGenerica);
+
+  useEffect(() => {
+    if (usuario.foto) {
+      const img = new Image();
+      img.src = usuario.foto;
+      img.onload = () => setFotoPerfil(usuario.foto);
+      img.onerror = () => setFotoPerfil(fotoGenerica); 
+    } else {
+      setFotoPerfil(fotoGenerica);
+    }
+  }, [usuario.foto]);
+
   return (
-    <div className="login flex items-center justify-center">
-      <div
-        className="md:h-[70%] h-[75%] md:mt-[7%] mt-[15%] md:w-[45%] w-[80%] rounded-3xl bg-white">
-      </div>
-      <img
-        className="relative z-10 mx-auto md:mt-[-28rem] mt-[-30rem] md:h-48 md:w-48 h-36 w-36 rounded-full border-8 border-white"
-        src={usuario.foto}
-        alt={`Foto de perfil de ${usuario.nome}`}
-      />
-      <div className="relative mt-[-5rem] md:mb-[-30px]  md:mt-[-4rem] h-52 flex flex-col text-2xl items-center justify-center ">
-        <p className="text-4xl mt-20 md:mt-5">{usuario.nome} </p>
-        <p>{usuario.usuario}</p>
-        <p className="text-xl mt-6 md:mt-3 text-login-botao font-bold">{usuario.tipo}</p>
-      </div>
-      <div className="flex mt-8 md:mt-2 ml-4 md:ml-8 md:gap-20 gap-11 flex-row">
-        <div>
-        <p className="ml-3 md:ml-1 md:text-3xl text-login-botao font-bold">04</p>
-        <span>Posts</span>
-        </div>
-        <div>
-        <p className="ml-5 md:ml-4 md:text-3xl text-login-botao font-bold">15</p>
-        <span>Produtos</span>
-        </div>
-        <div>
-        <p className="ml-6 md:ml-5  md:text-3xl text-login-botao font-bold">34</p>
-        <span>Avaliações</span>
+    <>
+      <div className="login flex flex-col items-center justify-center relative">
+        <div className="flex flex-col justify-center items-center bg-white my-24 pt-20 px-5 pb-5 rounded-xl lg:w-1/3">
+          <img
+            className="h-28 w-28 rounded-full border-8 border-white absolute top-10"
+            src={fotoGenerica}
+            alt={`Foto de perfil de ${usuario.nome}`}
+          />
+          <div className="text-center">
+            <p className="text-4xl text-black capitalize">{usuario.nome} </p>
+            <p>{usuario.usuario}</p>
+            <p className="my-4 text-2xl text-black">{usuario.tipo}</p>
+          </div>
+          <div className="grid grid-cols-3 text-center">
+            <span>Posts</span>
+            <span>Produtos</span>
+            <span>Avaliações</span>
+            <p className="">04</p>
+            <p className="">15</p>
+            <p className="">34</p>
+          </div>
+          <div className="bg-green-900 rounded-full p-1 mt-4 cursor-pointer">
+            <Pencil size={24} weight="fill" color="white" />
+          </div>
         </div>
       </div>
-      <div className="my-10 md:my-6 bg-login-botao rounded-full p-2">
-        <a href=""><Pencil size={24} color="white" /></a>
-      </div>
-    </div>
+    </>
   );
 }
 

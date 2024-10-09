@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        roboto: "roboto",
+        montserrat: "montserrat"
       },
       colors: {
         "login-input": "#CCCCCC",
