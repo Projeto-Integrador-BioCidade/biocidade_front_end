@@ -13,12 +13,12 @@ A nossa solução é uma plataforma que conecta compradores e vendedores de mate
 
 
 ## Layout mobile
-![Mobile 1]() ![Mobile 2]()
+![Mobile 1](https://ik.imagekit.io/j2zphqka9/Produtos/mobile02.png?updatedAt=1728565826242)   ![Mobile 2](https://ik.imagekit.io/j2zphqka9/Produtos/mobile01.png?updatedAt=1728565825810)
 
 ## Layout web
-![Web 1](Link)
+![Web 1](https://ik.imagekit.io/j2zphqka9/Produtos/home-biocidade.png?updatedAt=1728565804580)
 
-![Web 2]()
+![Web 2](https://ik.imagekit.io/j2zphqka9/Produtos/login_biocidade.png?updatedAt=1728565789312)
 
 ## Modelo conceitual
 ![Modelo Conceitual](https://github.com/Projeto-Integrador-BioCidade/Documentos/blob/main/db_biocidade.png)
