@@ -98,7 +98,7 @@ function Navbar() {
           </div>
         </div>
         <div className=" flex justify-center order-2">
-          <Link to={"/"} className="border-2 border-black uppercase font-bold px-2 py-1">
+          <Link to={"/"} className="border-2 border-black uppercase font-bold px-4 py-1">
             <h2>biocidade</h2>
           </Link>
         </div>

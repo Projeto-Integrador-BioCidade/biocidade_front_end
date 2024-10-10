@@ -35,15 +35,6 @@ function Slide01() {
                     </h2>
 
                     <div className="flex justify-around gap-4">
-                        {/* <button className='
-                                    rounded
-                                    bg-slate-800 
-                                    text-white 
-                                    py-2 
-                                    px-4
-                                    '>
-                            
-                        </button> */}
                     </div>
                 </div>
 
@@ -51,7 +42,7 @@ function Slide01() {
                     <img
                         src="https://i.imgur.com/VpRUgHY.png"
                         alt="Imagem Página Home"
-                        className='md:w-2/3'
+                        className='md:w-2/3 '
                     />
                 </div>
             </div>
