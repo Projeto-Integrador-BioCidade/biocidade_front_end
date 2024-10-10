@@ -27,7 +27,7 @@ function Home() {
           </button>
         </Link>
       </div>
-      <div className="flex flex-col items-center justify-center py-8">
+      <div className="flex flex-col items-center justify-center py-8 text-center">
         <h2 className="text-7xl capitalize">a missão biocidade</h2>
         <p className="flex w-2/4 justify-center py-12 text-center text-2xl text-gray-800">
           Acreditamos em compras éticas e conscientes. Todos os produtos
