@@ -29,34 +29,35 @@ function CardProdutos({ produto }: CardProdutoProps) {
   };
 
   return (
-    <div className="">
+    <div className="flex flex-col gap-2">
       <div
-        className="flex flex-col w-full cursor-pointer items-center justify-center relative"
+        className="relative flex w-full cursor-pointer flex-col items-center justify-center"
         onClick={comprar}
       >
         <img
           src={produto.imagem_produto}
-          className="w-44 h-60"
+          className="h-[516px] w-96 rounded-lg bg-white shadow-md transition-all duration-500 ease-in-out hover:scale-105 hover:transform md:h-96 md:w-80"
           alt={produto.nome}
         />
-        <button className="bg-white shadow-xl absolute bottom-0 w-44 text-sm py-2 lg:opacity-0 hover:opacity-100 duration-200 ease-in-out">Visualização rápida</button>
+        {/* <button className="absolute bottom-0 w-44 bg-white py-2 text-sm shadow-xl duration-200 ease-in-out hover:opacity-100 lg:opacity-0">
+          Visualização rápida
+        </button> */}
       </div>
-
-      <div className="flex flex-col px-12 py-2 capitalize">
-        <p className="">{produto.nome}</p>
-        <h3 className="">
+      <div className="flex flex-col py-2 capitalize">
+        <p className="text-2xl md:text-xl">{produto.nome}</p>
+        <h3 className="text-2xl md:text-xl">
           {Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL",
           }).format(produto.preco)}
         </h3>
       </div>
-      <div className="flex justify-center">
+      <div className="flex">
         <button
-          className="mx-12 flex w-44 justify-center rounded border border-black py-1 text-black transition-all duration-300 hover:bg-hover-botao-card"
+          className="w-full rounded-[4px] border border-black p-2 text-2xl transition-all duration-500 ease-in-out hover:bg-black hover:text-white"
           onClick={() => adionarItemCarrinho()}
         >
-          <p>Adicionar ao carrinho</p>
+          Adicionar ao carrinho
         </button>
       </div>
     </div>
