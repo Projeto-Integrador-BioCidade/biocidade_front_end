@@ -3,7 +3,7 @@ import { CartContext } from "../../contexts/CartContext";
 import CardCart from "./cardcart/CardCart";
 import { useNavigate } from "react-router-dom";
 import { LockSimple } from "@phosphor-icons/react";
-import './cart.css'
+import './Cart.css'
 
 
 function Cart() {
