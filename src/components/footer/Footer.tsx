@@ -19,22 +19,22 @@ function Footer() {
           </div>
           <div className="hover:*:underline">
             <h2 className="text-2xl mb-4">loja</h2>
-            <Link to="/404"><p>comprar</p></Link>
-            <Link to="/404"><p>produtos biodegradaveis</p></Link>
-            <Link to="/404"><p>materiais sustentaveis</p></Link>
-            <Link to="/404"><p>ofertas</p></Link>
-            <Link to="/404"><p>assinaturas</p></Link>
-            <Link to="/404"><p>cuidados</p></Link>
+            <Link to="/"><p>comprar</p></Link>
+            <Link to="/"><p>produtos biodegradaveis</p></Link>
+            <Link to="/"><p>materiais sustentaveis</p></Link>
+            <Link to="/"><p>ofertas</p></Link>
+            <Link to="/"><p>assinaturas</p></Link>
+            <Link to="/"><p>cuidados</p></Link>
           </div>
           <div className="hover:*:underline">
             <h2 className="text-2xl mb-4 *:hover:underline">links úteis</h2>
-            <Link to="/404"><p className="uppercase">faq</p></Link>
-            <Link to="/404"><p>entregas e devoluções</p></Link>
-            <Link to="/404"><p>termos e condições</p></Link>
-            <Link to="/404"><p>política e cookies</p></Link>
-            <Link to="/404"><p>métodos de pagamento</p></Link>
+            <Link to="/"><p className="uppercase">faq</p></Link>
+            <Link to="/"><p>entregas e devoluções</p></Link>
+            <Link to="/"><p>termos e condições</p></Link>
+            <Link to="/"><p>política e cookies</p></Link>
+            <Link to="/"><p>métodos de pagamento</p></Link>
           </div>
-          <div className="hover:*:underline">
+          <div className="hover:*:underline *:*:text-white">
             <h2 className="text-2xl mb-4 ">empresa</h2>
             <Link to="/about"><p>nossa historia</p></Link>
             <Link to="/contact"><p>contato</p></Link>

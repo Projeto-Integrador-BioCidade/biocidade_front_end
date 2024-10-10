@@ -102,8 +102,8 @@ function Navbar() {
                 <MagnifyingGlass size={24} weight="thin" />
                 <input
                   type="text"
-                  id="pesquisa"
-                  name="pesquisa"
+                  id="pesquisalg"
+                  name="pesquisalg"
                   className="w-1/2 outline-none bg-transparent focus:border-none placeholder:capitalize"
                   placeholder="buscar"
                 />

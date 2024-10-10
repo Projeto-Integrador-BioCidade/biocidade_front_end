@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import CardCart from "./cardcart/CardCart";
 import { useNavigate } from "react-router-dom";
@@ -33,10 +33,10 @@ function Cart() {
           </h2>
           <div className="h-[40vh] lg:h-[60vh] overflow-auto cart ml-4 border-y border-black border-opacity-40">
             {items.map((produto) => (
-              <>
-              <CardCart key={produto.id} item={produto} />
-              <hr className="border-black opacity-40 mr-4"/>
-              </>
+              <React.Fragment key={produto.id}>
+                <CardCart item={produto} />
+                <hr className="border-black opacity-40 mr-4" />
+              </React.Fragment >
             ))}
           </div>
         </div>
