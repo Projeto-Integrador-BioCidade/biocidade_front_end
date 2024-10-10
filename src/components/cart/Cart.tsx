@@ -7,7 +7,7 @@ import './cart.css'
 
 
 function Cart() {
-  const { items, quantidadeItems, valorTotal, limparCart } =
+  const { items, valorTotal, limparCart } =
     useContext(CartContext);
 
 
