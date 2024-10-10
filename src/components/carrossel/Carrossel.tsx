@@ -53,7 +53,6 @@
 
 // export default Home
 
-
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -64,49 +63,76 @@ import "swiper/css/pagination";
 import "./Carrossel.css";
 
 function Carrossel() {
-  return (
-    <Swiper
-      slidesPerView={3}  // Exibir 3 produtos por vez
-      spaceBetween={10}  // Reduzir o espaçamento entre os itens
-      loop={true}
-      pagination={{
-        clickable: true,
-      }}
-      autoplay={{
-        delay: 5000,
-        disableOnInteraction: false,
-      }}
-      navigation={true}
-      modules={[Autoplay, Pagination, Navigation]}
-      className="mySwiper"
-    >
-      <SwiperSlide>
-        <img
-          src="https://i.imgur.com/ABFSF3x.jpeg"
-          alt="Produto 1"
-        />
-        <p>Produto 1</p>
-      </SwiperSlide>
+    return (
+        <div className="carrossel-container">
+            <Swiper
+                slidesPerView={4} // Mostra 4 slides por vez
+                spaceBetween={30} // Aumenta o espaçamento entre os slides
+                loop={true}
+                pagination={{
+                    clickable: true,
+                    enabled: false,
+                }}
+                autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: false,
+                }}
+                navigation={true}
+                modules={[Autoplay, Pagination, Navigation]}
+                className="mySwiper"
+            >
 
-      <SwiperSlide>
-        <img src="https://i.imgur.com/hPHnzdI.jpeg" alt="Produto 2" />
-        <p>Produto 2</p>
-      </SwiperSlide>
+                <SwiperSlide>
+                    <img src="https://i.imgur.com/ABFSF3x.jpeg" alt="Produto 1" />
+                    <p>Produto 1</p>
+                </SwiperSlide>
 
-      <SwiperSlide>
-        <img src="https://i.imgur.com/mmhAvax.png" alt="Produto 3" />
-        <p>Produto 3</p>
-      </SwiperSlide>
+                <SwiperSlide>
+                    <img src="https://i.imgur.com/hPHnzdI.jpeg" alt="Produto 2" />
+                    <p>Produto 2</p>
+                </SwiperSlide>
 
-      <SwiperSlide>
-        <img src="https://i.imgur.com/xyz.png" alt="Produto 4" />
-        <p>Produto 4</p>
-      </SwiperSlide>
-    </Swiper>
-  );
+                <SwiperSlide>
+                    <img src="https://i.imgur.com/mmhAvax.png" alt="Produto 3" />
+                    <p>Produto 3</p>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                    <img src="https://i.imgur.com/k3DF4jD.jpeg" alt="Produto 4" />
+                    <p>Produto 4</p>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                    <img src="https://i.imgur.com/DrDlV3U.png" alt="Produto 5" />
+                    <p>Produto 5</p>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                    <img src="https://i.imgur.com/fRSemFw.jpeg" alt="Produto 6" />
+                    <p>Produto 6</p>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                    <img src="https://i.imgur.com/zeukndE.jpeg" alt="Produto 7" />
+                    <p>Produto 7</p>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                    <img src="https://i.imgur.com/2JdoQd9.jpeg" alt="Produto 8" />
+                    <p>Produto 8</p>
+                </SwiperSlide>
+
+            </Swiper>
+        </div>
+    );
 }
 
 export default Carrossel;
+
+
+
+
+
 
 
 
