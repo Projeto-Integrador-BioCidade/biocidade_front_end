@@ -12,12 +12,16 @@ function Home() {
             className="h-[600px] w-full object-cover"
             alt="Imagem Página Home"
           />
-          <p className="mb-12 text-2xl font-bold">Novos Produtos</p>
+          <p className="mb-12 text-4xl font-bold">Novos Produtos</p>
         </div>
         <Carrossel />
       </div>
       <div className="h-[10vh] w-full">
-        <Link to="/products" className="flex justify-center">
+        <Link
+          to="/products"
+          className="flex justify-center"
+          onClick={() => window.scrollTo(0, 0)}
+        >
           <button className="mb-8 flex scale-105 transform items-center justify-center gap-2 border border-black p-4 text-2xl text-black transition-all duration-500 ease-in-out hover:bg-black hover:text-white">
             Compre Aqui
           </button>
