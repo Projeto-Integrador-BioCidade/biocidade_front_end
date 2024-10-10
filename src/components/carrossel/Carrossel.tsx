@@ -84,42 +84,42 @@ function Carrossel() {
 
                 <SwiperSlide>
                     <img src="https://i.imgur.com/ABFSF3x.jpeg" alt="Produto 1" />
-                    <p>Produto 1</p>
+                    <p>Bucha Vegetal</p>
                 </SwiperSlide>
 
                 <SwiperSlide>
                     <img src="https://i.imgur.com/hPHnzdI.jpeg" alt="Produto 2" />
-                    <p>Produto 2</p>
+                    <p> Lixa de Pés</p>
                 </SwiperSlide>
 
                 <SwiperSlide>
                     <img src="https://i.imgur.com/mmhAvax.png" alt="Produto 3" />
-                    <p>Produto 3</p>
+                    <p>Escova de Dentes</p>
                 </SwiperSlide>
 
                 <SwiperSlide>
                     <img src="https://i.imgur.com/k3DF4jD.jpeg" alt="Produto 4" />
-                    <p>Produto 4</p>
+                    <p>Pote de vidro com colher</p>
                 </SwiperSlide>
 
                 <SwiperSlide>
                     <img src="https://i.imgur.com/DrDlV3U.png" alt="Produto 5" />
-                    <p>Produto 5</p>
+                    <p>Saquinho de Algodão</p>
                 </SwiperSlide>
 
                 <SwiperSlide>
                     <img src="https://i.imgur.com/fRSemFw.jpeg" alt="Produto 6" />
-                    <p>Produto 6</p>
+                    <p>Pote Hermético de Silicone</p>
                 </SwiperSlide>
 
                 <SwiperSlide>
                     <img src="https://i.imgur.com/zeukndE.jpeg" alt="Produto 7" />
-                    <p>Produto 7</p>
+                    <p>Pote Hermético de Vidro</p>
                 </SwiperSlide>
 
                 <SwiperSlide>
                     <img src="https://i.imgur.com/2JdoQd9.jpeg" alt="Produto 8" />
-                    <p>Produto 8</p>
+                    <p>Recipiente de Aço Inoxidável</p>
                 </SwiperSlide>
 
             </Swiper>
