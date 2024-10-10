@@ -130,7 +130,7 @@ function Contact() {
             <button
               type="submit"
               value="Send"
-              className="bg-bio-City-main-green w-32 rounded-[4px] border border-black p-2 transition-all duration-500 ease-in-out hover:bg-black hover:text-white"
+              className="w-32 rounded-[4px] border border-black p-2 transition-all duration-500 ease-in-out hover:bg-black hover:text-white"
             >
               Enviar
             </button>

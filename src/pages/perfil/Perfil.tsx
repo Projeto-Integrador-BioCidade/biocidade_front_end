@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Pencil } from "@phosphor-icons/react";
-import fotoGenerica from "../../assets/fundo_perfil.jpg"
+import fotoGenerica from "../../assets/perfil-generico.jpg"
 
 function Perfil() {
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ function Perfil() {
         <div className="flex flex-col justify-center items-center bg-white my-24 pt-20 px-5 pb-5 rounded-xl lg:w-1/3">
           <img
             className="h-28 w-28 rounded-full border-8 border-white absolute top-10"
-            src={fotoGenerica}
+            src={fotoPerfil}
             alt={`Foto de perfil de ${usuario.nome}`}
           />
           <div className="text-center">

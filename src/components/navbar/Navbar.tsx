@@ -1,5 +1,5 @@
-import { ReactNode, useContext, useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link,  useNavigate } from "react-router-dom";
 import AuthContext from "../../contexts/AuthContext";
 import {
   CaretRight,
@@ -15,6 +15,7 @@ import {
 import { ToastAlerta } from "../../utils/ToastAlerta";
 import { CartContext } from "../../contexts/CartContext";
 import NavCard from "../cart/NavCard";
+import fotoGenerica from '../../assets/perfil-generico.jpg'
 
 function Navbar() {
 
@@ -54,6 +55,19 @@ function Navbar() {
   }, [location.pathname])
 
   // let component: ReactNode;
+
+  const [fotoPerfil, setFotoPerfil] = useState(fotoGenerica);
+
+  useEffect(() => {
+    if (usuario.foto) {
+      const img = new Image();
+      img.src = usuario.foto;
+      img.onload = () => setFotoPerfil(fotoPerfil);
+      img.onerror = () => setFotoPerfil(fotoGenerica); 
+    } else {
+      setFotoPerfil(fotoGenerica);
+    }
+  }, [usuario.foto]);
 
   return (
     <>
@@ -128,7 +142,7 @@ function Navbar() {
                 <>
                   <div className="flex pl-8 py-2 items-center border-b-[1px] border-gray-400">
                     <div className="">
-                      <img className="w-[30px] h-[30px] rounded-full" src={usuario.foto} alt="" />
+                      <img className="w-[30px] h-[30px] rounded-full" src={fotoPerfil} alt="" />
                     </div>
                     <p className="pl-5">Olá, {usuario.nome}</p>
                   </div>
