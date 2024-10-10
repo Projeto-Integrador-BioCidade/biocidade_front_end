@@ -1,23 +1,31 @@
-.mySwiper {
-  width: 100%;
-  height: auto;
-}
-
-.swiper-slide {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.carrossel-container {
+  width: 90%; /* Aumenta a largura do carrossel */
+  margin: 0 auto; /* Centraliza o carrossel */
 }
 
 .swiper-slide img {
-  width: 200px;
-  height: auto;
-  border-radius: 10px;
+  width: 100%; /* Garante que as imagens ocupem toda a largura do slide */
+  border-radius: 15px; /* Adiciona bordas arredondadas às imagens */
 }
 
 .swiper-slide p {
+  text-align: center;
   margin-top: 10px;
   font-size: 16px;
-  font-weight: bold;
-  text-align: center;
 }
+
+.mySwiper {
+  padding: 40px 0; /* Ajusta o padding superior e inferior */
+}
+
+.swiper-button-next, .swiper-button-prev {
+  color: black; /* Define a cor preta para as setas */
+  width: 25px; /* Define a largura das setas */
+  height: 25px; /* Define a altura das setas */
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+  font-size: 20px; /* Diminui o tamanho do ícone da seta */
+}
+
+
