@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Pencil } from "@phosphor-icons/react";
-import fotoGenerica from "../../assets/fundo_perfil.jpg"
+import fotoGenerica from "../../assets/perfil-generico.jpg"
 
 function Perfil() {
   const navigate = useNavigate();
