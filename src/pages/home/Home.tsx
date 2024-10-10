@@ -4,7 +4,7 @@ import ListProduct from "../../components/product/list/ListProduct";
 function Home() {
   return (
     <>
-        <div className="1/2">
+        <div>
           <Carrossel />
         </div>
         <div className="h-1/2 p-10">

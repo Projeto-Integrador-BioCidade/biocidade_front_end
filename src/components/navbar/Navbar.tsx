@@ -1,5 +1,5 @@
-import { ReactNode, useContext, useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link,  useNavigate } from "react-router-dom";
 import AuthContext from "../../contexts/AuthContext";
 import {
   CaretRight,
@@ -15,16 +15,18 @@ import {
 import { ToastAlerta } from "../../utils/ToastAlerta";
 import { CartContext } from "../../contexts/CartContext";
 import NavCard from "../cart/NavCard";
+import fotoGenerica from '../../assets/perfil-generico.jpg'
 
 function Navbar() {
 
   const { items, valorTotal } = useContext(CartContext);
   const navigate = useNavigate();
-  const { pathname } = useLocation();
+  // const { pathname } = useLocation();
   const { handleLogout, usuario } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const [menuPerfil, setMenuPerfil] = useState(false);
   const [asideCart, setAsideCart] = useState(false);
+
 
   const handleMouseEnter = () => {
     setMenuPerfil(true);
@@ -52,9 +54,22 @@ function Navbar() {
     setMenuPerfil(false)
   }, [location.pathname])
 
-  let component: ReactNode;
+  // let component: ReactNode;
 
-  component = (
+  const [fotoPerfil, setFotoPerfil] = useState(fotoGenerica);
+
+  useEffect(() => {
+    if (usuario.foto) {
+      const img = new Image();
+      img.src = usuario.foto;
+      img.onload = () => setFotoPerfil(fotoPerfil);
+      img.onerror = () => setFotoPerfil(fotoGenerica); 
+    } else {
+      setFotoPerfil(fotoGenerica);
+    }
+  }, [usuario.foto]);
+
+  return (
     <>
       <nav className="w-full h-20 bg-fundo-nav px-6 text-lg flex items-center justify-between">
         <div className="w-1/2 ">
@@ -80,6 +95,9 @@ function Navbar() {
               <Link to={"/blog"}>
                 <p>blog</p>
               </Link>
+              {usuario.tipo === "VENDEDOR" ?
+                <Link to={"/registerproduct"}><p>Cadastrar Produtos</p></Link> : ""
+              }
               <form action="" className="lg:hidden flex items-center border-b-[1px] border-b-black">
                 <MagnifyingGlass size={24} weight="thin" />
                 <input
@@ -117,34 +135,38 @@ function Navbar() {
             <div
               className={`transition-all duration-200 ease-in-out transform 
       ${menuPerfil ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"} 
-      absolute right-0 top-20 px-8 min-h-35 z-10 pb-7 bg-fundo-nav shadow-xl border border-opacity-10 border-black
+      absolute right-0 top-20 min-h-35 z-10 pb-7 bg-fundo-nav shadow-xl border border-opacity-10 border-black
       text-center flex flex-col justify-center rounded-b-lg w-1/2 md:w-auto`}
               onMouseLeave={handleMouseLeave}>
               {usuario.token ? (
-                <div className="capitalize flex flex-col items-start">
-                  <div className="flex items-center justify-start gap-2">
-                    <div className="w-[24px]" />
-                    <p>Olá, {usuario.nome}</p>
+                <>
+                  <div className="flex pl-8 py-2 items-center border-b-[1px] border-gray-400">
+                    <div className="">
+                      <img className="w-[30px] h-[30px] rounded-full" src={fotoPerfil} alt="" />
+                    </div>
+                    <p className="pl-5">Olá, {usuario.nome}</p>
                   </div>
-                  <Link className="flex items-center justify-start gap-2 hover:underline" to="/perfil">
-                    <User size={24} weight="thin" />
-                    <p>Minha conta</p>
-                  </Link>
-                  <Link className="flex items-center justify-start gap-2 hover:underline" to="/pedidos">
-                    <Package size={24} weight="thin" />
-                    <p>Pedidos</p>
-                  </Link>
-                  <Link className="flex items-center justify-start gap-2 hover:underline" to="/favoritos">
-                    <Heart size={24} weight="thin" />
-                    <p>Desejos</p>
-                  </Link>
-                  <Link className="flex items-center justify-start gap-2 hover:underline" to="/" onClick={logout}>
-                    <SignOut size={24} weight="thin" />
-                    <p>Sair</p>
-                  </Link>
-                </div>
+                  <div className="capitalize flex px-8 pt-3 flex-col items-start">
+                    <Link className="flex items-center  justify-start gap-2 hover:underline" to="/perfil">
+                      <User size={24} weight="thin" />
+                      <p className="md:pl-3 pl-1">Minha conta</p>
+                    </Link>
+                    <Link className="flex items-center justify-start gap-2 hover:underline" to="/pedidos">
+                      <Package size={24} weight="thin" />
+                      <p className="pl-3">Pedidos</p>
+                    </Link>
+                    <Link className="flex items-center justify-start gap-2 hover:underline" to="/favoritos">
+                      <Heart size={24} weight="thin" />
+                      <p className="pl-3">Desejos</p>
+                    </Link>
+                    <Link className="flex items-center justify-start gap-2 hover:underline" to="/" onClick={logout}>
+                      <SignOut size={24} weight="thin" />
+                      <p className="pl-3">Sair</p>
+                    </Link>
+                  </div>
+                </>
               ) : (
-                <div className="capitalize pt-3">
+                <div className="capitalize px-8 pt-3">
                   <div className="border-[1px] bg-fundo-botao-nav-cart rounded-lg">
                     <Link className="hover:underline" to="/login">
                       <p>Login</p>
@@ -167,46 +189,49 @@ function Navbar() {
       </nav>
 
 
-      <div className={`bg-fundo-nav-cart fixed lg:w-1/3 h-screen z-10 top-0 right-0 shadow-2xl transition-all duration-300 ease-in-out ${asideCart ? "w-full opacity-100" : "w-0 opacity-0 pointer-events-none"}`}>
-        <div className="grid grid-cols-3 gap-[30%] justify-center items-center w-full h-[10%] bg-black text-white px-10">
+      <div className={`bg-fundo-nav-cart flex flex-col items-center justify-between fixed lg:w-1/3 h-screen z-10 top-0 right-0 shadow-2xl transition-all duration-300 ease-in-out ${asideCart ? "w-full opacity-100" : "w-0 opacity-0 pointer-events-none"}`}>
+        <div className="grid grid-cols-3 gap-[30%] justify-center items-center w-full h-20 bg-black text-white px-10">
           <CaretRight onClick={() => setAsideCart(false)} className="w-auto cursor-pointer" size={30} />
           <h2 className="text-2xl capitalize">carrinho</h2>
         </div>
-        <div className="overflow-y-auto">
+        <div className="flex flex-col gap-10 overflow-y-auto h-[60vh] w-9/12 mt-3">
           {items.map((produto) => (
             <NavCard key={produto.id} item={produto} />
           ))}
         </div>
-        <div className="flex flex-col items-start justify-center p-5 w-full">
-          <p className="text-3xl capitalize mb-3">
-            subtotal:
-          </p>
-          <span className="text-3xl">
-            {Intl.NumberFormat("pt-BR", {
-              style: "currency",
-              currency: "BRL",
-            }).format(valorTotal)}
-          </span>
-        </div>
-        <div className="flex items-center justify-center w-full">
-          <Link to={"/cart"} onClick={() => setAsideCart(false)} className="bg-fundo-botao-nav-cart hover:bg-hover-botao-nav-cart w-10/12 py-4 text-3xl rounded shadow-md capitalize text-center">ver carrinho</Link>
+        <div className="flex flex-col justify-end w-full text-2xl gap-5 pb-5">
+          <div className="flex flex-col items-start justify-center px-10 mb-3 w-full">
+            <p className=" capitalize">
+              subtotal:
+            </p>
+            <p className="font-bold">
+              {Intl.NumberFormat("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              }).format(valorTotal)}
+            </p>
+          </div>
+          <hr className="border-black opacity-40" />
+          <div className="flex items-center justify-center w-full">
+            <Link to={"/cart"} onClick={() => setAsideCart(false)} className="bg-fundo-botao-nav-cart hover:bg-hover-botao-nav-cart w-9/12 py-2  text-xl rounded shadow-md capitalize text-center">ver carrinho</Link>
+          </div>
         </div>
       </div>
     </>
   );
-  if (usuario.token !== "") {
-    return <>{component}</>;
-  } else if (pathname == "/") {
-    return <>{component}</>;
-  } else if (pathname == "/products") {
-    return <>{component}</>;
-  } else if (pathname == "/about") {
-    return <>{component}</>;
-  }else if (pathname == "/contact" || pathname == "/cart") {
-    return <>{component}</>;
-  }else if (pathname == "/blog") {
-    return <>{component}</>;
-  }
+  // if (usuario.token !== "") {
+  //   return <>{component}</>;
+  // } else if (pathname == "/") {
+  //   return <>{component}</>;
+  // } else if (pathname == "/products") {
+  //   return <>{component}</>;
+  // } else if (pathname == "/about") {
+  //   return <>{component}</>;
+  // }else if (pathname == "/contact" || pathname == "/cart") {
+  //   return <>{component}</>;
+  // }else if (pathname == "/blog") {
+  //   return <>{component}</>;
+  // }
 }
 
 export default Navbar;

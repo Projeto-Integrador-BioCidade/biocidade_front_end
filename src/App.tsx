@@ -26,7 +26,7 @@ function App() {
           <ToastContainer />
           <BrowserRouter>
             <Navbar />
-            <div className="*:min-h-[80vh] bg-fundo-base">
+            <div className="lg:*:min-h-[80vh] bg-fundo-base">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
@@ -36,7 +36,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/products" element={<ListProduct />} />
                 <Route path="/products/:id" element={<Product />} />
-                <Route path="/cadproducts" element={<FormProduct />} />
+                <Route path="/registerproduct" element={<FormProduct />} />
                 <Route path="/editarproduto/:id" element={<FormProduct />} />
                 <Route path="/deletarproduto/:id" element={<DeleteProduct />} />
                 <Route path="/perfil" element={<Perfil />} />

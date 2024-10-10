@@ -86,7 +86,7 @@ const Blog: React.FC = () => {
   ];
 
   return (
-    <div className="blog-container">
+    <div className="blog-container ">
       <div className="blog-list">
         {posts.map(post => (
           <div className="blog-card" key={post.id}>

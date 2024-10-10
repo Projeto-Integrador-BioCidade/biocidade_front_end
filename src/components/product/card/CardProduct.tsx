@@ -1,5 +1,4 @@
-import { Pencil, ShoppingCart, Trash } from "@phosphor-icons/react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../../contexts/CartContext";
 import Produto from "../../../models/produto";
@@ -23,57 +22,42 @@ function CardProdutos({ produto }: CardProdutoProps) {
   const adionarItemCarrinho = () => {
     usuario.token === "" || usuario.token === null
       ? ToastAlerta(
-        "Você precisa estar logado para adicionar produtos ao carrinho!",
-        "info",
-      )
+          "Você precisa estar logado para adicionar produtos ao carrinho!",
+          "info",
+        )
       : adicionarProduto(produto);
   };
 
   return (
-    <div className="rounded-lg w-full md:w-1/2 lg:w-1/4">
-      
-      {/* <div className="flex items-end justify-end pr-2 pt-2">
-        {usuario.tipo === "VENDEDOR" ? (
-          <Link to={`/editarproduto/${produto.id}`}>
-          <Pencil size={24} className="mr-1 hover:fill-teal-700" />
-        </Link>
-        ):(
-          ""
-        )}
-
-        {usuario.tipo === "VENDEDOR" ? (
-          <Link to={`/deletarproduto/${produto.id}`}>
-          <Trash size={24} className="mr-1 hover:fill-red-700" />
-        </Link>
-        ):(
-          ""
-        )}
-        
-      </div> */}
-
-      <div className="cursor-pointer bg-fundo-card flex items-center" onClick={comprar}>
+    <div className="flex flex-col gap-2">
+      <div
+        className="relative flex w-full cursor-pointer flex-col items-center justify-center"
+        onClick={comprar}
+      >
         <img
           src={produto.imagem_produto}
-          className="object-contain"
+          className="h-[516px] w-96 rounded-lg bg-white shadow-md transition-all duration-500 ease-in-out hover:scale-105 hover:transform md:h-96 md:w-80"
           alt={produto.nome}
         />
+        {/* <button className="absolute bottom-0 w-44 bg-white py-2 text-sm shadow-xl duration-200 ease-in-out hover:opacity-100 lg:opacity-0">
+          Visualização rápida
+        </button> */}
       </div>
-
-      <div className="py-2 capitalize">
-        <p className="">{produto.nome}</p>
-        <h3 className="">
+      <div className="flex flex-col py-2 capitalize">
+        <p className="text-2xl md:text-xl">{produto.nome}</p>
+        <h3 className="text-2xl md:text-xl">
           {Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL",
           }).format(produto.preco)}
         </h3>
       </div>
-      <div>
+      <div className="flex">
         <button
-          className="flex justify-center w-full py-1 text-black border border-black transition-all duration-300 hover:bg-hover-botao-card rounded"
+          className="w-full rounded-[4px] border border-black p-2 text-2xl transition-all duration-500 ease-in-out hover:bg-black hover:text-white"
           onClick={() => adionarItemCarrinho()}
         >
-          <p>Adicionar ao carrinho</p>
+          Adicionar ao carrinho
         </button>
       </div>
     </div>
