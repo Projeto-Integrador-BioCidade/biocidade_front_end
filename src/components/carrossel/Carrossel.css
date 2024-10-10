@@ -1,0 +1,23 @@
+.mySwiper {
+  width: 100%;
+  height: auto;
+}
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.swiper-slide img {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.swiper-slide p {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}

@@ -47,6 +47,7 @@
 
 // export default Home;
 
+import { Recycle, Bag, Trash, Leaf } from "@phosphor-icons/react";
 import Carrossel from "../../components/carrossel/Carrossel"
 
 function Home() {
@@ -63,9 +64,31 @@ function Home() {
       <div>
         <Carrossel />
       </div>
-
+      <div className="flex flex-col items-center justify-center capitalize bg-gradient-to-b from-fundo-base to-cor-um to-60%">
+        <h2 className="text-5xl">a missão biocidade</h2>
+        <p className="px-10 lg:px-60 py-12 text-justify text-gray-800">Acreditamos em compras éticas e conscientes. Todos os produtos cadastrados passam por uma análise criteriosa para garantir que estejam em conformidade com nossos valores essenciais.</p>
+        <div className="grid grid-cols-2 lg:grid-cols-5 *:*:text-black">
+          <div className="flex flex-col gap-2 items-center">
+            <Recycle className="border border-black rounded-full" size={50} alt="setas em um ciclo de reciclagem"/>
+            <p>lixo zero</p>
+          </div>
+          <div className="flex flex-col gap-2 items-center">
+            <Bag className="border border-black rounded-full" size={50} alt="sacola reutilizavel"/>
+            <p>sustentável</p>
+          </div>
+          <div className="flex flex-col gap-2 items-center">
+            <Trash className="border border-black rounded-full" size={50} alt="lata de lixo"/>
+            <p>reciclado</p>
+          </div>
+          <div className="flex flex-col gap-2 items-center">
+            <Leaf className="border border-black rounded-full" size={50} alt="uma folha"/>
+            <p>feira comercial</p>
+          </div>
+        </div>
+      </div>
+   
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;
