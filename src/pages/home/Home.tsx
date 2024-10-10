@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div>
-      <div className="my-8">
-        <div className="flex flex-col items-center justify-center gap-12">
+    <div className="bg-fundo-nav">
+      <div className="">
+        <div className="flex flex-col items-center justify-center gap-12 ">
           <img
             src="https://i.imgur.com/LGTA6N5.png"
             className="h-[600px] w-full object-cover"
